@@ -30,6 +30,7 @@ export default function Register() {
       password,
       options: {
         data: {
+          role: 'cadet',
           full_name: fullName,
           ncc_number: nccNumber,
           wing,

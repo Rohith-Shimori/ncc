@@ -28,7 +28,7 @@ export default function CourseCatalog() {
         const wing = profile?.wing || 'Common';
         const { data: allCourses, error } = await supabase.from('courses')
           .select('*')
-          .or(`target_wing.eq.Common,target_wing.eq."${wing}"`)
+          .or(`target_wing.eq.Common,target_wing.eq.${wing}`)
           .order('certificate_level');
         
         if (error) throw error;
