@@ -19,7 +19,7 @@ export default function PracticeTests() {
       const { data: allTests } = await supabase.from('csv_mock_exams')
         .select('*')
         .eq('is_active', true)
-        .or(`wing.eq.Common,wing.eq.${wing}`)
+        .or(`wing.eq.Common,wing.eq."${wing}"`)
         .order('created_at', { ascending: false });
       
       const formattedTests = (allTests || []).map(test => {
