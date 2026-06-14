@@ -10,6 +10,7 @@ import nccLogo from '../assets/ncc-seeklogo.png';
 import NotificationPanel from '../components/NotificationPanel';
 import ThemeToggle from '../components/ThemeToggle';
 import { supabase } from '../services/supabase';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const CADET_ITEMS = [
   { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -290,7 +291,9 @@ const MainLayout = () => {
 
         {/* Page Content — extra bottom padding on mobile for bottom nav */}
         <main className="flex-1 overflow-y-auto p-4 md:p-6 pb-32 md:pb-6">
-          <Outlet />
+          <ErrorBoundary variant="inline">
+            <Outlet />
+          </ErrorBoundary>
         </main>
       </div>
 

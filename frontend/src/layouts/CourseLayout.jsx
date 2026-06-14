@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 import { supabase } from '../services/supabase';
+import ErrorBoundary from '../components/ErrorBoundary';
 import { ChevronLeft, BookOpen, CheckCircle, Circle, ChevronDown, ChevronRight, X, List } from 'lucide-react';
 
 export default function CourseLayout() {
@@ -175,7 +176,9 @@ export default function CourseLayout() {
           </button>
         </div>
         <div className="p-4 md:p-8">
-          <Outlet context={{ course, modules, completedChapters, refreshProgress: loadData }} />
+          <ErrorBoundary variant="inline">
+            <Outlet context={{ course, modules, completedChapters, refreshProgress: loadData }} />
+          </ErrorBoundary>
         </div>
       </main>
     </div>

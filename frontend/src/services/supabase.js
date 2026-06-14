@@ -1,22 +1,54 @@
 import { createClient } from '@supabase/supabase-js';
 import { io } from 'socket.io-client';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'http://localhost:54321';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'public-anon-key';
+// Safe JSON Parse helper to prevent crashes on malformed storage data
+const safeJsonParse = (text, fallback = null) => {
+  if (!text) return fallback;
+  try {
+    return safeJsonParse(text);
+  } catch (error) {
+    console.warn('[Safe JSON Parse] Failed to parse:', error.message);
+    return fallback;
+  }
+};
 
-// Establish connection to real Supabase
-const realSupabase = createClient(supabaseUrl, supabaseAnonKey);
+// Fetch wrapper with abort timeout to prevent endless loading screens
+const fetchWithTimeout = async (url, options = {}, timeoutMs = 8000) => {
+  const controller = new AbortController();
+  const id = setTimeout(() => {
+    console.warn('[Fetch Timeout] Aborting request to:', url);
+    controller.abort();
+  }, timeoutMs);
+  try {
+    const response = await fetchWithTimeout(url, {
+      ...options,
+      signal: controller.signal
+    });
+    clearTimeout(id);
+    return response;
+  } catch (error) {
+    clearTimeout(id);
+    if (error.name === 'AbortError') {
+      throw new Error(`Network request timed out after ${timeoutMs}ms`);
+    }
+    throw error;
+  }
+};
 
-// Check if Mock Mode is requested, or if we should fallback because of default local URL
-const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true' || 
-                 supabaseUrl === 'http://localhost:54321' || 
-                 !import.meta.env.VITE_SUPABASE_URL;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-console.log(`[NCC Digital Training] Mode: ${USE_MOCK ? 'OFFLINE MOCK MODE' : 'ONLINE SUPABASE MODE'}`);
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error("Missing Supabase Environment Variables!");
+}
 
-// ============================================
-// INITIALIZATION
-// ============================================
+const realSupabase = createClient(
+  supabaseUrl || 'https://czyjaeszmnyiwjilkhls.supabase.co',
+  supabaseAnonKey || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eWphZXN6bW55aXdqaWxraGxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNTk1NjgsImV4cCI6MjA5NjczNTU2OH0.836ZD1zEuylPNR13sajLkhmccsVFMJXLUWPuy7b4IqQ'
+);
+
+const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true' || !supabaseUrl || !supabaseAnonKey;
+
 // Mock database is now initialized asynchronously in MockSupabaseClient._initDatabase()
 
 // Generate standard UUID
@@ -151,7 +183,7 @@ class MockSupabaseClient {
     this.auth = {
       signUp: async ({ email, password, options = {} }) => {
         await this.initPromise;
-        const users = JSON.parse(localStorage.getItem('ncc_mock_auth_users') || '[]');
+        const users = safeJsonParse(localStorage.getItem('ncc_mock_auth_users') || '[]');
         if (users.find(u => u.email === email)) {
           return { data: null, error: { message: 'User already exists' } };
         }
@@ -164,7 +196,7 @@ class MockSupabaseClient {
 
         // Create profile dynamically based on role
         if (role === 'cadet') {
-          const profiles = JSON.parse(localStorage.getItem('ncc_mock_cadet_profiles') || '[]');
+          const profiles = safeJsonParse(localStorage.getItem('ncc_mock_cadet_profiles') || '[]');
           const newProfile = {
             id: newId,
             full_name: metadata.full_name || 'Cadet',
@@ -178,7 +210,7 @@ class MockSupabaseClient {
           profiles.push(newProfile);
           localStorage.setItem('ncc_mock_cadet_profiles', JSON.stringify(profiles));
         } else if (role === 'instructor') {
-          const profiles = JSON.parse(localStorage.getItem('ncc_mock_instructor_profiles') || '[]');
+          const profiles = safeJsonParse(localStorage.getItem('ncc_mock_instructor_profiles') || '[]');
           const newProfile = {
             id: newId,
             full_name: metadata.full_name || 'Instructor',
@@ -189,7 +221,7 @@ class MockSupabaseClient {
           profiles.push(newProfile);
           localStorage.setItem('ncc_mock_instructor_profiles', JSON.stringify(profiles));
         } else if (role === 'admin') {
-          const profiles = JSON.parse(localStorage.getItem('ncc_mock_admin_profiles') || '[]');
+          const profiles = safeJsonParse(localStorage.getItem('ncc_mock_admin_profiles') || '[]');
           const newProfile = {
             id: newId,
             full_name: metadata.full_name || 'Admin',
@@ -211,7 +243,7 @@ class MockSupabaseClient {
       admin: {
         createUser: async ({ email, password, user_metadata = {} }) => {
           await this.initPromise;
-          const users = JSON.parse(localStorage.getItem('ncc_mock_auth_users') || '[]');
+          const users = safeJsonParse(localStorage.getItem('ncc_mock_auth_users') || '[]');
           if (users.find(u => u.email === email)) {
             return { data: null, error: { message: 'User already exists' } };
           }
@@ -222,7 +254,7 @@ class MockSupabaseClient {
 
           const role = user_metadata.role || 'cadet';
           if (role === 'cadet') {
-            const profiles = JSON.parse(localStorage.getItem('ncc_mock_cadet_profiles') || '[]');
+            const profiles = safeJsonParse(localStorage.getItem('ncc_mock_cadet_profiles') || '[]');
             profiles.push({
               id: newId,
               full_name: user_metadata.full_name || 'Cadet',
@@ -235,7 +267,7 @@ class MockSupabaseClient {
             });
             localStorage.setItem('ncc_mock_cadet_profiles', JSON.stringify(profiles));
           } else if (role === 'instructor') {
-            const profiles = JSON.parse(localStorage.getItem('ncc_mock_instructor_profiles') || '[]');
+            const profiles = safeJsonParse(localStorage.getItem('ncc_mock_instructor_profiles') || '[]');
             profiles.push({
               id: newId,
               full_name: user_metadata.full_name || 'Instructor',
@@ -243,7 +275,7 @@ class MockSupabaseClient {
             });
             localStorage.setItem('ncc_mock_instructor_profiles', JSON.stringify(profiles));
           } else if (role === 'admin') {
-            const profiles = JSON.parse(localStorage.getItem('ncc_mock_admin_profiles') || '[]');
+            const profiles = safeJsonParse(localStorage.getItem('ncc_mock_admin_profiles') || '[]');
             profiles.push({
               id: newId,
               full_name: user_metadata.full_name || 'Admin',
@@ -258,7 +290,7 @@ class MockSupabaseClient {
 
       signInWithPassword: async ({ email, password }) => {
         await this.initPromise;
-        const users = JSON.parse(localStorage.getItem('ncc_mock_auth_users') || '[]');
+        const users = safeJsonParse(localStorage.getItem('ncc_mock_auth_users') || '[]');
         const user = users.find(u => u.email === email);
         if (!user || user.password !== password) {
           return { data: null, error: { message: 'Invalid email or password' } };
@@ -279,13 +311,13 @@ class MockSupabaseClient {
 
       getSession: async () => {
         await this.initPromise;
-        const user = JSON.parse(localStorage.getItem('ncc_mock_session_user') || 'null');
+        const user = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null');
         return { data: { session: user ? { user } : null }, error: null };
       },
 
       getUser: async (token) => {
         await this.initPromise;
-        const user = JSON.parse(localStorage.getItem('ncc_mock_session_user') || 'null');
+        const user = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null');
         return { data: { user }, error: user ? null : { message: 'Invalid token' } };
       },
 
@@ -293,7 +325,7 @@ class MockSupabaseClient {
         const id = uuidv4();
         this.listeners[id] = callback;
         // Trigger initial callback
-        const user = JSON.parse(localStorage.getItem('ncc_mock_session_user') || 'null');
+        const user = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null');
         callback(user ? 'SIGNED_IN' : 'SIGNED_OUT', user ? { user } : null);
 
         return {
@@ -795,7 +827,7 @@ class MockSupabaseClient {
 
     const fetchAndParse = async (url) => {
       try {
-        const res = await fetch(url);
+        const res = await fetchWithTimeout(url);
         if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
         const text = await res.text();
         return parseCSVHelper(text);
@@ -1020,7 +1052,7 @@ class MockSupabaseClient {
   }
 
   _getTableData(table) {
-    return JSON.parse(localStorage.getItem(`ncc_mock_${table}`) || '[]');
+    return safeJsonParse(localStorage.getItem(`ncc_mock_${table}`) || '[]');
   }
 
   _saveTableData(table, data) {
@@ -1316,7 +1348,7 @@ class MockSupabaseClient {
 
       selected = selected.sort(() => 0.5 - Math.random());
 
-      const currentUser = JSON.parse(localStorage.getItem('ncc_mock_session_user') || '{}');
+      const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
       const attemptId = uuidv4();
       const attempt = {
         id: attemptId,
@@ -1435,7 +1467,7 @@ class MockSupabaseClient {
       attempts[attemptIndex] = attempt;
       this._saveTableData('csv_exam_attempts', attempts);
 
-      const currentUser = JSON.parse(localStorage.getItem('ncc_mock_session_user') || '{}');
+      const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
       const profiles = this._getTableData('cadet_profiles');
       const pIndex = profiles.findIndex(p => p.id === currentUser.id);
       let newLevel = 1;
@@ -1611,7 +1643,7 @@ class MockSupabaseClient {
 
     // fn_update_daily_streak
     if (fn === 'fn_update_daily_streak') {
-      const currentUser = JSON.parse(localStorage.getItem('ncc_mock_session_user') || '{}');
+      const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
       const profiles = this._getTableData('cadet_profiles');
       const pIndex = profiles.findIndex(p => p.id === currentUser.id);
       if (pIndex === -1) {
@@ -1651,7 +1683,7 @@ class MockSupabaseClient {
       this._saveTableData('cadet_profiles', profiles);
 
       // Also update session user to match
-      const sessionUser = JSON.parse(localStorage.getItem('ncc_mock_session_user') || '{}');
+      const sessionUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
       sessionUser.current_streak = currentStreak;
       sessionUser.longest_streak = longestStreak;
       sessionUser.last_login_date = todayStr;
@@ -1663,7 +1695,7 @@ class MockSupabaseClient {
     // fn_complete_chapter
     if (fn === 'fn_complete_chapter') {
       const chapterId = params.p_chapter_id;
-      const currentUser = JSON.parse(localStorage.getItem('ncc_mock_session_user') || '{}');
+      const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
       
       let progressList = this._getTableData('user_progress') || [];
       const pIdx = progressList.findIndex(p => p.user_id === currentUser.id && p.chapter_id === chapterId);
@@ -1712,7 +1744,7 @@ class MockSupabaseClient {
 
     // fn_get_my_csv_attempts
     if (fn === 'fn_get_my_csv_attempts') {
-      const userId = params.p_user_id || JSON.parse(localStorage.getItem('ncc_mock_session_user') || '{}').id;
+      const userId = params.p_user_id || safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}').id;
       const attempts = this._getTableData('csv_exam_attempts').filter(a => a.user_id === userId && (a.status === 'submitted' || a.status === 'flagged'));
       const tests = this._getTableData('csv_mock_exams');
 
@@ -1743,7 +1775,7 @@ class MockSupabaseClient {
     if (fn === 'fn_get_leaderboard') {
       const limit = params.p_limit || 10;
       const wing = params.p_wing || 'All';
-      const currentUser = JSON.parse(localStorage.getItem('ncc_mock_session_user') || '{}');
+      const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
 
       let cadets = this._getTableData('cadet_profiles');
       if (wing !== 'All') {
@@ -1873,7 +1905,7 @@ class APITransaction {
     }
 
     try {
-      const response = await fetch(url, {
+      const response = await fetchWithTimeout(url, {
         method,
         headers,
         body
@@ -2099,7 +2131,7 @@ const customRealSupabase = new Proxy(realSupabase, {
 
           if (fn === 'fn_submit_csv_exam' || fn === 'fn_submit_exam') {
             try {
-              const response = await fetch(`${apiUrl}/exams/submit`, {
+              const response = await fetchWithTimeout(`${apiUrl}/exams/submit`, {
                 method: 'POST',
                 headers,
                 body: JSON.stringify({
@@ -2118,7 +2150,7 @@ const customRealSupabase = new Proxy(realSupabase, {
 
           if (fn === 'fn_mark_notification_read') {
             try {
-              const response = await fetch(`${apiUrl}/notifications/read`, {
+              const response = await fetchWithTimeout(`${apiUrl}/notifications/read`, {
                 method: 'POST',
                 headers,
                 body: JSON.stringify({

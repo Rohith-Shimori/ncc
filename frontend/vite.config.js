@@ -9,6 +9,22 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    chunkSizeWarningLimit: 2000
+    target: 'esnext', // Avoid transpilation compilation overhead
+    sourcemap: false,
+    reportCompressedSize: false, // Disables calculating gzip size of chunks, saving considerable build time!
+    chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            // Group huge packages separately so the main vendor chunk stays small
+            if (id.includes('xlsx') || id.includes('recharts') || id.includes('react-dom')) {
+              return 'vendor-large';
+            }
+            return 'vendor';
+          }
+        }
+      }
+    }
   }
 })

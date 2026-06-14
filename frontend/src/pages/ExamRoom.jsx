@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
 import { Clock, AlertTriangle, ChevronLeft, ChevronRight, Flag, Send, Shield, Eye, Maximize, Ban, Grid3X3, XCircle, CheckCircle, ShieldAlert, Trophy } from 'lucide-react';
 import { useAuth } from '../hooks/AuthContext';
+import { safeJsonParse } from '../utils/safeJson';
 
 export default function ExamRoom() {
   const { testId } = useParams();
@@ -367,10 +368,8 @@ export default function ExamRoom() {
   const getSafeOptions = (opts) => {
     if (Array.isArray(opts)) return opts;
     if (typeof opts === 'string') {
-      try { 
-        const parsed = JSON.parse(opts);
-        return Array.isArray(parsed) ? parsed : [];
-      } catch (e) { return []; }
+      const parsed = safeJsonParse(opts, []);
+      return Array.isArray(parsed) ? parsed : [];
     }
     return [];
   };
