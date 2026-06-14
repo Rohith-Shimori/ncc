@@ -23,9 +23,6 @@ export default function CourseCatalog() {
   }, [profile]);
 
   useEffect(() => {
-    // Only wait if auth is still initializing
-    if (!profile && user) return; 
-    
     const load = async () => {
       try {
         const wing = profile?.wing || 'Common';
@@ -61,7 +58,7 @@ export default function CourseCatalog() {
 
   const filtered = courses.filter(c => {
     if (search && !c.title.toLowerCase().includes(search.toLowerCase())) return false;
-    if (wingFilter !== 'All' && c.target_wing !== wingFilter) return false;
+    if (wingFilter !== 'All' && c.target_wing !== wingFilter && c.target_wing !== 'Common') return false;
     if (certFilter !== 'All' && c.certificate_level !== certFilter) return false;
     return true;
   });

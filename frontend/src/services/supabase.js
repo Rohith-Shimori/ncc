@@ -315,12 +315,38 @@ class MockSupabaseClient {
   }
 
   async _initDatabase() {
-    const CURRENT_VERSION = 'ncc_mock_v16'; // Force reload version
+    const CURRENT_VERSION = 'ncc_mock_v26'; // Force reload version
     if (localStorage.getItem(CURRENT_VERSION) === 'true') {
       return;
     }
 
     console.log('[Mock Database] Initializing mock database from local seeds...');
+
+    // Helper function to generate stable course/chapter/enrollment IDs dynamically (UUID format)
+    const generateStableId = (prefix, name) => {
+      let hash = 0;
+      for (let i = 0; i < name.length; i++) {
+        hash = (hash << 5) - hash + name.charCodeAt(i);
+        hash |= 0;
+      }
+      const hex = Math.abs(hash).toString(16).padStart(8, '0');
+      return `${prefix}-0000-0000-0000-${hex.padStart(12, '0')}`;
+    };
+
+    const courseIdMap = {
+      'NCC At a Glance': 'a1000000-0000-0000-0000-000000000001',
+      'Drill & Commands': 'a1000000-0000-0000-0000-000000000002',
+      'National Integration': 'a1000000-0000-0000-0000-000000000003',
+      'Health, Hygiene & Sanitation': 'a1000000-0000-0000-0000-000000000004',
+      'Map Reading': 'a1000000-0000-0000-0000-000000000005',
+      'Weapon Training': 'a1000000-0000-0000-0000-000000000006'
+    };
+
+    const getCourseId = (title, wing, level) => {
+      if (courseIdMap[title]) return courseIdMap[title];
+      return generateStableId('a1000000', `${wing}-${level}-${title}`);
+    };
+
 
     // Clear previous mock localStorage items to avoid state pollution
     const keysToRemove = [];
@@ -401,10 +427,64 @@ class MockSupabaseClient {
       }
     ];
 
-    // Other tables initialized as empty
-    localStorage.setItem('ncc_mock_announcements', JSON.stringify([]));
+    // Seed default announcements so they are visible by default
+    const defaultAnnouncements = [
+      {
+        id: 'ann-1',
+        title: 'Annual Training Camp (ATC) 2026 Scheduled',
+        content: 'The Annual Training Camp is scheduled from July 10th to July 20th at the NCC headquarters. Attendance is mandatory for all Certificate B and C cadets.',
+        priority: 'high',
+        target_wing: 'Common',
+        created_by: 'd0000000-0000-0000-0000-000000000002',
+        is_active: true,
+        created_at: new Date(Date.now() - 24 * 3600 * 1000).toISOString() // 1 day ago
+      },
+      {
+        id: 'ann-2',
+        title: 'Special Army Wing Drill Practice',
+        content: 'There will be a special drill practice session for all Army Wing cadets this Friday at 0800 hours. Please wear full uniform.',
+        priority: 'normal',
+        target_wing: 'Army',
+        created_by: 'd0000000-0000-0000-0000-000000000002',
+        is_active: true,
+        created_at: new Date(Date.now() - 2 * 24 * 3600 * 1000).toISOString() // 2 days ago
+      }
+    ];
+    localStorage.setItem('ncc_mock_announcements', JSON.stringify(defaultAnnouncements));
+
+    // Seed default course enrollments for Rohan Sharma so he has courses on dashboard
+    const defaultCoursesToEnroll = [
+      'NCC At a Glance',
+      'Drill & Commands',
+      'Weapon Training & Infantry Weapons',
+      'Map Reading',
+      'Field Craft & Battle Craft',
+      'Advanced Weapon Training',
+      'Field Signals'
+    ];
+
+    const getSeededCourseId = (title) => {
+      if (courseIdMap[title]) return courseIdMap[title];
+      if (title === 'Weapon Training & Infantry Weapons') return getCourseId(title, 'Common', 'A');
+      if (title === 'Field Craft & Battle Craft') return getCourseId(title, 'Common', 'B');
+      if (title === 'Advanced Weapon Training') return getCourseId(title, 'Army', 'B');
+      if (title === 'Field Signals') return getCourseId(title, 'Army', 'B');
+      return getCourseId(title, 'Common', 'A');
+    };
+
+    const defaultEnrollments = defaultCoursesToEnroll.map(title => {
+      const courseId = getSeededCourseId(title);
+      return {
+        id: `enroll-${courseId}`,
+        user_id: 'c0000000-0000-0000-0000-000000000003',
+        course_id: courseId,
+        enrolled_at: new Date(Date.now() - 5 * 24 * 3600 * 1000).toISOString(),
+        status: 'enrolled'
+      };
+    });
+    localStorage.setItem('ncc_mock_course_enrollments', JSON.stringify(defaultEnrollments));
+
     localStorage.setItem('ncc_mock_user_progress', JSON.stringify([]));
-    localStorage.setItem('ncc_mock_course_enrollments', JSON.stringify([]));
     localStorage.setItem('ncc_mock_exam_attempts', JSON.stringify([]));
     localStorage.setItem('ncc_mock_attempt_questions', JSON.stringify([]));
     localStorage.setItem('ncc_mock_csv_exam_attempts', JSON.stringify(defaultAttempts));
@@ -459,30 +539,6 @@ class MockSupabaseClient {
         'Advanced Aviation Subjects', 'Flight Navigation', 'Aircraft Recognition', 'Air Power & Warfare', 'Aero Engine Systems', 'Aviation Safety', 'Air Force Leadership & Communication'
       ]}
     ];
-
-    const generateStableId = (prefix, name) => {
-      let hash = 0;
-      for (let i = 0; i < name.length; i++) {
-        hash = (hash << 5) - hash + name.charCodeAt(i);
-        hash |= 0;
-      }
-      const hex = Math.abs(hash).toString(16).padStart(8, '0');
-      return `${prefix}-0000-0000-0000-${hex.padStart(12, '0')}`;
-    };
-
-    const courseIdMap = {
-      'NCC At a Glance': 'a1000000-0000-0000-0000-000000000001',
-      'Drill & Commands': 'a1000000-0000-0000-0000-000000000002',
-      'National Integration': 'a1000000-0000-0000-0000-000000000003',
-      'Health, Hygiene & Sanitation': 'a1000000-0000-0000-0000-000000000004',
-      'Map Reading': 'a1000000-0000-0000-0000-000000000005',
-      'Weapon Training': 'a1000000-0000-0000-0000-000000000006'
-    };
-
-    const getCourseId = (title, wing, level) => {
-      if (courseIdMap[title]) return courseIdMap[title];
-      return generateStableId('a1000000', `${wing}-${level}-${title}`);
-    };
 
     const courses = [];
     const modules = [];

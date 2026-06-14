@@ -65,7 +65,7 @@ export default function Dashboard() {
       // Announcements
       const { data: anns } = await supabase.from('announcements')
         .select('*').eq('is_active', true)
-        .or(`target_wing.eq.Common,target_wing.eq.${wing}`)
+        .or(`target_wing.eq.Common,target_wing.eq."${wing}"`)
         .order('created_at', { ascending: false }).limit(5);
       setAnnouncements(anns || []);
 
