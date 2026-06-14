@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { ThemeProvider } from './hooks/ThemeContext';
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 // Storage Versioning & Stale Cache Cleanup
 const STORAGE_VERSION = 'v1.0';
@@ -26,6 +28,8 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
       <App />
+      <SpeedInsights />
+      <Analytics />
     </ThemeProvider>
   </StrictMode>,
 )
