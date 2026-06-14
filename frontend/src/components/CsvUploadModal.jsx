@@ -119,6 +119,17 @@ export default function CsvUploadModal({ isOpen, onClose, tableType, onSuccess }
               // Convert boolean fields
               if ((col === 'active' || col === 'is_active') && typeof row[col] === 'string') {
                 cleanRow[col] = row[col].toUpperCase() === 'TRUE';
+              } else if (col === 'wing' && typeof row[col] === 'string') {
+                const wingVal = row[col].trim();
+                if (wingVal.toUpperCase() === 'ALL' || wingVal.toLowerCase() === 'common') cleanRow[col] = 'Common';
+                else if (wingVal.toUpperCase() === 'ARMY') cleanRow[col] = 'Army';
+                else if (wingVal.toUpperCase() === 'NAVY') cleanRow[col] = 'Navy';
+                else if (wingVal.toUpperCase() === 'AIR') cleanRow[col] = 'Air Force';
+                else cleanRow[col] = wingVal;
+              } else if ((col === 'certificate' || col === 'certificate_level') && typeof row[col] === 'string') {
+                const certVal = row[col].trim();
+                if (certVal.toUpperCase() === 'ALL' || certVal.toUpperCase() === 'COMMON' || certVal.toUpperCase() === 'ABC') cleanRow[col] = 'Common';
+                else cleanRow[col] = certVal;
               } else {
                 cleanRow[col] = row[col];
               }

@@ -316,7 +316,9 @@ class MockSupabaseClient {
 
   async _initDatabase() {
     const CURRENT_VERSION = 'ncc_mock_v26'; // Force reload version
-    if (localStorage.getItem(CURRENT_VERSION) === 'true') {
+    if (localStorage.getItem(CURRENT_VERSION) === 'true' && 
+        localStorage.getItem('ncc_mock_courses') && 
+        localStorage.getItem('ncc_mock_csv_mock_exams')) {
       return;
     }
 
