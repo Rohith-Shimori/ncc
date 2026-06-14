@@ -12,6 +12,7 @@ import ThemeToggle from '../components/ThemeToggle';
 import { supabase } from '../services/supabase';
 import ErrorBoundary from '../components/ErrorBoundary';
 import OfflineBanner from '../components/OfflineBanner';
+import { prefetchRoute } from '../utils/prefetch';
 
 const CADET_ITEMS = [
   { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -232,6 +233,8 @@ const MainLayout = () => {
                 to={item.path}
                 className={`ncc-sidebar-link ${isActive ? 'active' : ''}`}
                 onClick={() => setSidebarOpen(false)}
+                onMouseEnter={() => prefetchRoute(item.path)}
+                onTouchStart={() => prefetchRoute(item.path)}
               >
                 <Icon className="w-[18px] h-[18px]" />
                 <span>{item.label}</span>

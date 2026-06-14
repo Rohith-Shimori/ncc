@@ -60,8 +60,8 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            // Group huge packages separately so the main vendor chunk stays small
-            if (id.includes('xlsx') || id.includes('recharts') || id.includes('react-dom')) {
+            // Group huge packages separately so the main vendor chunk stays small (excluding react-dom)
+            if (id.includes('xlsx') || id.includes('recharts')) {
               return 'vendor-large';
             }
             return 'vendor';
