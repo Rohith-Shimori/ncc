@@ -9,7 +9,8 @@ let vapidKeys = {
 
 // Generate VAPID keys if they are missing
 if (!vapidKeys.publicKey || !vapidKeys.privateKey) {
-  console.log('[WebPush] VAPID keys are missing in environment variables. Generating new keys...');
+  console.warn('[WebPush] [WARNING] VAPID keys are missing in environment variables. Generating new keys...');
+  console.warn('[WebPush] [WARNING] In production (e.g. Vercel), set VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY as project Environment Variables to keep push subscriptions working after restarts.');
   const keys = webpush.generateVAPIDKeys();
   vapidKeys = {
     publicKey: keys.publicKey,

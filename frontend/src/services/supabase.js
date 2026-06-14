@@ -15,9 +15,10 @@ const safeJsonParse = (text, fallback = null) => {
 // Fetch wrapper with abort timeout, offline detection and queuing
 const fetchWithTimeout = async (url, options = {}, timeoutMs = 8000) => {
   const method = options.method || 'GET';
+  const isAuth = url.includes('/auth/') || url.includes('/login') || url.includes('/signup');
   
   // If the browser is offline and this is a write request (POST, PUT, DELETE), queue it!
-  if (!navigator.onLine && method !== 'GET') {
+  if (!navigator.onLine && method !== 'GET' && !isAuth) {
     try {
       const { queueOfflineTransaction } = await import('./db');
       await queueOfflineTransaction('api', url, method, options.body ? JSON.parse(options.body) : null);
@@ -51,7 +52,7 @@ const fetchWithTimeout = async (url, options = {}, timeoutMs = 8000) => {
     }
     
     // If a network connection error happens during a write request, queue it too!
-    if (method !== 'GET') {
+    if (method !== 'GET' && !isAuth) {
       try {
         const { queueOfflineTransaction } = await import('./db');
         await queueOfflineTransaction('api', url, method, options.body ? JSON.parse(options.body) : null);
