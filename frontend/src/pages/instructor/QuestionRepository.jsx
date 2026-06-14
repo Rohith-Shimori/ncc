@@ -109,20 +109,33 @@ export default function QuestionRepository() {
 
   const getDifficultyLabel = (d) => d == 1 ? 'Easy' : d == 3 ? 'Hard' : 'Medium';
   const getDifficultyColor = (d) => d == 1 ? 'bg-mgreen-600/10 text-mgreen-600' : d == 3 ? 'bg-danger/10 text-danger' : 'bg-gold-500/10 text-gold-600';
-
   return (
-    <div className="max-w-7xl mx-auto space-y-4 md:space-y-6 animate-fadeIn">
-      <div>
-        <h1 className="text-xl md:text-2xl font-bold text-navy-900 flex items-center gap-2">
-          <FileText className="w-6 h-6 md:w-7 md:h-7 text-gold-500" /> Question Repository
-        </h1>
-        <p className="text-surface-700 text-sm">{totalCount} questions in database</p>
+    <div className="max-w-7xl mx-auto space-y-5 md:space-y-6 animate-fadeIn pb-10">
+      {/* Premium Gradient Header Card */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950 text-white p-6 md:p-8 rounded-3xl shadow-lg border border-gold-500/10">
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold text-white flex items-center gap-3">
+            <span className="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center border border-gold-500/20 text-gold-400">
+              <FileText className="w-5 h-5" />
+            </span>
+            Question Repository
+          </h1>
+          <p className="text-gold-200/70 text-xs md:text-sm mt-1">{totalCount} high-quality questions managed in database</p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2.5">
+          <button onClick={() => setCsvModalOpen(true)} className="ncc-btn ncc-btn-ghost h-11 px-5 text-sm flex items-center gap-2 border-surface-700/30 text-surface-200 hover:bg-surface-800">
+            <Upload className="w-4 h-4" /> Import CSV
+          </button>
+          <button onClick={() => { setEditingQuestion(null); setIsModalOpen(true); }} className="ncc-btn ncc-btn-accent h-11 px-5 text-sm flex items-center gap-2">
+            <Plus className="w-4 h-4" /> Add Question
+          </button>
+        </div>
       </div>
 
-      {/* Top Filters */}
-      <div className="ncc-glass-card p-4 md:p-6 space-y-4 shadow-md rounded-2xl border border-surface-200">
-        {/* Row 1: Search and Main Action Buttons */}
-        <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+      {/* Control Center (Filters & Search) */}
+      <div className="ncc-glass-card p-4 md:p-6 space-y-4 shadow-md rounded-2xl border border-surface-200/40">
+        {/* Row 1: Search and Active Only */}
+        <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
           <div className="relative flex items-center flex-1 max-w-lg">
             <Search className="absolute left-3.5 w-4 h-4 text-surface-400 pointer-events-none" />
             <input
@@ -133,25 +146,24 @@ export default function QuestionRepository() {
               placeholder="Search questions by text..."
             />
           </div>
-          <div className="flex flex-wrap items-center gap-2.5">
-            <label className="flex items-center gap-2 text-xs font-bold text-navy-950 cursor-pointer bg-surface-50 hover:bg-surface-100 transition-colors h-11 px-4 rounded-xl border border-surface-200 shadow-sm select-none">
-              <input type="checkbox" checked={activeOnly} onChange={e => { setActiveOnly(e.target.checked); setPage(1); }} className="w-4 h-4 accent-gold-500 rounded border-surface-300 focus:ring-gold-500 cursor-pointer" />
+          <div className="flex items-center gap-3">
+            <label className="flex items-center gap-2.5 text-xs font-bold text-navy-900 dark:text-white cursor-pointer bg-surface-50 dark:bg-surface-800 hover:bg-surface-100 dark:hover:bg-surface-700 transition-colors h-11 px-4 rounded-xl border border-surface-200/50 shadow-sm select-none">
+              <input 
+                type="checkbox" 
+                checked={activeOnly} 
+                onChange={e => { setActiveOnly(e.target.checked); setPage(1); }} 
+                className="w-4 h-4 accent-gold-500 rounded border-surface-300 focus:ring-gold-500 cursor-pointer" 
+              />
               Active Only
             </label>
-            <button onClick={() => setCsvModalOpen(true)} className="ncc-btn ncc-btn-ghost h-11 px-4 cursor-pointer text-sm flex items-center gap-2">
-              <Upload className="w-4 h-4" /> Import CSV
-            </button>
-            <button onClick={() => { setEditingQuestion(null); setIsModalOpen(true); }} className="ncc-btn ncc-btn-primary h-11 px-4 cursor-pointer text-sm flex items-center gap-2 bg-navy-600 hover:bg-navy-700 text-white font-bold rounded-xl transition shadow-md">
-              <Plus className="w-4 h-4" /> Add Question
-            </button>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-surface-200/60" />
+        <div className="h-px bg-surface-200/40" />
 
         {/* Row 2: Filter Selectors */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 items-end">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 items-end">
           <div>
             <label className="block text-[10px] font-bold text-navy-400 uppercase tracking-wider mb-1.5">Subject</label>
             <select value={selectedSubject} onChange={e => { setSelectedSubject(e.target.value); setPage(1); }} className="ncc-input text-xs font-bold h-10 py-0 pr-8">

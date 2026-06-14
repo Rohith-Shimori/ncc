@@ -122,7 +122,7 @@ export default function AddQuestionModal({ isOpen, onClose, onSave, questionToEd
 
   return createPortal(
     <div className="fixed inset-0 z-[2000] bg-navy-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl animate-scaleIn">
+      <div className="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] my-auto overflow-hidden flex flex-col shadow-2xl animate-scaleIn">
         <div className="p-4 md:p-6 border-b border-surface-100 flex items-center justify-between bg-surface-50/50 flex-shrink-0">
           <h2 className="text-xl font-bold text-navy-900 flex items-center gap-2">
             <HelpCircle className="w-6 h-6 text-gold-500" />
@@ -230,14 +230,24 @@ export default function AddQuestionModal({ isOpen, onClose, onSave, questionToEd
             />
           </div>
 
-          <div className="flex items-center gap-2">
-             <input 
-                type="checkbox"
-                checked={formData.active === 'TRUE'}
-                onChange={e => setFormData({...formData, active: e.target.checked ? 'TRUE' : 'FALSE'})}
-                className="w-5 h-5 accent-gold-500 cursor-pointer"
-             />
-             <label className="font-bold text-navy-900 text-sm">Active Question</label>
+          <div className="flex items-center justify-between p-4 bg-surface-50 rounded-2xl border border-surface-100">
+            <div className="space-y-0.5">
+              <label className="font-bold text-navy-900 text-sm block">Active Status</label>
+              <span className="text-xs text-surface-500">Toggle whether this question is active in exams</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setFormData(p => ({ ...p, active: p.active === 'TRUE' || p.active === true ? 'FALSE' : 'TRUE' }))}
+              className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                formData.active === 'TRUE' || formData.active === true ? 'bg-mgreen-600' : 'bg-surface-300'
+              }`}
+            >
+              <span
+                className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                  formData.active === 'TRUE' || formData.active === true ? 'translate-x-5' : 'translate-x-0'
+                }`}
+              />
+            </button>
           </div>
         </form>
 

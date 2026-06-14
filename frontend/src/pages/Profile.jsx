@@ -28,8 +28,7 @@ export default function Profile() {
     const loadStats = async () => {
       const { count: courses } = await supabase.from('course_enrollments')
         .select('id', { count: 'exact', head: true }).eq('user_id', user.id);
-      const { data: attempts } = await supabase.from('csv_exam_attempts')
-        .select('percentage').eq('user_id', user.id).in('status', ['submitted', 'flagged']);
+      const { data: attempts } = await supabase.rpc('fn_get_my_csv_attempts', { p_user_id: user.id });
       const avg = attempts?.length ? Math.round(attempts.reduce((s, a) => s + (a.percentage || 0), 0) / attempts.length) : 0;
       setStats({ courses: courses || 0, tests: attempts?.length || 0, avgScore: avg });
     };
