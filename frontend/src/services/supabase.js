@@ -12,15 +12,33 @@ const safeJsonParse = (text, fallback = null) => {
   }
 };
 
-// Fetch wrapper with abort timeout to prevent endless loading screens
+// Fetch wrapper with abort timeout, offline detection and queuing
 const fetchWithTimeout = async (url, options = {}, timeoutMs = 8000) => {
+  const method = options.method || 'GET';
+  
+  // If the browser is offline and this is a write request (POST, PUT, DELETE), queue it!
+  if (!navigator.onLine && method !== 'GET') {
+    try {
+      const { queueOfflineTransaction } = await import('./db');
+      await queueOfflineTransaction('api', url, method, options.body ? JSON.parse(options.body) : null);
+      // Return a mock successful response to prevent frontend crash
+      return new Response(JSON.stringify({ data: { status: 'queued', message: 'Action saved offline.' } }), {
+        status: 202,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    } catch (err) {
+      console.error('[Offline Queue] Error queueing write request:', err);
+    }
+  }
+
   const controller = new AbortController();
   const id = setTimeout(() => {
     console.warn('[Fetch Timeout] Aborting request to:', url);
     controller.abort();
   }, timeoutMs);
+  
   try {
-    const response = await fetchWithTimeout(url, {
+    const response = await fetch(url, {
       ...options,
       signal: controller.signal
     });
@@ -31,6 +49,21 @@ const fetchWithTimeout = async (url, options = {}, timeoutMs = 8000) => {
     if (error.name === 'AbortError') {
       throw new Error(`Network request timed out after ${timeoutMs}ms`);
     }
+    
+    // If a network connection error happens during a write request, queue it too!
+    if (method !== 'GET') {
+      try {
+        const { queueOfflineTransaction } = await import('./db');
+        await queueOfflineTransaction('api', url, method, options.body ? JSON.parse(options.body) : null);
+        return new Response(JSON.stringify({ data: { status: 'queued', message: 'Action saved offline.' } }), {
+          status: 202,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      } catch (err) {
+        console.error('[Offline Queue] Error queueing write request after network error:', err);
+      }
+    }
+    
     throw error;
   }
 };
@@ -1978,6 +2011,53 @@ class RealtimeChannelMock {
     });
 
     this.socket.on('new_notification', (data) => {
+      // Trigger a native system notification
+      if ('Notification' in window && Notification.permission === 'granted') {
+        const title = data.title || 'New Notification';
+        const options = {
+          body: data.content || '',
+          icon: '/ncc-logo.png',
+          badge: '/ncc-logo.png',
+          tag: 'ncc-notification-' + (data.id || Date.now()),
+          data: { url: data.link || '/dashboard' }
+        };
+
+        // Try service worker first for background tab support, fallback to standard Notification
+        if (navigator.serviceWorker && navigator.serviceWorker.ready) {
+          navigator.serviceWorker.ready.then(registration => {
+            registration.showNotification(title, options);
+          });
+        } else {
+          try {
+            const notif = new Notification(title, options);
+            notif.onclick = (e) => {
+              e.preventDefault();
+              window.focus();
+              if (data.link) {
+                window.location.href = data.link;
+              }
+            };
+          } catch (err) {
+            console.warn('[Notification API] Direct display failed:', err);
+          }
+        }
+      }
+
+      // Update App badge count using native Badge API
+      if ('setAppBadge' in navigator) {
+        try {
+          const stored = localStorage.getItem('ncc_mock_notifications');
+          let count = 1;
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            count = parsed.filter(n => !n.is_read).length + 1;
+          }
+          navigator.setAppBadge(count).catch(err => console.warn('[Badge API] Error setting badge:', err));
+        } catch (err) {
+          console.warn('[Badge API] Error updating badge count:', err);
+        }
+      }
+
       this.callbacks.forEach(({ callback }) => {
         if (typeof callback === 'function') {
           callback({
@@ -2200,3 +2280,117 @@ const customRealSupabase = new Proxy(realSupabase, {
 export const supabase = USE_MOCK ? new MockSupabaseClient() : customRealSupabase;
 
 export const adminAuthClient = supabase;
+
+// Sync queued offline transactions
+export const syncOfflineQueue = async () => {
+  if (!navigator.onLine) return;
+  try {
+    const { db } = await import('./db');
+    const queue = await db.offlineQueue.toArray();
+    if (queue.length === 0) return;
+
+    console.log('[Offline Sync] Syncing queued transactions...', queue);
+    for (const item of queue) {
+      try {
+        let headers = { 'Content-Type': 'application/json' };
+        
+        // Fetch fresh session token if available
+        try {
+          const sessionText = localStorage.getItem('sb-czyjaeszmnyiwjilkhls-auth-token');
+          if (sessionText) {
+            const sessionObj = JSON.parse(sessionText);
+            if (sessionObj?.access_token) {
+              headers['Authorization'] = `Bearer ${sessionObj.access_token}`;
+            }
+          }
+        } catch (_) {}
+
+        const res = await fetch(item.url, {
+          method: item.method,
+          headers,
+          body: item.body ? JSON.stringify(item.body) : null
+        });
+
+        if (res.ok) {
+          console.log(`[Offline Sync] Synchronized successfully: ${item.url}`);
+          await db.offlineQueue.delete(item.id);
+        } else {
+          console.warn(`[Offline Sync] Synchronization failed for item ${item.id} with status ${res.status}`);
+        }
+      } catch (err) {
+        console.error(`[Offline Sync] Network error syncing item ${item.id}:`, err);
+      }
+    }
+  } catch (err) {
+    console.error('[Offline Sync] Error accessing IndexedDB for sync:', err);
+  }
+};
+
+// Register Web Push subscription
+export const subscribeUserToPush = async () => {
+  if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+    console.warn('[Push] Push messaging is not supported in this browser.');
+    return;
+  }
+
+  try {
+    const registration = await navigator.serviceWorker.ready;
+    
+    // Check if subscription already exists
+    let subscription = await registration.pushManager.getSubscription();
+    
+    if (!subscription) {
+      // Fetch VAPID public key from backend
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+      const keyRes = await fetch(`${apiUrl}/notifications/vapid-public-key`);
+      if (!keyRes.ok) throw new Error('Failed to fetch VAPID public key');
+      const { publicKey } = await keyRes.json();
+      
+      // Convert base64 VAPID public key to UInt8Array
+      const padding = '='.repeat((4 - (publicKey.length % 4)) % 4);
+      const base64 = (publicKey + padding).replace(/\-/g, '+').replace(/_/g, '/');
+      const rawData = window.atob(base64);
+      const outputArray = new Uint8Array(rawData.length);
+      for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+      }
+      
+      subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: outputArray
+      });
+    }
+
+    // Send subscription payload to the backend push subscription endpoint
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+    let token = '';
+    try {
+      const sessionText = localStorage.getItem('sb-czyjaeszmnyiwjilkhls-auth-token');
+      if (sessionText) {
+        const sessionObj = JSON.parse(sessionText);
+        token = sessionObj?.access_token || '';
+      }
+    } catch (_) {}
+
+    await fetch(`${apiUrl}/notifications/subscribe`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+      },
+      body: JSON.stringify({ subscription })
+    });
+    
+    console.log('[Push] User successfully subscribed to background Web Push notifications!');
+  } catch (err) {
+    console.warn('[Push] Subscription failed:', err);
+  }
+};
+
+// Monitor online event to sync the offline queue
+window.addEventListener('online', syncOfflineQueue);
+// Also sync on initial import/app boot if online
+if (navigator.onLine) {
+  syncOfflineQueue();
+}
+

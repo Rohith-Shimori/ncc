@@ -40,7 +40,49 @@ const markRead = async (req, res) => {
   }
 };
 
+const { vapidKeys } = require('../config/webpush');
+
+const getVapidPublicKey = async (req, res) => {
+  res.json({ publicKey: vapidKeys.publicKey });
+};
+
+const subscribePush = async (req, res) => {
+  try {
+    const { subscription } = req.body;
+    const user_id = req.user.id;
+    const client = getSupabaseClient(req.token);
+
+    // Check if this subscription is already registered
+    const { data: existing } = await client
+      .from('push_subscriptions')
+      .select('id')
+      .eq('user_id', user_id)
+      .eq('subscription->>endpoint', subscription.endpoint)
+      .maybeSingle();
+
+    if (existing) {
+      return res.json({ success: true, message: 'Subscription already registered.' });
+    }
+
+    // Register new subscription
+    const { error } = await client
+      .from('push_subscriptions')
+      .insert({
+        user_id,
+        subscription
+      });
+
+    if (error) throw error;
+    res.json({ success: true, message: 'Subscription registered successfully.' });
+  } catch (error) {
+    console.error('[Notification Controller] Error saving push subscription:', error);
+    res.status(500).json({ success: false, error: { message: error.message } });
+  }
+};
+
 module.exports = {
   getNotifications,
-  markRead
+  markRead,
+  getVapidPublicKey,
+  subscribePush
 };

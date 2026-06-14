@@ -11,6 +11,7 @@ import NotificationPanel from '../components/NotificationPanel';
 import ThemeToggle from '../components/ThemeToggle';
 import { supabase } from '../services/supabase';
 import ErrorBoundary from '../components/ErrorBoundary';
+import OfflineBanner from '../components/OfflineBanner';
 
 const CADET_ITEMS = [
   { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -74,6 +75,23 @@ const MainLayout = () => {
     if (user) {
       fetchUnreadCount();
       
+      // Request notification permission and subscribe to background Web Push
+      if ('Notification' in window) {
+        if (Notification.permission === 'default') {
+          Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+              import('../services/supabase').then(({ subscribeUserToPush }) => {
+                subscribeUserToPush();
+              });
+            }
+          });
+        } else if (Notification.permission === 'granted') {
+          import('../services/supabase').then(({ subscribeUserToPush }) => {
+            subscribeUserToPush();
+          });
+        }
+      }
+      
       // Realtime subscription for Notifications
       const notifChannel = supabase
         .channel('unread_notifications')
@@ -113,7 +131,21 @@ const MainLayout = () => {
       .select('*', { count: 'exact', head: true })
       .eq('user_id', user.id)
       .eq('is_read', false);
-    setUnreadCount(count || 0);
+    const unread = count || 0;
+    setUnreadCount(unread);
+    
+    // Update native app badge
+    if ('setAppBadge' in navigator) {
+      try {
+        if (unread > 0) {
+          navigator.setAppBadge(unread);
+        } else {
+          navigator.clearAppBadge();
+        }
+      } catch (err) {
+        console.warn('[Badge API] Error setting badge:', err);
+      }
+    }
   };
 
   let items = CADET_ITEMS;
@@ -170,6 +202,7 @@ const MainLayout = () => {
 
   return (
     <div className="flex h-screen overflow-hidden bg-surface-50">
+      <OfflineBanner />
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div className="ncc-sidebar-overlay md:hidden" onClick={() => setSidebarOpen(false)} />

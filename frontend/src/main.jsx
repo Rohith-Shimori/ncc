@@ -5,6 +5,19 @@ import App from './App.jsx'
 import { ThemeProvider } from './hooks/ThemeContext';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
+import { registerSW } from 'virtual:pwa-register';
+
+// Register PWA Service Worker
+const updateSW = registerSW({
+  onNeedRefresh() {
+    if (confirm('A new version of the NCC Digital Training Portal is available. Reload now to update?')) {
+      updateSW(true);
+    }
+  },
+  onOfflineReady() {
+    console.log('[PWA] App is cached and ready for offline use.');
+  }
+});
 
 // Storage Versioning & Stale Cache Cleanup
 const STORAGE_VERSION = 'v1.0';

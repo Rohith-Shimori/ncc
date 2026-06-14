@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { supabase } from '../services/supabase';
-import { User, Shield, BookOpen, Save, CheckCircle } from 'lucide-react';
+import { User, Shield, BookOpen, Save, CheckCircle, Share2 } from 'lucide-react';
 
 export default function Profile() {
   const { user, profile, role, fetchProfile } = useAuth();
@@ -72,6 +72,23 @@ export default function Profile() {
       setTimeout(() => setSaved(false), 3000);
     }
     setSaving(false);
+  };
+
+  const handleShare = async () => {
+    if (!navigator.share) {
+      alert('Sharing is not supported on this browser. Copy the URL to share.');
+      return;
+    }
+    try {
+      await navigator.share({
+        title: 'NCC Digital Training Portal',
+        text: `Hey! I am training on the NCC Digital Training Platform. I am currently Level ${profile?.level || 1} with ${stats.courses} courses enrolled! 🎖️`,
+        url: window.location.origin
+      });
+      console.log('[WebShare] Successfully shared progress!');
+    } catch (err) {
+      console.warn('[WebShare] Error sharing:', err);
+    }
   };
 
   return (
@@ -188,10 +205,15 @@ export default function Profile() {
             </div>
           )}
 
-          <div className="flex items-center gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <button onClick={handleSave} disabled={saving} className="ncc-btn ncc-btn-accent cursor-pointer flex-1 sm:flex-none">
               {saving ? 'Saving...' : <><Save className="w-4 h-4" /> Save Profile</>}
             </button>
+            {navigator.share && (
+              <button onClick={handleShare} className="ncc-btn ncc-btn-ghost cursor-pointer flex-1 sm:flex-none">
+                <Share2 className="w-4 h-4" /> Share Progress
+              </button>
+            )}
             {saved && <span className="text-sm text-mgreen-600 flex items-center gap-1 animate-fadeIn"><CheckCircle className="w-4 h-4" /> Saved!</span>}
           </div>
         </div>

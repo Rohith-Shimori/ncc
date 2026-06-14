@@ -772,6 +772,15 @@ a, button, [role="button"] {
   50% { transform: translateY(-6px); }
 }
 
+@keyframes slideDown {
+  from { transform: translate(-50%, -20px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+@utility animate-slideDown {
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @utility animate-fadeIn {
   animation: fadeIn 0.5s ease forwards;
 }
