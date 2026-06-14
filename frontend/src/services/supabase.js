@@ -881,6 +881,88 @@ class MockSupabaseClient {
     localStorage.setItem(CURRENT_VERSION, 'true');
   }
 
+  _runMockTriggers(table, insertedItems) {
+    if (table === 'announcements') {
+      const notifs = this._getTableData('notifications') || [];
+      const cadets = this._getTableData('cadet_profiles') || [];
+      let updated = false;
+      for (const item of insertedItems) {
+        if (item.is_active) {
+          cadets.forEach(cadet => {
+            const wingMatch = item.target_wing === 'Common' || (cadet.wing && cadet.wing.toLowerCase() === item.target_wing.toLowerCase());
+            if (wingMatch) {
+              const notif = {
+                id: uuidv4(),
+                user_id: cadet.id,
+                type: 'announcement',
+                title: item.title,
+                content: item.content.length > 100 ? item.content.substring(0, 97) + '...' : item.content,
+                link: '/dashboard',
+                is_read: false,
+                created_at: new Date().toISOString()
+              };
+              notifs.push(notif);
+              this._notifyChanges('notifications', 'INSERT', null, notif);
+              updated = true;
+            }
+          });
+        }
+      }
+      if (updated) this._saveTableData('notifications', notifs);
+    } else if (table === 'csv_mock_exams') {
+      const notifs = this._getTableData('notifications') || [];
+      const cadets = this._getTableData('cadet_profiles') || [];
+      let updated = false;
+      for (const item of insertedItems) {
+        if (item.is_active) {
+          cadets.forEach(cadet => {
+            const wingMatch = item.wing === 'Common' || (cadet.wing && cadet.wing.toLowerCase() === item.wing.toLowerCase());
+            if (wingMatch) {
+              const notif = {
+                id: uuidv4(),
+                user_id: cadet.id,
+                type: 'exam',
+                title: 'New Test Released: ' + item.test_name,
+                content: `A new mock exam is now available for ${item.wing} wing, Certificate ${item.certificate_level}.`,
+                link: '/practice-tests',
+                is_read: false,
+                created_at: new Date().toISOString()
+              };
+              notifs.push(notif);
+              this._notifyChanges('notifications', 'INSERT', null, notif);
+              updated = true;
+            }
+          });
+        }
+      }
+      if (updated) this._saveTableData('notifications', notifs);
+    } else if (table === 'courses') {
+      const notifs = this._getTableData('notifications') || [];
+      const cadets = this._getTableData('cadet_profiles') || [];
+      let updated = false;
+      for (const item of insertedItems) {
+        cadets.forEach(cadet => {
+          const wingMatch = item.target_wing === 'Common' || (cadet.wing && cadet.wing.toLowerCase() === item.target_wing.toLowerCase());
+          if (wingMatch) {
+            const notif = {
+              id: uuidv4(),
+              user_id: cadet.id,
+              type: 'enrollment',
+              title: 'New Course Available: ' + item.title,
+              content: `A new training module has been published for ${item.target_wing} wing.`,
+              link: '/courses',
+              is_read: false,
+              created_at: new Date().toISOString()
+            };
+            notifs.push(notif);
+            this._notifyChanges('notifications', 'INSERT', null, notif);
+            updated = true;
+          }
+        });
+      }
+      if (updated) this._saveTableData('notifications', notifs);
+    }
+  }
 
   from(table) {
     return new MockQueryBuilder(table, this);
@@ -1105,6 +1187,7 @@ class MockSupabaseClient {
       }
 
       this._saveTableData(builder.table, fullList);
+      this._runMockTriggers(builder.table, inserted);
       return { data: inserted, error: null };
     }
 
@@ -1173,6 +1256,7 @@ class MockSupabaseClient {
       }
 
       this._saveTableData(builder.table, fullList);
+      this._runMockTriggers(builder.table, upserted);
       return { data: upserted, error: null };
     }
 
