@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { supabase } from '../services/supabase';
@@ -20,6 +20,7 @@ export default function UserModal({ isOpen, onClose, user, onSave, mode = 'admin
 
   useEffect(() => {
     if (user) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         full_name: user.full_name || '',
         email: user.email || '',

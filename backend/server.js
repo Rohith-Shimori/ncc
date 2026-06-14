@@ -41,11 +41,13 @@ const announcementRoutes = require('./src/routes/announcementRoutes');
 const examRoutes = require('./src/routes/examRoutes');
 const enrollmentRoutes = require('./src/routes/enrollmentRoutes');
 const notificationRoutes = require('./src/routes/notificationRoutes');
+const publicRoutes = require('./src/routes/publicRoutes');
 
 app.use('/api/announcements', announcementRoutes);
 app.use('/api/exams', examRoutes);
 app.use('/api/enrollments', enrollmentRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/public', publicRoutes);
 
 const PORT = process.env.PORT || 5000;
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Upload, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
 import { parseFile, validateData } from '../services/csvParser';

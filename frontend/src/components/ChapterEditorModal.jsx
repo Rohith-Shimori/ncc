@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Upload, Link as LinkIcon, FileText, Loader2, Video } from 'lucide-react';
 import { supabase } from '../services/supabase';
@@ -18,6 +18,7 @@ export default function ChapterEditorModal({ isOpen, onClose, chapterToEdit, mod
 
   useEffect(() => {
     if (chapterToEdit) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         title: chapterToEdit.title || '',
         content: chapterToEdit.content || '',

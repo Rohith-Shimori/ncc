@@ -1,62 +1,65 @@
-import { useState, useEffect } from 'react';
-import { Upload, FileText, FileQuestion, BookOpen, Layers, Trash2, AlertCircle } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Upload, FileText, FileQuestion, BookOpen, Layers, Trash2 } from 'lucide-react';
 import CsvUploadModal from '../../components/CsvUploadModal';
 import { supabase } from '../../services/supabase';
+
+const importOptions = [
+  {
+    id: 'csv_questions',
+    title: 'Import Questions',
+    description: 'Upload a CSV of questions for the question repository.',
+    icon: FileQuestion,
+    color: 'text-gold-500',
+    bg: 'bg-gold-500/10',
+    pk: 'question_id'
+  },
+  {
+    id: 'csv_subjects',
+    title: 'Import Subjects',
+    description: 'Upload a CSV defining subjects and their codes.',
+    icon: BookOpen,
+    color: 'text-navy-500',
+    bg: 'bg-navy-500/10',
+    pk: 'subject_code'
+  },
+  {
+    id: 'csv_modules',
+    title: 'Import Modules',
+    description: 'Upload a CSV mapping modules to subjects.',
+    icon: Layers,
+    color: 'text-mgreen-600',
+    bg: 'bg-mgreen-600/10',
+    pk: 'id'
+  },
+  {
+    id: 'csv_mock_exams',
+    title: 'Import Mock Exams',
+    description: 'Upload a CSV containing mock exam definitions.',
+    icon: FileText,
+    color: 'text-wing-airforce',
+    bg: 'bg-wing-airforce-bg',
+    pk: 'test_id'
+  }
+];
 
 export default function InstructorImports() {
   const [csvModalType, setCsvModalType] = useState(null);
   const [counts, setCounts] = useState({});
   const [deleting, setDeleting] = useState(null);
 
-  const importOptions = [
-    {
-      id: 'csv_questions',
-      title: 'Import Questions',
-      description: 'Upload a CSV of questions for the question repository.',
-      icon: FileQuestion,
-      color: 'text-gold-500',
-      bg: 'bg-gold-500/10',
-      pk: 'question_id'
-    },
-    {
-      id: 'csv_subjects',
-      title: 'Import Subjects',
-      description: 'Upload a CSV defining subjects and their codes.',
-      icon: BookOpen,
-      color: 'text-navy-500',
-      bg: 'bg-navy-500/10',
-      pk: 'subject_code'
-    },
-    {
-      id: 'csv_modules',
-      title: 'Import Modules',
-      description: 'Upload a CSV mapping modules to subjects.',
-      icon: Layers,
-      color: 'text-mgreen-600',
-      bg: 'bg-mgreen-600/10',
-      pk: 'id'
-    },
-    {
-      id: 'csv_mock_exams',
-      title: 'Import Mock Exams',
-      description: 'Upload a CSV containing mock exam definitions.',
-      icon: FileText,
-      color: 'text-wing-airforce',
-      bg: 'bg-wing-airforce-bg',
-      pk: 'test_id'
-    }
-  ];
-
-  const loadCounts = async () => {
+  const loadCounts = useCallback(async () => {
     const result = {};
     for (const opt of importOptions) {
       const { count } = await supabase.from(opt.id).select('*', { count: 'exact', head: true });
       result[opt.id] = count || 0;
     }
     setCounts(result);
-  };
+  }, []);
 
-  useEffect(() => { loadCounts(); }, []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadCounts();
+  }, [loadCounts]);
 
   const handleDeleteAll = async (tableId) => {
     const label = importOptions.find(o => o.id === tableId)?.title?.replace('Import ', '') || tableId;

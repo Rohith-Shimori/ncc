@@ -15,7 +15,10 @@ export default function InstructorAnnouncements() {
     setLoading(false);
   };
 
-  useEffect(() => { loadAnnouncements(); }, []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadAnnouncements();
+  }, []);
 
   const handleDelete = async (ann) => {
     if (!confirm(`Are you sure you want to delete "${ann.title}"?`)) return;

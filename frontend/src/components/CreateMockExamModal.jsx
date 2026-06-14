@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X, FileText, Settings, Upload } from 'lucide-react';
 import { supabase } from '../services/supabase';
@@ -34,6 +34,7 @@ export default function CreateMockExamModal({ isOpen, onClose, testToEdit, onSav
       fetchSubjects();
       
       if (testToEdit) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setFormData({
           test_id: testToEdit.test_id || testToEdit.id || '',
           test_name: testToEdit.test_name || testToEdit.title || '',

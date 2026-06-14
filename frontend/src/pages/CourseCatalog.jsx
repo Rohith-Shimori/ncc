@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
-import { BookOpen, Search, Filter, Plus, CheckCircle, Clock, Target, ArrowRight } from 'lucide-react';
+import { BookOpen, Search, CheckCircle, Clock, Target, ArrowRight } from 'lucide-react';
 
 export default function CourseCatalog() {
   const { user, profile } = useAuth();
@@ -17,6 +17,7 @@ export default function CourseCatalog() {
 
   useEffect(() => {
     if (profile) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setWingFilter(profile.wing || 'All');
       setCertFilter(profile.certificate_level || 'All');
     }

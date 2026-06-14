@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
-import { Clock, AlertTriangle, ChevronLeft, ChevronRight, Flag, Send, Shield, Eye, Maximize, Ban, Grid3X3, XCircle, CheckCircle, ShieldAlert, Trophy } from 'lucide-react';
+import { Clock, AlertTriangle, ChevronLeft, ChevronRight, Flag, Send, Shield, Maximize, Grid3X3, XCircle, ShieldAlert, Trophy } from 'lucide-react';
 import { useAuth } from '../hooks/AuthContext';
 import { safeJsonParse } from '../utils/safeJson';
 
@@ -29,6 +29,47 @@ export default function ExamRoom() {
   const [showConfirmSubmit, setShowConfirmSubmit] = useState(false);
   const startTimeRef = useRef(null);
   const warningTimerRef = useRef(null);
+
+  const showWarningBanner = useCallback((type) => {
+    setShowWarning(type);
+    clearTimeout(warningTimerRef.current);
+    warningTimerRef.current = setTimeout(() => setShowWarning(null), 4000);
+  }, []);
+
+  // Submit exam via RPC
+  const submitExam = useCallback(async (timedOut = false) => {
+    if (phase === 'submitting' || phase === 'results') return;
+    setPhase('submitting');
+
+    // Exit fullscreen
+    try { if (document.fullscreenElement) await document.exitFullscreen(); } catch { /* empty */ }
+
+    const elapsed = startTimeRef.current ? Math.round((Date.now() - startTimeRef.current) / 1000) : 0;
+    // Prepare answers as a flat object { question_id: answer } to match RPC expectation
+    const answerObject = {};
+    csv_questions.forEach(q => {
+      if (q && q.id) {
+        answerObject[q.id] = answers[q.id] || '';
+      }
+    });
+
+    try {
+      const { data, error } = await supabase.rpc('fn_submit_csv_exam', {
+        p_attempt_id: attemptId,
+        p_answers: answerObject,
+        p_tab_switches: tabSwitches,
+        p_time_spent: elapsed
+      });
+      if (error) throw error;
+      if (!data) throw new Error('No result data returned from server');
+      setResult({ ...data, timed_out: timedOut });
+      setPhase('results');
+      if (refreshProfile) await refreshProfile();
+    } catch (err) {
+      setError('Submission failed: ' + err.message);
+      setPhase('results');
+    }
+  }, [phase, csv_questions, answers, attemptId, tabSwitches, refreshProfile]);
 
   // Fetch test info
   useEffect(() => {
@@ -114,7 +155,7 @@ export default function ExamRoom() {
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [phase]);
+  }, [phase, submitExam]);
 
   // ANTI-CHEATING: Tab/visibility detection
   // Only visibilitychange is used - window 'blur' was removed as it fires
@@ -135,7 +176,7 @@ export default function ExamRoom() {
     return () => {
       document.removeEventListener('visibilitychange', onVisChange);
     };
-  }, [phase]);
+  }, [phase, submitExam, showWarningBanner]);
 
   // ANTI-CHEATING: Fullscreen exit detection
   useEffect(() => {
@@ -180,48 +221,9 @@ export default function ExamRoom() {
       document.removeEventListener('paste', prevent);
       document.removeEventListener('keydown', blockKeys);
     };
-  }, [phase]);
+  }, [phase, showWarningBanner]);
 
-  const showWarningBanner = (type) => {
-    setShowWarning(type);
-    clearTimeout(warningTimerRef.current);
-    warningTimerRef.current = setTimeout(() => setShowWarning(null), 4000);
-  };
-
-  // Submit exam via RPC
-  const submitExam = useCallback(async (timedOut = false) => {
-    if (phase === 'submitting' || phase === 'results') return;
-    setPhase('submitting');
-
-    // Exit fullscreen
-    try { if (document.fullscreenElement) await document.exitFullscreen(); } catch(e) {}
-
-    const elapsed = startTimeRef.current ? Math.round((Date.now() - startTimeRef.current) / 1000) : 0;
-    // Prepare answers as a flat object { question_id: answer } to match RPC expectation
-    const answerObject = {};
-    csv_questions.forEach(q => {
-      if (q && q.id) {
-        answerObject[q.id] = answers[q.id] || '';
-      }
-    });
-
-    try {
-      const { data, error } = await supabase.rpc('fn_submit_csv_exam', {
-        p_attempt_id: attemptId,
-        p_answers: answerObject,
-        p_tab_switches: tabSwitches,
-        p_time_spent: elapsed
-      });
-      if (error) throw error;
-      if (!data) throw new Error('No result data returned from server');
-      setResult({ ...data, timed_out: timedOut });
-      setPhase('results');
-      if (refreshProfile) await refreshProfile();
-    } catch (err) {
-      setError('Submission failed: ' + err.message);
-      setPhase('results');
-    }
-  }, [phase, csv_questions, answers, attemptId, tabSwitches, refreshProfile]);
+  // showWarningBanner moved above useEffects
 
   const formatTime = (s) => `${Math.floor(s / 60).toString().padStart(2, '0')}:${(s % 60).toString().padStart(2, '0')}`;
   const answered = Object.keys(answers).filter(k => answers[k]).length;
@@ -278,7 +280,7 @@ export default function ExamRoom() {
                       if (elem.requestFullscreen) await elem.requestFullscreen();
                       else if (elem.webkitRequestFullscreen) await elem.webkitRequestFullscreen();
                       else if (elem.msRequestFullscreen) await elem.msRequestFullscreen();
-                    } catch(e) { setError("Fullscreen request blocked by browser. Please click Start Exam directly."); }
+                    } catch { setError("Fullscreen request blocked by browser. Please click Start Exam directly."); }
                   }}
                   className="w-full py-2 px-4 rounded-lg bg-white border border-gold-500/30 text-gold-600 font-bold text-xs hover:bg-gold-50 transition cursor-pointer"
                 >

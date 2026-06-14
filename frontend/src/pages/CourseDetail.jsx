@@ -53,7 +53,7 @@ export default function CourseDetail() {
                 <span className="text-sm text-surface-700">{modCompleted}/{mod.chapters.length}</span>
               </div>
               <div className="space-y-1 md:space-y-2">
-                {mod.chapters.map((ch, ci) => {
+                {mod.chapters.map((ch) => {
                   const isDone = completedChapters.has(ch.id);
                   return (
                     <button key={ch.id} onClick={() => navigate(`/course/${courseId}/chapter/${ch.id}`)}

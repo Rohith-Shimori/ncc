@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 import {
   LayoutDashboard, BookOpen, ClipboardCheck, BarChart3, User,
-  GraduationCap, Shield, LogOut, Menu, X, Bell, ChevronDown,
+  GraduationCap, Shield, LogOut, Menu, X, Bell,
   Users, FileText, Megaphone, Upload, ShieldAlert, Activity
 } from 'lucide-react';
 import nccLogo from '../assets/ncc-seeklogo.png';
@@ -50,21 +50,6 @@ const ADMIN_ITEMS = [
   { path: '/profile', icon: User, label: 'Profile' },
 ];
 
-// Bottom nav shows max 5 items (the core 5)
-const BOTTOM_NAV_ITEMS = [
-  { path: '/dashboard', icon: LayoutDashboard, label: 'Home' },
-  { path: '/courses', icon: BookOpen, label: 'Courses' },
-  { path: '/mock-exams', icon: ClipboardCheck, label: 'Exams' },
-  { path: '/performance', icon: BarChart3, label: 'Stats' },
-  { path: '/profile', icon: User, label: 'Profile' },
-];
-
-const wingColors = {
-  'Army': { bg: 'bg-wing-army-bg', text: 'text-wing-army', border: 'border-wing-army' },
-  'Navy': { bg: 'bg-wing-navy-bg', text: 'text-wing-navy', border: 'border-wing-navy' },
-  'Air Force': { bg: 'bg-wing-airforce-bg', text: 'text-wing-airforce', border: 'border-wing-airforce' },
-};
-
 const MainLayout = () => {
   const { user, profile, role, signOut, fetchProfile } = useAuth();
   const location = useLocation();
@@ -106,8 +91,33 @@ const MainLayout = () => {
     setShowInstallBanner(false);
   };
 
+  const fetchUnreadCount = useCallback(async () => {
+    if (!user) return;
+    const { count } = await supabase
+      .from('notifications')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', user.id)
+      .eq('is_read', false);
+    const unread = count || 0;
+    setUnreadCount(unread);
+    
+    // Update native app badge
+    if ('setAppBadge' in navigator) {
+      try {
+        if (unread > 0) {
+          navigator.setAppBadge(unread);
+        } else {
+          navigator.clearAppBadge();
+        }
+      } catch (err) {
+        console.warn('[Badge API] Error setting badge:', err);
+      }
+    }
+  }, [user]);
+
   useEffect(() => {
     if (user) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       fetchUnreadCount();
       
       // Request notification permission and subscribe to background Web Push
@@ -158,30 +168,7 @@ const MainLayout = () => {
         supabase.removeChannel(profileChannel);
       };
     }
-  }, [user]);
-
-  const fetchUnreadCount = async () => {
-    const { count } = await supabase
-      .from('notifications')
-      .select('*', { count: 'exact', head: true })
-      .eq('user_id', user.id)
-      .eq('is_read', false);
-    const unread = count || 0;
-    setUnreadCount(unread);
-    
-    // Update native app badge
-    if ('setAppBadge' in navigator) {
-      try {
-        if (unread > 0) {
-          navigator.setAppBadge(unread);
-        } else {
-          navigator.clearAppBadge();
-        }
-      } catch (err) {
-        console.warn('[Badge API] Error setting badge:', err);
-      }
-    }
-  };
+  }, [user, fetchUnreadCount, fetchProfile]);
 
   let items = CADET_ITEMS;
   if (role === 'instructor') items = INSTRUCTOR_ITEMS;

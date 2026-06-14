@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../../services/supabase';
-import { Users, Search, Edit2, Trash2, UserPlus, ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { Users, Search, Edit2, Trash2, UserPlus, Download } from 'lucide-react';
 import UserModal from '../../components/UserModal';
 
 export default function InstructorCadets() {
@@ -41,7 +41,10 @@ export default function InstructorCadets() {
     setLoading(false);
   };
 
-  useEffect(() => { loadCadets(); }, []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadCadets();
+  }, []);
 
   const handleDeleteCadet = async (id) => {
     if (!confirm('Are you sure you want to remove this cadet from the platform?')) return;

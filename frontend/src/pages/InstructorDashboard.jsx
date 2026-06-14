@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
-import { GraduationCap, BookOpen, Users, ClipboardCheck, Plus, Upload, BarChart3, Eye, Search, Edit2, Trash2, Filter, UserPlus, Megaphone } from 'lucide-react';
+import { GraduationCap, BookOpen, Users, ClipboardCheck, Plus, BarChart3, Search, Edit2, Trash2, UserPlus, Megaphone } from 'lucide-react';
 import AddQuestionModal from '../components/AddQuestionModal';
 import UserModal from '../components/UserModal';
 import AddTestModal from '../components/AddTestModal';
@@ -110,6 +110,7 @@ export default function InstructorDashboard() {
     };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadData();
   }, []);
 

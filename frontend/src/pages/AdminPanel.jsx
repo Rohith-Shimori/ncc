@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../services/supabase';
 import { Shield, Users, BookOpen, Activity, AlertTriangle, Search, Trash2, UserPlus, Edit2, Plus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -34,7 +34,7 @@ export default function AdminPanel() {
   const [isAnnouncementModalOpen, setIsAnnouncementModalOpen] = useState(false);
   const [editingAnnouncement, setEditingAnnouncement] = useState(null);
 
-  const load = async () => {
+  const load = useCallback(async () => {
       // Get all cadets
       const { data: cadets } = await supabase.from('cadet_profiles').select('id, full_name, wing, certificate_level, ncc_number');
       // Get instructors
@@ -82,11 +82,12 @@ export default function AdminPanel() {
       })));
 
       setLoading(false);
-    };
+    }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     load();
-  }, []);
+  }, [load]);
 
   const handleDeleteUser = async (user) => {
     if (!confirm(`Are you sure you want to delete ${user.full_name || 'this user'}? This will not delete their auth account without backend API.`)) return;

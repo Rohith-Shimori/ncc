@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../services/supabase';
-import { BarChart3, Users, ClipboardCheck, TrendingUp, TrendingDown, Download } from 'lucide-react';
+import { BarChart3, ClipboardCheck, TrendingUp, TrendingDown, Download } from 'lucide-react';
 
 export default function ExamAnalytics() {
   const [loading, setLoading] = useState(true);

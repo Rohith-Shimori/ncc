@@ -25,26 +25,26 @@ export const AuthProvider = ({ children }) => {
   const fetchProfile = useCallback(async (userId, userObj = null) => {
     try {
       // Check cadet_profiles first
-      let { data, error } = await supabase.from('cadet_profiles').select('*').eq('id', userId).maybeSingle();
-      if (data) {
-        data.wing = normalizeWing(data.wing);
-        setProfile(data);
+      const { data: cadetData } = await supabase.from('cadet_profiles').select('*').eq('id', userId).maybeSingle();
+      if (cadetData) {
+        cadetData.wing = normalizeWing(cadetData.wing);
+        setProfile(cadetData);
         setRole('cadet');
         return;
       }
 
       // Check instructor_profiles
-      ({ data, error } = await supabase.from('instructor_profiles').select('*').eq('id', userId).maybeSingle());
-      if (data) {
-        setProfile(data);
+      const { data: instructorData } = await supabase.from('instructor_profiles').select('*').eq('id', userId).maybeSingle();
+      if (instructorData) {
+        setProfile(instructorData);
         setRole('instructor');
         return;
       }
 
       // Check admin_profiles
-      ({ data, error } = await supabase.from('admin_profiles').select('*').eq('id', userId).maybeSingle());
-      if (data) {
-        setProfile(data);
+      const { data: adminData } = await supabase.from('admin_profiles').select('*').eq('id', userId).maybeSingle();
+      if (adminData) {
+        setProfile(adminData);
         setRole('admin');
         return;
       }
@@ -168,6 +168,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
   return useContext(AuthContext);
 };

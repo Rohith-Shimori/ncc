@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
-import { ClipboardCheck, Clock, Target, Trophy, ArrowRight, Filter } from 'lucide-react';
+import { ClipboardCheck, Clock, Target, Trophy, ArrowRight } from 'lucide-react';
 
 export default function PracticeTests() {
   const { user, profile } = useAuth();

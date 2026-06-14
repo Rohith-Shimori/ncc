@@ -34,6 +34,7 @@ export default function AddQuestionModal({ isOpen, onClose, onSave, questionToEd
 
   useEffect(() => {
     if (questionToEdit) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         question_id: questionToEdit.question_id || '',
         subject_code: questionToEdit.subject_code || '',
@@ -97,7 +98,8 @@ export default function AddQuestionModal({ isOpen, onClose, onSave, questionToEd
       let error;
       if (questionToEdit?.question_id) {
         // Exclude question_id from UPDATE payload — it's the PK used in the WHERE clause
-        const { question_id: _qid, ...updatePayload } = dataToSave;
+        const updatePayload = { ...dataToSave };
+        delete updatePayload.question_id;
         const { error: err } = await supabase
           .from('csv_questions')
           .update(updatePayload)

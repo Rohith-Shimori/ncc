@@ -70,8 +70,8 @@ registerRoute(
       }).handle(options);
       
       if (response) return response;
-    } catch (e) {
-      console.warn('[SW] Navigation cache fallback matching index.html');
+    } catch (err) {
+      console.warn('[SW] Navigation cache fallback matching index.html:', err);
     }
     
     // Serve precached index.html if offline
@@ -85,7 +85,7 @@ self.addEventListener('install', () => {
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(clients.claim());
+  event.waitUntil(self.clients.claim());
 });
 
 // BACKGROUND WEB PUSH NOTIFICATION HANDLER
@@ -95,7 +95,7 @@ self.addEventListener('push', (event) => {
   if (event.data) {
     try {
       data = event.data.json();
-    } catch (e) {
+    } catch {
       // Handle plain text payload if json parsing fails
       data = { title: 'NCC Digital Training', content: event.data.text(), link: '/dashboard' };
     }
@@ -127,7 +127,7 @@ self.addEventListener('notificationclick', (event) => {
   const urlToOpen = new URL(event.notification.data?.url || '/dashboard', self.location.origin).href;
 
   event.waitUntil(
-    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windowClients) => {
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windowClients) => {
       // Focus existing tab if open
       for (let i = 0; i < windowClients.length; i++) {
         const client = windowClients[i];
@@ -146,8 +146,8 @@ self.addEventListener('notificationclick', (event) => {
       }
       
       // If no tab is open, open a new window
-      if (clients.openWindow) {
-        return clients.openWindow(urlToOpen);
+      if (self.clients.openWindow) {
+        return self.clients.openWindow(urlToOpen);
       }
     })
   );

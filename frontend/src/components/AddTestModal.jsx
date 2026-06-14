@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { supabase } from '../services/supabase';
@@ -21,6 +21,7 @@ export default function AddTestModal({ isOpen, onClose, testToEdit, onSave, cour
 
   useEffect(() => {
     if (testToEdit) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         title: testToEdit.title || '',
         description: testToEdit.description || '',

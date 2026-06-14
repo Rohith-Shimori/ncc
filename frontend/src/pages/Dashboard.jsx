@@ -2,8 +2,15 @@ import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
-import { BookOpen, ClipboardCheck, TrendingUp, Award, ArrowRight, Megaphone, Clock, Target, Flame } from 'lucide-react';
+import { BookOpen, ClipboardCheck, TrendingUp, Award, ArrowRight, Megaphone, Flame } from 'lucide-react';
 import heroImg from '../assets/hero.png';
+
+const timeAgo = (d) => {
+  const diff = (Date.now() - new Date(d)) / 1000;
+  if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+  if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+  return Math.floor(diff / 86400) + 'd ago';
+};
 
 export default function Dashboard() {
   const { user, profile, role, refreshProfile } = useAuth();
@@ -82,14 +89,7 @@ export default function Dashboard() {
       setLoading(false);
     };
     load();
-  }, [user, profile]);
-
-  const timeAgo = (d) => {
-    const diff = (Date.now() - new Date(d)) / 1000;
-    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
-    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
-    return Math.floor(diff / 86400) + 'd ago';
-  };
+  }, [user, profile, refreshProfile]);
 
   if (loading) return (
     <div className="flex items-center justify-center min-h-[60vh]">

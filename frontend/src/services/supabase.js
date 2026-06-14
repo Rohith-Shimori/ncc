@@ -48,7 +48,7 @@ const fetchWithTimeout = async (url, options = {}, timeoutMs = 8000) => {
   } catch (error) {
     clearTimeout(id);
     if (error.name === 'AbortError') {
-      throw new Error(`Network request timed out after ${timeoutMs}ms`);
+      throw new Error(`Network request timed out after ${timeoutMs}ms`, { cause: error });
     }
     
     // If a network connection error happens during a write request, queue it too!
@@ -349,7 +349,7 @@ class MockSupabaseClient {
         return { data: { session: user ? { user } : null }, error: null };
       },
 
-      getUser: async (token) => {
+      getUser: async () => {
         await this.initPromise;
         const user = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null');
         return { data: { user }, error: user ? null : { message: 'Invalid token' } };
@@ -1504,12 +1504,10 @@ class MockSupabaseClient {
       const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
       const profiles = this._getTableData('cadet_profiles');
       const pIndex = profiles.findIndex(p => p.id === currentUser.id);
-      let newLevel = 1;
-
       if (pIndex !== -1) {
         const profile = profiles[pIndex];
         profile.exp = (profile.exp || 0) + expGain;
-        newLevel = Math.floor(profile.exp / 1000) + 1;
+        const newLevel = Math.floor(profile.exp / 1000) + 1;
         if (newLevel > (profile.level || 1)) {
           profile.level = newLevel;
           const notifs = this._getTableData('notifications');
@@ -2304,7 +2302,9 @@ export const syncOfflineQueue = async () => {
               headers['Authorization'] = `Bearer ${sessionObj.access_token}`;
             }
           }
-        } catch (_) {}
+        } catch {
+          // ignore parse errors
+        }
 
         const res = await fetch(item.url, {
           method: item.method,
@@ -2349,7 +2349,7 @@ export const subscribeUserToPush = async () => {
       
       // Convert base64 VAPID public key to UInt8Array
       const padding = '='.repeat((4 - (publicKey.length % 4)) % 4);
-      const base64 = (publicKey + padding).replace(/\-/g, '+').replace(/_/g, '/');
+      const base64 = (publicKey + padding).replace(/-/g, '+').replace(/_/g, '/');
       const rawData = window.atob(base64);
       const outputArray = new Uint8Array(rawData.length);
       for (let i = 0; i < rawData.length; ++i) {
@@ -2371,7 +2371,9 @@ export const subscribeUserToPush = async () => {
         const sessionObj = JSON.parse(sessionText);
         token = sessionObj?.access_token || '';
       }
-    } catch (_) {}
+    } catch {
+      // ignore storage errors
+    }
 
     await fetch(`${apiUrl}/notifications/subscribe`, {
       method: 'POST',

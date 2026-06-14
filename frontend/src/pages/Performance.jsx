@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { supabase } from '../services/supabase';
 import { BarChart3, TrendingUp, Target, Award, BookOpen, Crown, History, Trophy, Search, ChevronRight, Shield, Flame } from 'lucide-react';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useNavigate } from 'react-router-dom';
 
-const COLORS = ['#22c55e', '#eab308', '#ef4444', '#3b82f6'];
 
 export default function Performance() {
   const { user, profile } = useAuth();
@@ -18,16 +17,7 @@ export default function Performance() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('analytics');
 
-  useEffect(() => {
-    if (!user) return;
-    loadData();
-  }, [user]);
-
-  useEffect(() => {
-    fetchLeaderboard();
-  }, [leaderboardWing]);
-
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     // We are now using a secure RPC function to fetch history to bypass any potential RLS misconfigurations in PostgREST
     // Passing p_user_id explicitly to bypass the auth.uid() nullification edge case in SECURITY DEFINER
     const { data: atts, error: err1 } = await supabase.rpc('fn_get_my_csv_attempts', { p_user_id: user.id });
@@ -66,15 +56,26 @@ export default function Performance() {
       setTopicData(Object.values(topics).map(t => ({ ...t, score: Math.round((t.correct / t.total) * 100) })));
     }
     setLoading(false);
-  };
+  }, [user]);
 
-  const fetchLeaderboard = async () => {
+  const fetchLeaderboard = useCallback(async () => {
     const { data } = await supabase.rpc('fn_get_leaderboard', { 
       p_limit: 10, 
       p_wing: leaderboardWing 
     });
     setLeaderboard(data || []);
-  };
+  }, [leaderboardWing]);
+
+  useEffect(() => {
+    if (!user) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadData();
+  }, [user, loadData]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchLeaderboard();
+  }, [leaderboardWing, fetchLeaderboard]);
 
   if (loading) return (
     <div className="flex items-center justify-center min-h-[60vh]">

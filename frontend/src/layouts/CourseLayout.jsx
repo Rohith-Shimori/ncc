@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 import { supabase } from '../services/supabase';
 import ErrorBoundary from '../components/ErrorBoundary';
-import { ChevronLeft, BookOpen, CheckCircle, Circle, ChevronDown, ChevronRight, X, List } from 'lucide-react';
+import { ChevronLeft, CheckCircle, Circle, ChevronDown, ChevronRight, X, List } from 'lucide-react';
 
 export default function CourseLayout() {
   const { courseId } = useParams();
@@ -28,10 +28,11 @@ export default function CourseLayout() {
 
   // On desktop, sidebar is open by default
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSidebarOpen(isDesktop);
   }, [isDesktop]);
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     const { data: c } = await supabase.from('courses').select('*').eq('id', courseId).single();
     setCourse(c);
 
@@ -61,9 +62,12 @@ export default function CourseLayout() {
       }
     }
     setLoading(false);
-  };
+  }, [courseId, user]);
 
-  useEffect(() => { loadData(); }, [courseId, user]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadData();
+  }, [loadData]);
 
   const totalChapters = modules.reduce((s, m) => s + m.chapters.length, 0);
   const progress = totalChapters ? Math.round((completedChapters.size / totalChapters) * 100) : 0;
@@ -128,7 +132,7 @@ export default function CourseLayout() {
           </div>
         </div>
         <nav className="flex-1 overflow-y-auto p-3 space-y-1">
-          {modules.map((mod, mi) => (
+          {modules.map(mod => (
             <div key={mod.id}>
               <button onClick={() => toggleModule(mod.id)} className="w-full flex items-center gap-2 p-2 rounded-lg text-sm font-medium text-navy-900 hover:bg-surface-50 cursor-pointer">
                 {expandedModules.has(mod.id) ? <ChevronDown className="w-4 h-4 text-surface-300" /> : <ChevronRight className="w-4 h-4 text-surface-300" />}

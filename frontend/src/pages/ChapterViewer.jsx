@@ -4,7 +4,7 @@ import { useAuth } from '../hooks/AuthContext';
 import { supabase } from '../services/supabase';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { ChevronLeft, ChevronRight, CheckCircle, Circle, BookOpen, Presentation, FileText } from 'lucide-react';
+import { ChevronLeft, ChevronRight, CheckCircle, BookOpen, Presentation, FileText } from 'lucide-react';
 
 export default function ChapterViewer() {
   const { courseId, chapterId } = useParams();

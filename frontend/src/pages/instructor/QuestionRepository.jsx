@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '../../services/supabase';
-import { FileText, Search, Plus, Edit2, Trash2, Upload, X, ChevronLeft, ChevronRight, Eye, Filter } from 'lucide-react';
+import { FileText, Search, Plus, Edit2, Trash2, Upload, X, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import AddQuestionModal from '../../components/AddQuestionModal';
 import CsvUploadModal from '../../components/CsvUploadModal';
 
@@ -96,7 +96,10 @@ export default function QuestionRepository() {
     setLoading(false);
   }, [page, perPage, debouncedSearch, selectedSubject, selectedDifficulty, activeOnly, selectedStatus, selectedCertificate, selectedWing]);
 
-  useEffect(() => { loadQuestions(); }, [loadQuestions]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadQuestions();
+  }, [loadQuestions]);
 
   const deleteQuestion = async (id) => {
     if (!confirm('Are you sure you want to deactivate this question?')) return;

@@ -20,7 +20,10 @@ export default function InstructorCourses() {
     setLoading(false);
   };
 
-  useEffect(() => { loadCourses(); }, []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadCourses();
+  }, []);
 
   const filtered = courses.filter(c => {
     const matchesSearch = (c.title || '').toLowerCase().includes(search.toLowerCase()) ||

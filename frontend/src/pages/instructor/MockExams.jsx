@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../../services/supabase';
 import { ClipboardCheck, Plus, Edit2, Upload, Trash2 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CreateMockExamModal from '../../components/CreateMockExamModal';
 import CsvUploadModal from '../../components/CsvUploadModal';
 
@@ -13,13 +13,16 @@ export default function InstructorMockExams() {
   const [csvModalOpen, setCsvModalOpen] = useState(false);
   const navigate = useNavigate();
 
-  const loadTests = async () => {
+  const loadTests = useCallback(async () => {
     const { data } = await supabase.from('csv_mock_exams').select('*').order('test_id', { ascending: false });
     setTests(data || []);
     setLoading(false);
-  };
+  }, []);
 
-  useEffect(() => { loadTests(); }, []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadTests();
+  }, [loadTests]);
 
   const deleteTest = async (testId) => {
     if (!confirm('Are you sure you want to delete this mock exam? This cannot be undone.')) return;

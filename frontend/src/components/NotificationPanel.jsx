@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../services/supabase';
 import { useAuth } from '../hooks/AuthContext';
 import { Bell, Check, ExternalLink, X, BookOpen, Award, ShieldAlert } from 'lucide-react';
@@ -10,8 +10,21 @@ export default function NotificationPanel({ onClose, onRefresh }) {
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const fetchNotifications = useCallback(async () => {
+    if (!user) return;
+    const { data } = await supabase
+      .from('notifications')
+      .select('*')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+      .limit(20);
+    setNotifications(data || []);
+    setLoading(false);
+  }, [user]);
+
   useEffect(() => {
     if (!user) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchNotifications();
 
     // Realtime subscription
@@ -35,18 +48,7 @@ export default function NotificationPanel({ onClose, onRefresh }) {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [user]);
-
-  const fetchNotifications = async () => {
-    const { data } = await supabase
-      .from('notifications')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false })
-      .limit(20);
-    setNotifications(data || []);
-    setLoading(false);
-  };
+  }, [user, fetchNotifications, onRefresh]);
 
   const markRead = async (id) => {
     try {

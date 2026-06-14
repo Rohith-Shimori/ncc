@@ -28,7 +28,10 @@ export default function UserManagement({ defaultRole = 'all' }) {
     setLoading(false);
   };
 
-  useEffect(() => { loadUsers(); }, []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadUsers();
+  }, []);
 
   const handleDeleteUser = async (user) => {
     if (!confirm(`Are you sure you want to delete ${user.full_name || 'this user'}? This will not delete their auth account without backend API.`)) return;

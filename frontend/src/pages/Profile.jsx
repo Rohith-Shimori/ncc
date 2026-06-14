@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { supabase } from '../services/supabase';
-import { User, Shield, BookOpen, Save, CheckCircle, Share2 } from 'lucide-react';
+import { User, Save, CheckCircle, Share2 } from 'lucide-react';
 
 export default function Profile() {
   const { user, profile, role, fetchProfile } = useAuth();
@@ -12,6 +12,7 @@ export default function Profile() {
 
   useEffect(() => {
     if (profile) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setForm({
         full_name: profile.full_name || '',
         ncc_number: profile.ncc_number || '',

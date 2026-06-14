@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
 import { ArrowLeft, Plus, Edit2, Trash2, Folder, FileText, Video, Layout } from 'lucide-react';
@@ -19,7 +19,7 @@ export default function InstructorCourseManager() {
   const [editingChapter, setEditingChapter] = useState(null);
   const [activeModuleId, setActiveModuleId] = useState(null);
 
-  const loadCourseData = async () => {
+  const loadCourseData = useCallback(async () => {
     setLoading(true);
     // Fetch Course
     const { data: cData } = await supabase.from('courses').select('*').eq('id', courseId).single();
@@ -40,11 +40,12 @@ export default function InstructorCourseManager() {
     
     setModules(sortedModules);
     setLoading(false);
-  };
+  }, [courseId]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (courseId) loadCourseData();
-  }, [courseId]);
+  }, [courseId, loadCourseData]);
 
   const handleDeleteModule = async (id) => {
     if (!confirm('Are you sure you want to delete this module and ALL its chapters?')) return;

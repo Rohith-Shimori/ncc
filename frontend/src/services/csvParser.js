@@ -28,7 +28,7 @@ export const parseFile = async (file) => {
           const worksheet = workbook.Sheets[firstSheetName];
           const json = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
           resolve(json);
-        } catch (error) {
+        } catch {
           reject(new Error('Failed to parse XLSX file'));
         }
       };

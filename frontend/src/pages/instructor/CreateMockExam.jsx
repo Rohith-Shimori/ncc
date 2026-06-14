@@ -20,7 +20,7 @@ export default function CreateMockExam() {
   const [error, setError] = useState('');
   const [published, setPublished] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState(() => ({
     test_id: Math.floor(Date.now() / 1000),
     test_name: '',
     certificate_level: 'B',
@@ -29,7 +29,7 @@ export default function CreateMockExam() {
     passing_percent: 50,
     question_distribution: '',
     is_active: true,
-  });
+  }));
 
   const [criteria, setCriteria] = useState([{ subject_code: 'NCC_GEN', count: 10 }]);
 

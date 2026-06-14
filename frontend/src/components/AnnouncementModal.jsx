@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { supabase } from '../services/supabase';
@@ -16,6 +16,7 @@ export default function AnnouncementModal({ isOpen, onClose, announcement, onSav
 
   useEffect(() => {
     if (announcement) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         title: announcement.title || '',
         content: announcement.content || '',

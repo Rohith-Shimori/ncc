@@ -6,24 +6,74 @@ import nccLogo from '../assets/ncc-seeklogo.png';
 import paradeImg from '../assets/pexels-pramodtiwari-13315966.jpg';
 import ThemeToggle from '../components/ThemeToggle';
 
+// Animated CountUp component for rolling number stats
+function CountUp({ end }) {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    const endVal = parseInt(end, 10);
+    if (isNaN(endVal)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCount(end);
+      return;
+    }
+    
+    let start = 0;
+    const duration = 1000; // 1 second rollup
+    const increment = endVal / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= endVal) {
+        setCount(endVal);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    
+    return () => clearInterval(timer);
+  }, [end]);
+
+  return <span>{count}+</span>;
+}
+
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [stats, setStats] = useState({ cadets: '500+', courses: '50+' });
+  
+  // Stale-while-revalidate caching to eliminate metric lag
+  const [stats, setStats] = useState(() => {
+    try {
+      const cached = localStorage.getItem('ncc_public_stats');
+      if (cached) return JSON.parse(cached);
+    } catch { /* empty */ }
+    return { cadets: null, courses: null };
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchStats = async () => {
-      const { count: cadetCount } = await supabase.from('cadet_profiles').select('*', { count: 'exact', head: true });
-      const { count: courseCount } = await supabase.from('courses').select('*', { count: 'exact', head: true });
-      
-      setStats({
-        cadets: cadetCount ? `${cadetCount}+` : '500+',
-        courses: courseCount ? `${courseCount}+` : '50+'
-      });
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+        const res = await fetch(`${apiUrl}/public/stats`);
+        if (res.ok) {
+          const { data } = await res.json();
+          if (data) {
+            const formatted = {
+              cadets: data.cadets,
+              courses: data.courses
+            };
+            setStats(formatted);
+            localStorage.setItem('ncc_public_stats', JSON.stringify(formatted));
+          }
+        }
+      } catch (err) {
+        console.warn('[Login Stats] Failed to fetch live metrics:', err);
+      }
     };
     fetchStats();
   }, []);
@@ -61,17 +111,39 @@ export default function Login() {
           <p className="text-white/80 text-lg leading-relaxed mb-8">
             The premier digital learning and assessment platform for National Cadet Corps cadets.
           </p>
-          <div className="flex justify-center gap-6 text-sm">
-            <div className="text-center">
-              <div className="text-gold-400 font-bold text-2xl">{stats.cadets}</div>
-              <div className="text-white/60">Cadets</div>
-            </div>
-            <div className="w-px bg-white/20" />
-            <div className="text-center">
-              <div className="text-gold-400 font-bold text-2xl">{stats.courses}</div>
-              <div className="text-white/60">Courses</div>
-            </div>
-            <div className="w-px bg-white/20" />
+          <div className="flex justify-center gap-6 text-sm min-h-[56px] items-center">
+            {stats.cadets === null ? (
+              <div className="text-center flex flex-col items-center gap-1.5 w-16">
+                <div className="w-10 h-6 ncc-skeleton bg-white/10" />
+                <div className="text-white/40 text-xs">Cadets</div>
+              </div>
+            ) : (
+              <div className="text-center animate-fadeIn">
+                <div className="text-gold-400 font-bold text-2xl">
+                  <CountUp end={stats.cadets} />
+                </div>
+                <div className="text-white/60">Cadets</div>
+              </div>
+            )}
+            
+            <div className="w-px h-8 bg-white/20" />
+            
+            {stats.courses === null ? (
+              <div className="text-center flex flex-col items-center gap-1.5 w-16">
+                <div className="w-10 h-6 ncc-skeleton bg-white/10" />
+                <div className="text-white/40 text-xs">Courses</div>
+              </div>
+            ) : (
+              <div className="text-center animate-fadeIn">
+                <div className="text-gold-400 font-bold text-2xl">
+                  <CountUp end={stats.courses} />
+                </div>
+                <div className="text-white/60">Courses</div>
+              </div>
+            )}
+            
+            <div className="w-px h-8 bg-white/20" />
+            
             <div className="text-center">
               <div className="text-gold-400 font-bold text-2xl">3</div>
               <div className="text-white/60">Wings</div>
