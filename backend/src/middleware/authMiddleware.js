@@ -1,9 +1,4 @@
-const { createClient } = require('@supabase/supabase-js');
-
-const supabase = createClient(
-  process.env.SUPABASE_URL || 'http://localhost:54321',
-  process.env.SUPABASE_ANON_KEY || 'public-anon-key'
-);
+const { getSupabaseClient } = require('../config/supabase');
 
 const verifyToken = async (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
@@ -12,13 +7,16 @@ const verifyToken = async (req, res, next) => {
     return res.status(401).json({ error: 'No token provided' });
   }
 
-  const { data: { user }, error } = await supabase.auth.getUser(token);
+  // Create temporary client to verify token
+  const tempClient = getSupabaseClient(token);
+  const { data: { user }, error } = await tempClient.auth.getUser();
 
   if (error || !user) {
     return res.status(401).json({ error: 'Invalid token' });
   }
 
   req.user = user;
+  req.token = token;
   next();
 };
 

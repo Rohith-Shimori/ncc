@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { io } from 'socket.io-client';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'http://localhost:54321';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'public-anon-key';
@@ -1810,14 +1811,351 @@ class RealCustomAuth {
   }
 }
 
-// We no longer wrap with a Proxy - just use the real Supabase client directly
-// with our thin auth wrapper that now properly delegates to real Supabase auth.
 const customRealAuth = new RealCustomAuth(realSupabase);
 
-// Build a proxy that intercepts only the .auth property
+class APITransaction {
+  constructor(table, action, data = null) {
+    this.table = table;
+    this.action = action;
+    this.data = data;
+    this.filters = {};
+  }
+
+  eq(field, value) {
+    this.filters[field] = value;
+    return this;
+  }
+
+  async execute() {
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+    
+    let token = '';
+    try {
+      const { data: { session } } = await customRealAuth.getSession();
+      token = session?.access_token || '';
+    } catch (e) {
+      console.warn('[APITransaction] Auth session lookup failed:', e);
+    }
+
+    const headers = {
+      'Content-Type': 'application/json',
+      ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+    };
+
+    let url = `${apiUrl}/${this.table}`;
+    let method = 'POST';
+    let body = null;
+
+    const singleData = Array.isArray(this.data) ? this.data[0] : this.data;
+
+    if (this.action === 'insert') {
+      method = 'POST';
+      if (this.table === 'course_enrollments') {
+        url = `${apiUrl}/enrollments/enroll`;
+        body = JSON.stringify({ course_id: singleData.course_id });
+      } else {
+        body = JSON.stringify(singleData);
+      }
+    } else if (this.action === 'update') {
+      method = 'POST';
+      if (this.table === 'notifications') {
+        url = `${apiUrl}/notifications/read`;
+        body = JSON.stringify({ id: this.filters.id });
+      } else if (this.table === 'csv_exam_attempts') {
+        url = `${apiUrl}/exams/release`;
+        body = JSON.stringify({ attempt_id: this.filters.id });
+      } else {
+        body = JSON.stringify({ data: singleData, filters: this.filters });
+      }
+    } else if (this.action === 'delete') {
+      method = 'DELETE';
+      url = `${apiUrl}/${this.table}/${this.filters.id || ''}`;
+    }
+
+    try {
+      const response = await fetch(url, {
+        method,
+        headers,
+        body
+      });
+      const result = await response.json();
+      return { data: result.data, error: result.error };
+    } catch (err) {
+      console.error(`[APITransaction] Request failed to ${url}:`, err);
+      return { data: null, error: { message: err.message } };
+    }
+  }
+
+  then(onfulfilled, onrejected) {
+    return this.execute().then(onfulfilled, onrejected);
+  }
+
+  async single() {
+    const { data, error } = await this.execute();
+    if (error) return { data: null, error };
+    if (!data) return { data: null, error: { message: 'Row not found' } };
+    return { data: Array.isArray(data) ? data[0] : data, error: null };
+  }
+
+  async maybeSingle() {
+    const { data, error } = await this.execute();
+    if (error) return { data: null, error };
+    if (!data) return { data: null, error: null };
+    return { data: Array.isArray(data) ? data[0] : data, error: null };
+  }
+}
+
+class RealtimeChannelMock {
+  constructor(name) {
+    this.name = name;
+    this.user = null;
+    this.callbacks = [];
+    this.socket = null;
+  }
+
+  on(event, filter, callback) {
+    this.callbacks.push({ event, filter, callback });
+    return this;
+  }
+
+  subscribe(statusCallback) {
+    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+    
+    this.socket = io(socketUrl);
+
+    const emitJoin = (usr) => {
+      this.socket.emit('join_user', usr.id);
+      const role = usr.user_metadata?.role || 'cadet';
+      this.socket.emit('join_role', role);
+      if (role === 'instructor') {
+        this.socket.emit('join_role', 'instructors');
+      }
+    };
+
+    if (this.user) {
+      emitJoin(this.user);
+    }
+
+    this.socket.on('connect', () => {
+      if (this.user) {
+        emitJoin(this.user);
+      }
+      if (typeof statusCallback === 'function') {
+        statusCallback('SUBSCRIBED');
+      }
+    });
+
+    this.socket.on('new_notification', (data) => {
+      this.callbacks.forEach(({ callback }) => {
+        if (typeof callback === 'function') {
+          callback({
+            eventType: 'INSERT',
+            new: data
+          });
+        }
+      });
+    });
+
+    return this;
+  }
+
+  unsubscribe() {
+    if (this.socket) {
+      this.socket.disconnect();
+      this.socket = null;
+    }
+  }
+}
+
+class HybridChannel {
+  constructor(name, realClient) {
+    this.name = name;
+    this.realClient = realClient;
+    this.onCalls = [];
+    this.delegatedChannel = null;
+  }
+
+  on(event, filter, callback) {
+    this.onCalls.push({ event, filter, callback });
+    if (this.delegatedChannel) {
+      this.delegatedChannel.on(event, filter, callback);
+    }
+    return this;
+  }
+
+  subscribe(statusCallback) {
+    const isNotifications = this.onCalls.some(call => 
+      call.event === 'postgres_changes' && 
+      call.filter && 
+      call.filter.table === 'notifications'
+    );
+
+    if (isNotifications) {
+      const mockChan = new RealtimeChannelMock(this.name);
+      this.delegatedChannel = mockChan;
+      
+      this.onCalls.forEach(call => {
+        mockChan.on(call.event, call.filter, call.callback);
+      });
+
+      customRealAuth.getUser().then(({ data }) => {
+        if (data?.user) {
+          mockChan.user = data.user;
+          if (mockChan.socket) {
+            mockChan.socket.emit('join_user', data.user.id);
+            const role = data.user.user_metadata?.role || 'cadet';
+            mockChan.socket.emit('join_role', role);
+            if (role === 'instructor') {
+              mockChan.socket.emit('join_role', 'instructors');
+            }
+          }
+        }
+      }).catch(err => {
+        console.warn('[Realtime Interceptor] getUser failed:', err);
+      });
+
+      return mockChan.subscribe(statusCallback);
+    } else {
+      const realChan = this.realClient.channel(this.name);
+      this.delegatedChannel = realChan;
+
+      this.onCalls.forEach(call => {
+        realChan.on(call.event, call.filter, call.callback);
+      });
+
+      return realChan.subscribe(statusCallback);
+    }
+  }
+
+  unsubscribe() {
+    if (this.delegatedChannel) {
+      if (typeof this.delegatedChannel.unsubscribe === 'function') {
+        this.delegatedChannel.unsubscribe();
+      }
+    }
+  }
+}
+
+// Build a proxy that intercepts only target table modifications, RPCs and subscriptions
 const customRealSupabase = new Proxy(realSupabase, {
   get(target, prop) {
-    if (prop === 'auth') return customRealAuth;
+    if (prop === 'auth') {
+      return customRealAuth;
+    }
+    if (prop === 'from') {
+      return (table) => {
+        const targetTables = ['announcements', 'course_enrollments', 'csv_exam_attempts', 'notifications'];
+        const queryBuilder = target.from(table);
+
+        if (!targetTables.includes(table)) {
+          return queryBuilder;
+        }
+
+        return new Proxy(queryBuilder, {
+          get(qTarget, qProp) {
+            if (qProp === 'insert') {
+              return (data) => {
+                return new APITransaction(table, 'insert', data);
+              };
+            }
+            if (qProp === 'update') {
+              return (data) => {
+                return new APITransaction(table, 'update', data);
+              };
+            }
+            if (qProp === 'delete') {
+              return () => {
+                return new APITransaction(table, 'delete');
+              };
+            }
+
+            const val = qTarget[qProp];
+            if (typeof val === 'function') {
+              return val.bind(qTarget);
+            }
+            return val;
+          }
+        });
+      };
+    }
+    if (prop === 'rpc') {
+      return async (fn, params) => {
+        const targetRpcs = ['fn_submit_csv_exam', 'fn_submit_exam', 'fn_mark_notification_read'];
+        if (targetRpcs.includes(fn)) {
+          const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+          
+          let token = '';
+          try {
+            const { data: { session } } = await customRealAuth.getSession();
+            token = session?.access_token || '';
+          } catch (e) {
+            console.warn('[RPC Interceptor] Auth session lookup failed:', e);
+          }
+
+          const headers = {
+            'Content-Type': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+          };
+
+          if (fn === 'fn_submit_csv_exam' || fn === 'fn_submit_exam') {
+            try {
+              const response = await fetch(`${apiUrl}/exams/submit`, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({
+                  attempt_id: params.p_attempt_id,
+                  answers: params.p_answers,
+                  tab_switches: params.p_tab_switches,
+                  time_spent: params.p_time_spent
+                })
+              });
+              const result = await response.json();
+              return { data: result.data, error: result.error };
+            } catch (err) {
+              return { data: null, error: { message: err.message } };
+            }
+          }
+
+          if (fn === 'fn_mark_notification_read') {
+            try {
+              const response = await fetch(`${apiUrl}/notifications/read`, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({
+                  id: params.p_notification_id
+                })
+              });
+              const result = await response.json();
+              return { data: result.data, error: result.error };
+            } catch (err) {
+              return { data: null, error: { message: err.message } };
+            }
+          }
+        }
+        return target.rpc(fn, params);
+      };
+    }
+    if (prop === 'channel') {
+      return (name) => {
+        return new HybridChannel(name, target);
+      };
+    }
+    if (prop === 'removeChannel') {
+      return (channel) => {
+        if (!channel) return;
+        if (channel instanceof HybridChannel) {
+          if (channel.delegatedChannel) {
+            if (channel.delegatedChannel instanceof RealtimeChannelMock) {
+              channel.delegatedChannel.unsubscribe();
+            } else {
+              target.removeChannel(channel.delegatedChannel);
+            }
+          }
+        } else if (typeof channel.unsubscribe === 'function') {
+          channel.unsubscribe();
+        }
+      };
+    }
     const value = target[prop];
     if (typeof value === 'function') {
       return value.bind(target);
@@ -1826,8 +2164,7 @@ const customRealSupabase = new Proxy(realSupabase, {
   }
 });
 
-const mockSupabase = new MockSupabaseClient();
 
-export const supabase = USE_MOCK ? mockSupabase : customRealSupabase;
+export const supabase = USE_MOCK ? new MockSupabaseClient() : customRealSupabase;
 
-export const adminAuthClient = USE_MOCK ? mockSupabase : customRealSupabase;
+export const adminAuthClient = supabase;

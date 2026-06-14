@@ -34,9 +34,15 @@ import SystemActivity from './pages/admin/SystemActivity';
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, role, loading } = useAuth();
-  if (loading) return <div className="flex items-center justify-center h-screen"><div className="ncc-skeleton w-12 h-12 rounded-full"></div></div>;
-  if (!user) return <Navigate to="/login" />;
-  if (allowedRoles && !allowedRoles.includes(role)) return <Navigate to="/dashboard" />;
+  if (loading) {
+    return <div className="flex items-center justify-center h-screen"><div className="ncc-skeleton w-12 h-12 rounded-full"></div></div>;
+  }
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+  if (allowedRoles && !allowedRoles.includes(role)) {
+    return <Navigate to="/dashboard" />;
+  }
   return children;
 };
 
