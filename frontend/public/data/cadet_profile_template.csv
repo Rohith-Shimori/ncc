@@ -1,0 +1,2 @@
+cadet_id,full_name,ncc_unit,wing,certificate_target,state,directorate,enrolment_date,email,phone,admin_role,is_active,notes
+CADET-XXXX,,,ARMY|NAVY|AIR|RV,A|B|C,,,YYYY-MM-DD,,,ROLE-001|ROLE-002|ROLE-003|ROLE-004|ROLE-005,TRUE|FALSE,

@@ -1,0 +1,40 @@
+subject_code,subject_name,wing,certificate,module_number
+NCC_GEN,NCC General,ALL,ABC,1
+NAT_INT,National Integration & Awareness,ALL,ABC,2
+DRILL,Drill,ALL,ABC,3
+WPN_TRG,Weapon Training,ALL,ABC,4
+PERS_DEV,Personality Development,ALL,ABC,5
+LEADER,Leadership,ALL,ABC,6
+DIS_MGT,Disaster Management,ALL,ABC,7
+SOC_SVC,Social Service & Community Development,ALL,ABC,8
+HLTH_HYG,Health & Hygiene,ALL,ABC,9
+ADVENT,Adventure,ALL,ABC,10
+ENV_AWR,Environmental Awareness & Conservation,ALL,BC,11
+OBS_TRG,Obstacle Training,ALL,ABC,12
+BORDER,Border & Coastal Areas,ALL,ABC,13
+ARM_FRCS,Armed Forces,ARMY,ABC,14
+MAP_RDG,Map Reading,ARMY,ABC,15
+FLD_CRFT,Field Craft & Battle Craft,ARMY,ABC,16
+INF_WPN,Introduction to Infantry Weapons & Equipment,ARMY,ABC,17
+MIL_HIST,Military History,ARMY,ABC,18
+COMM,Communication,ARMY,ABC,19
+NAV_ORI,Naval Orientation,NAVY,ABC,20
+NAV_COMM,Naval Communication,NAVY,ABC,21
+NAV_NAV,Navigation,NAVY,ABC,22
+SEAMN,Seamanship,NAVY,ABC,23
+FIRE_FLT,Fire Fighting Flooding & Damage Control,NAVY,BC,24
+SHIP_MDL,Ship & Boat Modelling,NAVY,BC,25
+SWIM,Swimming,NAVY,BC,26
+GSK,General Service Knowledge,AIR,ABC,27
+AIR_CAMP,Air Campaigns,AIR,BC,28
+PRINC_FLT,Principles of Flight,AIR,ABC,29
+AIRMAN,Airmanship,AIR,BC,30
+AERO_ENG,Aero Engines & Air Frames,AIR,BC,31
+FLT_INST,Basic Flight Instruments & Radar Theory,AIR,BC,32
+AEROMDL,Aeromodelling,AIR,BC,33
+FLY_SOP,Flying & SOP,AIR,C,34
+AIR_NAV,Navigation & Metrology (Air),AIR,BC,35
+RVC_ORG,Organisation & Functioning of RVC,RV,BC,36
+ANIM_MGT,Animal Management & Equitation,RV,BC,37
+SHOEING,Shoeing,RV,BC,38
+SADDLE,Saddle Fitting,RV,BC,39

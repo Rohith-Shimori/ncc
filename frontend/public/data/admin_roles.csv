@@ -1,0 +1,6 @@
+role_id,role_name,can_add_questions,can_edit_questions,can_delete_questions,can_toggle_questions,can_create_modules,can_edit_modules,can_create_tests,can_edit_tests,can_view_all_cadets,can_export_reports,can_manage_admins,wing_filter,certificate_filter,can_see_analytics,can_grant_extensions
+ROLE-001,Super Admin,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,ALL,ALL,TRUE,TRUE
+ROLE-002,Wing Admin — Army,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,ARMY,ALL,TRUE,FALSE
+ROLE-003,Wing Admin — Navy,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,NAVY,ALL,TRUE,FALSE
+ROLE-004,Wing Admin — Air,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,AIR,ALL,TRUE,FALSE
+ROLE-005,Wing Admin — RV,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,RV,ALL,TRUE,FALSE

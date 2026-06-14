@@ -1,0 +1,16 @@
+setting_key,value,applies_to,description
+randomise_question_order,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Shuffle question sequence per attempt for every cadet
+randomise_option_order,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Shuffle A/B/C/D options per attempt; correct answer tracked by content not position
+question_pool_multiplier,3,PRACTICE_TESTS,Draw questions from a pool 3x the test size; no two cadets get identical set
+session_binding,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Exam token bound to login session; cannot be resumed on different device
+auto_submit_on_timer_expiry,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Exam auto-submits when countdown reaches zero; no manual override by cadet
+pause_resume_allowed,FALSE,ALL_TESTS_AND_MODULE_QUIZZES,Cadets cannot pause or resume exam; admin can grant time extension only
+show_answers_during_exam,FALSE,ALL_TESTS_AND_MODULE_QUIZZES,Correct answers and explanations shown only after submission
+copy_paste_disabled,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Disable copy-paste in exam window to prevent text exfiltration
+tab_switch_warning,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Warn cadet and log event if browser tab is switched during exam
+max_tab_switches_before_flag,2,ALL_TESTS_AND_MODULE_QUIZZES,Flag attempt in admin dashboard after 2 tab switches
+unique_attempt_id,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Each attempt gets unique UUID for audit trail
+ip_logging,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Log IP address of each attempt for anomaly detection
+time_per_question_logging,TRUE,ALL_TESTS_AND_MODULE_QUIZZES,Log seconds spent per question for efficiency analytics
+module_quiz_unlock_on_pass_only,TRUE,MODULE_QUIZZES,Next module only unlocked after cadet passes current module quiz
+practice_test_always_accessible,TRUE,PRACTICE_TESTS,Practice Tests accessible at any time regardless of module progress

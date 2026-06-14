@@ -1,0 +1,819 @@
+question_id,certificate,wing,subject_code,subject_name,module_number,question_text,option_a,option_b,option_c,option_d,correct_answer,explanation,difficulty,source,active
+Q-NCC_GEN-0001,ABC,ALL,NCC_GEN,NCC General,1,NCC was established on:,15 Jul 1947,15 Jul 1948,15 Aug 1947,16 Aug 1947,B,NCC Act 1948 established NCC on 15 Jul 1948.,1,OMR_2024,TRUE
+Q-NCC_GEN-0002,ABC,ALL,NCC_GEN,NCC General,1,NCC Motto is:,Unity and Service,Unity and Discipline,Discipline and Service,Duty and Discipline,B,Motto adopted 23 Dec 1957.,1,OMR_2024,TRUE
+Q-NCC_GEN-0003,ABC,ALL,NCC_GEN,NCC General,1,NCC Motto was adopted on:,15 Dec 1948,23 Jul 1948,23 Dec 1957,15 Jul 1948,C,Adopted 23 December 1957.,2,OMR_2024,TRUE
+Q-NCC_GEN-0004,ABC,ALL,NCC_GEN,NCC General,1,Naval Wing of NCC was first raised in:,Jun 1952,Jun 1954,Jul 1952,Jul 1954,C,Naval Wing raised July 1952.,1,OMR_2024,TRUE
+Q-NCC_GEN-0005,ABC,ALL,NCC_GEN,NCC General,1,NCC Day is observed on:,Last Sunday of November,Second Sunday of November,Last Day of November,Last Saturday of November,A,Last Sunday of November.,1,OMR_2024,TRUE
+Q-NCC_GEN-0006,ABC,ALL,NCC_GEN,NCC General,1,There are ___ NCC Directorates in India.,Thirteen,Fifteen,Seventeen,Eighteen,C,17 NCC Directorates.,2,OMR_2024,TRUE
+Q-NCC_GEN-0007,ABC,ALL,NCC_GEN,NCC General,1,DG NCC holds the rank of:,Major General,Air Marshall,Admiral,Lieutenant General,D,DG NCC = Lt General.,3,OMR_2024,TRUE
+Q-NCC_GEN-0008,ABC,ALL,NCC_GEN,NCC General,1,HQ DG NCC is located at:,Mumbai,Kolkata,New Delhi,Bangalore,C,HQ DG NCC at New Delhi.,1,OMR_2024,TRUE
+Q-NCC_GEN-0009,ABC,ALL,NCC_GEN,NCC General,1,Annual Training Camp is conducted at ___ level.,Directorate,Group HQ,Unit,All India,C,ATC at Unit level.,2,OMR_2024,TRUE
+Q-NCC_GEN-0010,ABC,ALL,NCC_GEN,NCC General,1,NCC Girls Division was raised in:,May 1965,January 1948,July 1950,July 1971,C,NCC Girls Division July 1950.,1,OMR_2024,TRUE
+Q-NCC_GEN-0011,ABC,ALL,NCC_GEN,NCC General,1,NCC Song was sung by:,Asha Bhonsle,Shreya Ghosal,Lata Mangeshkar,Anuradha Podwal,C,Lata Mangeshkar.,1,OMR_2024,TRUE
+Q-NCC_GEN-0012,ABC,ALL,NCC_GEN,NCC General,1,Male ANO Training Academy is at:,Gwalior,Dehradun,Kamptee,Agra,C,Kamptee.,2,OMR_2024,TRUE
+Q-NCC_GEN-0013,ABC,ALL,NCC_GEN,NCC General,1,Lady ANO Training Academy is at:,Gwalior,Dehradun,Kamptee,Agra,A,Gwalior.,1,OMR_2024,TRUE
+Q-NCC_GEN-0014,ABC,ALL,NCC_GEN,NCC General,1,EBSB camp is classified as:,Special Camp,Personality Development Camp,Adventure Camp,Centrally Organized Camp,D,Centrally Organized Camp.,3,OMR_2024,TRUE
+Q-NCC_GEN-0015,ABC,ALL,NCC_GEN,NCC General,1,Lotuses on NCC Crest represent:,NCC Directorates,Types of NCC Units,NCC Groups,National flower,A,Each lotus = one NCC Directorate.,2,OMR_2024,TRUE
+Q-NCC_GEN-0016,ABC,ALL,NCC_GEN,NCC General,1,CTO stands for:,Cadets Training Officer,Camp Training Officer,Care Taking Officer,Coordination and Training Officer,C,CTO = Care Taking Officer.,1,QB13,TRUE
+Q-NCC_GEN-0017,ABC,ALL,NCC_GEN,NCC General,1,WTLO stands for:,Whole Time Lady Officer,Weapon Training Lady Officer,Whole Time Logistics Officer,Weapon Trg Logistics Officer,A,WTLO = Whole Time Lady Officer.,1,QB13,TRUE
+Q-NCC_GEN-0018,ABC,ALL,NCC_GEN,NCC General,1,ANO stands for:,Allied NCC Officer,Associate NCC Officer,Associated NCC Officer,Administrative NCC Officer,B,ANO = Associate NCC Officer.,2,QB13,TRUE
+Q-NCC_GEN-0019,ABC,ALL,NCC_GEN,NCC General,1,DG NCC is assisted by ___ Deputy DGs.,Five,Six,Four,Seven,A,5 Deputy DGs assist DG NCC.,1,QB13,TRUE
+Q-NCC_GEN-0020,ABC,ALL,NCC_GEN,NCC General,1,Rock Climbing Training Camp is at ___ level.,Unit,Directorate,Group,DG NCC,D,DG NCC level.,1,QB13,TRUE
+Q-NCC_GEN-0021,ABC,ALL,NCC_GEN,NCC General,1,Seats reserved for C Certificate holders in IAF through SSB:,10%,15%,12%,8%,A,10% seats in IAF.,3,QB13,TRUE
+Q-NCC_GEN-0022,ABC,ALL,NCC_GEN,NCC General,1,Seats reserved at OTA Chennai for NCC Special Entry per year:,100,50,64,75,A,100 seats per year.,1,QB13,TRUE
+Q-NCC_GEN-0023,ABC,ALL,NCC_GEN,NCC General,1,Senior most JD ANO rank:,First Officer,Second Officer,Chief Officer,Third Officer,C,Chief Officer.,1,NEW,TRUE
+Q-NCC_GEN-0024,ABC,ALL,NCC_GEN,NCC General,1,Senior most SD ANO rank:,Captain,Lieutenant,Major,Colonel,C,Major.,2,NEW,TRUE
+Q-NCC_GEN-0025,ABC,ALL,NCC_GEN,NCC General,1,Grade A in NCC exam requires:,65%+,70%+,80%+,50%+,C,Grade A = 80% and above.,1,NEW,TRUE
+Q-NCC_GEN-0026,ABC,ALL,NCC_GEN,NCC General,1,Minimum marks in each paper to pass NCC exam:,50%,45%,55%,40%,B,45% in each paper.,1,NEW,TRUE
+Q-NCC_GEN-0027,ABC,ALL,NCC_GEN,NCC General,1,NCC Welfare funds provide financial assistance during:,Illness,Training injuries,Studies,Travel,B,Financial assistance for training injuries.,2,NEW,TRUE
+Q-NCC_GEN-0028,ABC,ALL,NCC_GEN,NCC General,1,Which wing is NOT part of NCC?,Army,Navy,Air Force,Marine,D,No Marine wing in NCC.,3,NEW,TRUE
+Q-NCC_GEN-0029,ABC,ALL,NCC_GEN,NCC General,1,NCC crest has ___ lotuses.,13,17,5,7,B,17 lotuses = 17 Directorates.,1,NEW,TRUE
+Q-NCC_GEN-0030,ABC,ALL,NCC_GEN,NCC General,1,HQ DG NCC is assisted by ___ Additional DGs.,Five,Two,Six,Three,B,2 Additional DGs.,2,NEW,TRUE
+Q-NAT_INT-0031,ABC,ALL,NAT_INT,National Integration & Awareness,2,Most sacred scripture of Sikhism:,Japji Sahib,Nishan Sahib,Guru Granth Sahib,Ek Onkar Satnam,C,Guru Granth Sahib.,1,OMR_2024,TRUE
+Q-NAT_INT-0032,ABC,ALL,NAT_INT,National Integration & Awareness,2,Folk dance of Gujarat:,Bhangra,Bihu,Bharat Natyam,Garba,D,Garba.,1,OMR_2024,TRUE
+Q-NAT_INT-0033,ABC,ALL,NAT_INT,National Integration & Awareness,2,Lavani is folk dance of:,West Bengal,Haryana,Maharashtra,Ladakh,C,Maharashtra.,2,OMR_2024,TRUE
+Q-NAT_INT-0034,ABC,ALL,NAT_INT,National Integration & Awareness,2,Traditional dance of Andhra Pradesh:,Bharatanatyam,Raas Leela,Kuchipudi,Kathkali,C,Kuchipudi.,1,OMR_2024,TRUE
+Q-NAT_INT-0035,ABC,ALL,NAT_INT,National Integration & Awareness,2,Quit India Movement started in:,1939,1942,1921,1947,B,8 August 1942.,1,OMR_2024,TRUE
+Q-NAT_INT-0036,ABC,ALL,NAT_INT,National Integration & Awareness,2,National Animal of India:,Elephant,Cheetah,Lion,Tiger,D,Tiger.,2,OMR_2024,TRUE
+Q-NAT_INT-0037,ABC,ALL,NAT_INT,National Integration & Awareness,2,National Bird of India:,Swan,Peacock,Eagle,Parrot,B,Peacock.,3,OMR_2024,TRUE
+Q-NAT_INT-0038,ABC,ALL,NAT_INT,National Integration & Awareness,2,First President of India:,Jawaharlal Nehru,Dr Zakir Hussain,Dr Rajendra Prasad,Sardar Patel,C,Dr Rajendra Prasad.,1,OMR_2024,TRUE
+Q-NAT_INT-0039,ABC,ALL,NAT_INT,National Integration & Awareness,2,Victoria Memorial is in:,Mumbai,Kolkata,Chennai,Bengaluru,B,Kolkata.,2,OMR_2024,TRUE
+Q-NAT_INT-0040,ABC,ALL,NAT_INT,National Integration & Awareness,2,Kalarippayattu martial art belongs to:,Andhra Pradesh,Tamil Nadu,Kerala,Telangana,C,Kerala.,1,OMR_2024,TRUE
+Q-NAT_INT-0041,ABC,ALL,NAT_INT,National Integration & Awareness,2,'Iron Man' of India:,Bhagat Singh,Lala Lajpat Rai,Mahatma Gandhi,Sardar Vallabh Bhai Patel,D,Sardar Patel.,1,OMR_2024,TRUE
+Q-NAT_INT-0042,ABC,ALL,NAT_INT,National Integration & Awareness,2,National Anthem composed by:,Ustad Allah Rakha,Vinobha Bhave,Rabindranath Tagore,Bankim Chandra Chatterjee,C,Rabindranath Tagore.,2,OMR_2024,TRUE
+Q-NAT_INT-0043,ABC,ALL,NAT_INT,National Integration & Awareness,2,Cellular Jail is at:,Ahmedabad,Old Delhi,Chennai,Port Blair,D,Port Blair.,1,OMR_2024,TRUE
+Q-NAT_INT-0044,ABC,ALL,NAT_INT,National Integration & Awareness,2,Lohri is celebrated in:,Haryana,Himachal Pradesh,Punjab,Ladakh,C,Punjab.,3,OMR_2024,TRUE
+Q-NAT_INT-0045,ABC,ALL,NAT_INT,National Integration & Awareness,2,Bihu is harvest festival of:,West Bengal,Assam,Manipur,Nagaland,B,Assam.,2,OMR_2024,TRUE
+Q-NAT_INT-0046,ABC,ALL,NAT_INT,National Integration & Awareness,2,INC established on:,28 Dec 1885,22 Oct 1857,26 Jan 1899,15 Aug 1899,A,28 December 1885.,1,QB13,TRUE
+Q-NAT_INT-0047,ABC,ALL,NAT_INT,National Integration & Awareness,2,Lion Capital of Ashoka is at:,Sarnath,Gaya,Delhi,Bodh Gaya,A,Sarnath.,1,QB13,TRUE
+Q-NAT_INT-0048,ABC,ALL,NAT_INT,National Integration & Awareness,2,First War of Independence was in:,1857,1885,1839,1891,A,1857 Sepoy Mutiny.,2,QB13,TRUE
+Q-NAT_INT-0049,ABC,ALL,NAT_INT,National Integration & Awareness,2,National Game of India:,Football,Hockey,Cricket,Wrestling,B,Hockey.,1,QB13,TRUE
+Q-NAT_INT-0050,ABC,ALL,NAT_INT,National Integration & Awareness,2,Brahmaputra flows through:,Nagaland,Assam,West Bengal,Sikkim,B,Assam.,1,QB13,TRUE
+Q-NAT_INT-0051,ABC,ALL,NAT_INT,National Integration & Awareness,2,Lal Bahadur Shastri was ___ PM of India.,First,Third,Second,Fourth,C,2nd PM.,3,QB13,TRUE
+Q-NAT_INT-0052,ABC,ALL,NAT_INT,National Integration & Awareness,2,Capital of Bhutan:,Kathmandu,Nay-pi-taw,Gangtok,Thimphu,D,Thimphu.,1,QB13,TRUE
+Q-NAT_INT-0053,ABC,ALL,NAT_INT,National Integration & Awareness,2,Dandi March ended on:,11 Jun 1930,07 Aug 1930,06 Apr 1930,12 Jan 1931,C,6 April 1930.,1,NEW,TRUE
+Q-NAT_INT-0054,ABC,ALL,NAT_INT,National Integration & Awareness,2,Bhagat Singh was born on:,23 Mar 1907,27 Oct 1857,27 Sep 1907,23 Mar 1908,C,27 September 1907.,2,NEW,TRUE
+Q-NAT_INT-0055,ABC,ALL,NAT_INT,National Integration & Awareness,2,Mahabharat authored by:,Sage Valmiki,Sage Vishwaamitra,Sage Veda Vyas,Sage Angeerasa,C,Sage Veda Vyas.,1,NEW,TRUE
+Q-NAT_INT-0056,ABC,ALL,NAT_INT,National Integration & Awareness,2,Sikhism founded by:,Guru Gobind Singh,Guru Nanak Dev ji,Guru Tegh Bahadur,Guru Angad Dev ji,B,Guru Nanak Dev ji.,1,NEW,TRUE
+Q-NAT_INT-0057,ABC,ALL,NAT_INT,National Integration & Awareness,2,Indus Valley Civilization is one of the oldest.,Ganga-Jamuna Tehzeeb,Dravidian Civilization,Indus Valley Civilization,Aryan Civilization,C,Indus Valley Civilization.,2,NEW,TRUE
+Q-NAT_INT-0058,ABC,ALL,NAT_INT,National Integration & Awareness,2,Raghunath Mandir is in:,Ayodhya,Jammu,Puri,Bengaluru,B,Jammu.,3,NEW,TRUE
+Q-NAT_INT-0059,ABC,ALL,NAT_INT,National Integration & Awareness,2,Bharat Natyam is the dance of:,Gujarat,Punjab,Tamil Nadu,Rajasthan,C,Tamil Nadu.,1,NEW,TRUE
+Q-NAT_INT-0060,ABC,ALL,NAT_INT,National Integration & Awareness,2,National motto of India is:,Jai Hind,Satyameva Jayate,Jai Jawan Jai Kisan,Vande Mataram,B,Satyameva Jayate.,2,NEW,TRUE
+Q-DRILL-0061,ABC,ALL,DRILL,Drill,3,"In Saavdhan, shoulders are ___ to the ground.",At 45 deg,Perpendicular,Parallel,At 30 deg,C,Shoulders parallel to ground.,1,OMR_2024,TRUE
+Q-DRILL-0062,ABC,ALL,DRILL,Drill,3,Samne Salute right elbow angle is ___ degrees.,30,60,45,75,C,45 degrees.,1,OMR_2024,TRUE
+Q-DRILL-0063,ABC,ALL,DRILL,Drill,3,"In Tez Chal, step length is ___ inches.",45,60,30,75,C,30 inches.,2,OMR_2024,TRUE
+Q-DRILL-0064,ABC,ALL,DRILL,Drill,3,"In Vishram, distance between heels is ___ inches.",10,12,16,18,B,12 inches.,1,OMR_2024,TRUE
+Q-DRILL-0065,ABC,ALL,DRILL,Drill,3,"In Savdhaan, angle at ankles is ___ degrees.",15,45,30,60,C,30 degrees.,1,OMR_2024,TRUE
+Q-DRILL-0066,ABC,ALL,DRILL,Drill,3,Word of Command always given in ___ position.,Vishram,Front,Saavdhan,Jaanch,C,Saavdhan position.,2,OMR_2024,TRUE
+Q-DRILL-0067,ABC,ALL,DRILL,Drill,3,Slow March paces per minute:,60,90,120,70,D,70 paces/min.,3,OMR_2024,TRUE
+Q-DRILL-0068,ABC,ALL,DRILL,Drill,3,Rashtriya Salute is given to:,Prime Minister,Defence Minister,President,All of these,C,President.,1,OMR_2024,TRUE
+Q-DRILL-0069,ABC,ALL,DRILL,Drill,3,Word of command for final dispersal:,Aaram Se,Kadam Tal,Visarjan,Line Tod,C,Visarjan.,2,OMR_2024,TRUE
+Q-DRILL-0070,ABC,ALL,DRILL,Drill,3,A line of men standing one behind other is:,Lane,Rank,File,Drill,C,File.,1,OMR_2024,TRUE
+Q-DRILL-0071,ABC,ALL,DRILL,Drill,3,Types of salutes in Foot Drill:,Two,Three,Five,Four,B,Three types.,1,OMR_2024,TRUE
+Q-DRILL-0072,ABC,ALL,DRILL,Drill,3,In Salami Shastra rifle butt is ___ inches in front.,Six,Twelve,Nine,Any,B,12 inches.,2,OMR_2024,TRUE
+Q-DRILL-0073,ABC,ALL,DRILL,Drill,3,In Salami Shastra barrel is ___ inches from nose.,Three,Nine,Six,Twelve,C,6 inches.,1,OMR_2024,TRUE
+Q-DRILL-0074,ABC,ALL,DRILL,Drill,3,Samne Salute finger touches:,Right tip of right eye,Nose bridge,Centre of Eye,Centre of Right eyebrow,D,Centre of right eyebrow.,3,OMR_2024,TRUE
+Q-DRILL-0075,ABC,ALL,DRILL,Drill,3,For inspection squad is in ___ position.,Nikat Line,Jaanch Line,Khuli Line,Aaram Se,C,Khuli Line Chal.,2,OMR_2024,TRUE
+Q-DRILL-0076,ABC,ALL,DRILL,Drill,3,Piche Mud equals:,Two Dahine Muds,Two Bae Muds,Both of these,None,C,Two consecutive turns in either direction.,1,QB13,TRUE
+Q-DRILL-0077,ABC,ALL,DRILL,Drill,3,During Drill you should NOT:,Click heels,Drag feet,Both,None,B,Never drag feet.,1,QB13,TRUE
+Q-DRILL-0078,ABC,ALL,DRILL,Drill,3,Drill introduced by Major General Dral of ___ in 1666.,Britain,Spain,Germany,America,C,Germany.,2,QB13,TRUE
+Q-DRILL-0079,ABC,ALL,DRILL,Drill,3,Guard of Honour for President has ___ rank and file.,120,100,150,104,C,150.,1,QB13,TRUE
+Q-DRILL-0080,ABC,ALL,DRILL,Drill,3,In Bagal Shastr right palm is on ___ of rifle.,Trigger,Butt,Pistol Grip,Small of Butt,C,Pistol Grip.,1,QB13,TRUE
+Q-DRILL-0081,ABC,ALL,DRILL,Drill,3,General Salute for dignitaries of ___ rank and above.,Brigadier,Major General,Colonel,Lt General,B,Major General and above.,3,QB13,TRUE
+Q-DRILL-0082,ABC,ALL,DRILL,Drill,3,Normal march speed is ___ paces per minute.,90,100,120,110,C,120 paces/min.,1,QB13,TRUE
+Q-DRILL-0083,ABC,ALL,DRILL,Drill,3,In Khuli Line Chal cadet's final position is ___ inches ahead.,30,60,90,45,D,45 inches ahead.,1,NEW,TRUE
+Q-DRILL-0084,ABC,ALL,DRILL,Drill,3,Rashtriya Salute is also given to ___.,Governor,Defence Minister,Chief Minister,All of these,A,Governors of states.,2,NEW,TRUE
+Q-DRILL-0085,ABC,ALL,DRILL,Drill,3,In Saavdhan hands should be in line with ___.,Ground,Shoulders,Waist,Stitching of pants,D,Stitching of pants.,1,NEW,TRUE
+Q-DRILL-0086,ABC,ALL,DRILL,Drill,3,Snap in WoC demands ___.,Loudness,Timing,Instantaneous response,Distinctness,C,Instantaneous response.,1,NEW,TRUE
+Q-DRILL-0087,ABC,ALL,DRILL,Drill,3,Word of Command parts are Cautionary and ___.,Loud and Clear,Executive,Pitch,Distinctness,B,Executive.,2,NEW,TRUE
+Q-DRILL-0088,ABC,ALL,DRILL,Drill,3,Clarity of WoC by coordination of:,Tongue and Lips,Teeth and Lips,Tongue Teeth and Lips,Loudness and Pitch,C,"Tongue, teeth and lips.",3,NEW,TRUE
+Q-DRILL-0089,ABC,ALL,DRILL,Drill,3,In Vishraam weight of body on:,Right Leg,Both legs,Slightly forward,Slightly behind,B,Both legs.,1,NEW,TRUE
+Q-DRILL-0090,ABC,ALL,DRILL,Drill,3,After four consecutive Dahine Muds you face:,Left,Right,Back,Same direction,D,Same direction (360 degrees).,2,NEW,TRUE
+Q-WPN_TRG-0091,ABC,ALL,WPN_TRG,Weapon Training,4,Length of 0.22 mm rifle is ___ inches.,35,45,50,30,B,45 inches.,1,OMR_2024,TRUE
+Q-WPN_TRG-0092,ABC,ALL,WPN_TRG,Weapon Training,4,Max range of 0.22 Rifle is ___ yards.,1500,1700,2000,2200,B,1700 yards.,1,OMR_2024,TRUE
+Q-WPN_TRG-0093,ABC,ALL,WPN_TRG,Weapon Training,4,Rifle is loaded when round is in:,Magazine,Barrel,Chamber,Cartridge,C,Chamber.,2,OMR_2024,TRUE
+Q-WPN_TRG-0094,ABC,ALL,WPN_TRG,Weapon Training,4,Muzzle velocity of .22 Rifle is ___ fps.,2500,3000,2700,3200,C,2700 fps.,1,OMR_2024,TRUE
+Q-WPN_TRG-0095,ABC,ALL,WPN_TRG,Weapon Training,4,Normal ROF of .22 Rifle is ___ rounds/min.,Ten,Six,Five,Twelve,C,5 rpm.,1,OMR_2024,TRUE
+Q-WPN_TRG-0096,ABC,ALL,WPN_TRG,Weapon Training,4,Innermost circle of target is called:,Magpie,Inner,Bull,Black Circle,C,Bull.,2,OMR_2024,TRUE
+Q-WPN_TRG-0097,ABC,ALL,WPN_TRG,Weapon Training,4,Caliber of weapon = ___ of barrel.,Weight,Length,Inner diameter,Circumference,C,Inner diameter.,3,OMR_2024,TRUE
+Q-WPN_TRG-0098,ABC,ALL,WPN_TRG,Weapon Training,4,Imaginary line eye-to-target through sight:,Aiming Line,Line of Target,Line of Sight,Firing Line,C,Line of Sight.,1,OMR_2024,TRUE
+Q-WPN_TRG-0099,ABC,ALL,WPN_TRG,Weapon Training,4,Target used for grouping and zeroing:,Fig 11,1x1 target,4x4 target,Fig 12,B,1' x 1' target.,2,OMR_2024,TRUE
+Q-WPN_TRG-0100,ABC,ALL,WPN_TRG,Weapon Training,4,Flags used to show range is live are ___ colour.,Green,Yellow,Red,White,C,Red flags.,1,OMR_2024,TRUE
+Q-WPN_TRG-0101,ABC,ALL,WPN_TRG,Weapon Training,4,Caliber of a round indicates its:,Cross-section,Radius,Circumference,Diameter,D,Diameter of the round.,1,OMR_2024,TRUE
+Q-WPN_TRG-0102,ABC,ALL,WPN_TRG,Weapon Training,4,Parabolic path of bullet during flight:,Telemetry,Trajectory,Flight Path,Track,B,Trajectory.,2,OMR_2024,TRUE
+Q-WPN_TRG-0103,ABC,ALL,WPN_TRG,Weapon Training,4,Central point of 5 shots in grouping fire:,Max Point of Impact,Min Point of Impact,Main Point of Impact,Mean Point of Impact,D,MPI = Mean Point of Impact.,1,OMR_2024,TRUE
+Q-WPN_TRG-0104,ABC,ALL,WPN_TRG,Weapon Training,4,Elevation given to counter ___ during bullet flight.,Thrust,Range,Spin,Gravity,D,Gravity.,3,OMR_2024,TRUE
+Q-WPN_TRG-0105,ABC,ALL,WPN_TRG,Weapon Training,4,Extractor extracts:,Magazine,Bullet,Empty Case,Round,C,Empty case.,2,OMR_2024,TRUE
+Q-WPN_TRG-0106,ABC,ALL,WPN_TRG,Weapon Training,4,Waiting Details in Firing Group:,Four,Three,NIL,Two,D,Two.,1,QB13,TRUE
+Q-WPN_TRG-0107,ABC,ALL,WPN_TRG,Weapon Training,4,Safety Catch positions on .22 rifle:,One,Two,Three,Four,B,Two positions.,1,QB13,TRUE
+Q-WPN_TRG-0108,ABC,ALL,WPN_TRG,Weapon Training,4,Zeroing = rectification of all ___ in rifle.,Damage,Grouping,Defects,Wear,C,All defects.,2,QB13,TRUE
+Q-WPN_TRG-0109,ABC,ALL,WPN_TRG,Weapon Training,4,Grooves in barrel of .22 Rifle:,4,5,6,8,C,6 grooves.,1,QB13,TRUE
+Q-WPN_TRG-0110,ABC,ALL,WPN_TRG,Weapon Training,4,Basic principle of firing: one bullet one ___.,Shot,Enemy,Target,Round,B,Ek goli ek dushman.,1,QB13,TRUE
+Q-WPN_TRG-0111,ABC,ALL,WPN_TRG,Weapon Training,4,Rapid ROF of .22 Rifle is ___ rpm.,5,10-15,20,25,B,10-15 rpm.,3,QB13,TRUE
+Q-WPN_TRG-0112,ABC,ALL,WPN_TRG,Weapon Training,4,Hold of rifle: hand guard rests between thumb and ___.,Palm,Ring Finger,Index Finger,Middle Finger,C,Index finger.,1,QB13,TRUE
+Q-WPN_TRG-0113,ABC,ALL,WPN_TRG,Weapon Training,4,During trigger press ensure ___ does not move.,Safety Catch,Barrel,Trigger Guard,Target,B,Barrel.,1,NEW,TRUE
+Q-WPN_TRG-0114,ABC,ALL,WPN_TRG,Weapon Training,4,"While firing, accuracy is more important than ___.",Aiming,Score,Speed,Discipline,C,Speed.,2,NEW,TRUE
+Q-WPN_TRG-0115,ABC,ALL,WPN_TRG,Weapon Training,4,"In 22 rifle, foresight NOT a part:",Foresight,Trigger Guard,Backsight,Foresight Aimer,D,Foresight Aimer is not a part.,1,NEW,TRUE
+Q-PERS_DEV-0116,ABC,ALL,PERS_DEV,Personality Development,5,OIR stands for Officer ___ Rating.,Initiative,Intuitive,Intelligence,Innovative,C,Intelligence.,1,OMR_2024,TRUE
+Q-PERS_DEV-0117,ABC,ALL,PERS_DEV,Personality Development,5,"In Lecturette at SSB, candidate gets ___ topics.",Two,Three,Four,Five,C,Four topics.,1,OMR_2024,TRUE
+Q-PERS_DEV-0118,ABC,ALL,PERS_DEV,Personality Development,5,"In WAT at SSB, ___ words shown for 15s each.",30,50,60,100,C,60 words.,2,OMR_2024,TRUE
+Q-PERS_DEV-0119,ABC,ALL,PERS_DEV,Personality Development,5,"Three communication styles: Aggressive, Passive, and:",Verbal,Non-Verbal,Active,Assertive,D,Assertive.,1,OMR_2024,TRUE
+Q-PERS_DEV-0120,ABC,ALL,PERS_DEV,Personality Development,5,Empathy is the ability to:,Think logically,Imagine another's perspective,Make decisions,Analyse,B,Imagine another's perspective.,1,OMR_2024,TRUE
+Q-PERS_DEV-0121,ABC,ALL,PERS_DEV,Personality Development,5,In PPDT picture shown for ___ seconds.,45,30,10,15,B,30 seconds.,2,OMR_2024,TRUE
+Q-PERS_DEV-0122,ABC,ALL,PERS_DEV,Personality Development,5,Creativity = ability to ___ something new.,Copy,Refine,Imagine or invent,Evaluate,C,Imagine or invent.,3,OMR_2024,TRUE
+Q-PERS_DEV-0123,ABC,ALL,PERS_DEV,Personality Development,5,Exchange of ideas between persons is:,Discussion,Transmission,Public Speaking,Communication,D,Communication.,1,OMR_2024,TRUE
+Q-PERS_DEV-0124,ABC,ALL,PERS_DEV,Personality Development,5,Components of Effective Communication:,Two,Three,Four,Five,B,Three.,2,OMR_2024,TRUE
+Q-PERS_DEV-0125,ABC,ALL,PERS_DEV,Personality Development,5,Types of Communication:,Six,Four,Three,Five,C,Three.,1,OMR_2024,TRUE
+Q-PERS_DEV-0126,ABC,ALL,PERS_DEV,Personality Development,5,NOT a type of etiquette:,Social Etiquette,Corporate Etiquette,Family Etiquette,Bathroom Etiquette,C,Family Etiquette.,1,OMR_2024,TRUE
+Q-PERS_DEV-0127,ABC,ALL,PERS_DEV,Personality Development,5,20% of time produces ___ of output.,40%,60%,70%,80%,D,80% (Pareto principle).,2,OMR_2024,TRUE
+Q-PERS_DEV-0128,ABC,ALL,PERS_DEV,Personality Development,5,Critical thinking = determining authenticity = ___.,Intelligence,Creativity,Evaluation,Critical Thinking,D,Critical Thinking.,1,OMR_2024,TRUE
+Q-PERS_DEV-0129,ABC,ALL,PERS_DEV,Personality Development,5,Skills acquired through practice and:,Enhancement,Calmness,Struggle,Patience,D,Patience.,3,OMR_2024,TRUE
+Q-PERS_DEV-0130,ABC,ALL,PERS_DEV,Personality Development,5,Passive communicators lack ___ expression.,Body,Enthusiastic,Facial,Confident,C,Facial expression.,2,OMR_2024,TRUE
+Q-PERS_DEV-0131,ABC,ALL,PERS_DEV,Personality Development,5,In Individual Obstacle Task at SSB max points:,55,65,Not Specified,74,C,Not Specified.,1,QB13,TRUE
+Q-PERS_DEV-0132,ABC,ALL,PERS_DEV,Personality Development,5,PGT = Progressive ___ Task.,Group,Graded,General,Ground,A,Progressive Group Task.,1,QB13,TRUE
+Q-PERS_DEV-0133,ABC,ALL,PERS_DEV,Personality Development,5,Problems are often ___ in disguise.,Disgusting,Opportunities,Difficulties,Blessings,B,Opportunities.,2,QB13,TRUE
+Q-PERS_DEV-0134,ABC,ALL,PERS_DEV,Personality Development,5,Self-Awareness needed for ___ attitude.,Great,Healthy,Appropriate,Positive,D,Positive.,1,QB13,TRUE
+Q-PERS_DEV-0135,ABC,ALL,PERS_DEV,Personality Development,5,Aggressive communicators are ___ listeners.,Great,Active,Passive,Poor,D,Poor listeners.,1,QB13,TRUE
+Q-PERS_DEV-0136,ABC,ALL,PERS_DEV,Personality Development,5,Your ___ determines how you receive information.,Knowledge,Compatibility,Mindset,Ability,C,Mindset.,3,QB13,TRUE
+Q-PERS_DEV-0137,ABC,ALL,PERS_DEV,Personality Development,5,Unhealthy stress best coped by recognising when stress is ___.,Stable,Disturbing,Building,Reducing,C,Building.,1,QB13,TRUE
+Q-PERS_DEV-0138,ABC,ALL,PERS_DEV,Personality Development,5,Communication Gap reduced by not being ___.,Judgemental,Loud,Reserved,Formal,A,Judgemental.,1,NEW,TRUE
+Q-PERS_DEV-0139,ABC,ALL,PERS_DEV,Personality Development,5,Stress is ___ in nature.,Secret,Disruptive,Confusing,Universal,D,Universal.,2,NEW,TRUE
+Q-PERS_DEV-0140,ABC,ALL,PERS_DEV,Personality Development,5,Life Skills include all EXCEPT:,Decision Making,Self Awareness,Education,Critical Thinking,C,Education is not a Life Skill.,1,NEW,TRUE
+Q-PERS_DEV-0141,ABC,ALL,PERS_DEV,Personality Development,5,Assertive communicators are ___ listeners.,Poor,Passive,Active,Aggressive,C,Active listeners.,1,NEW,TRUE
+Q-PERS_DEV-0142,ABC,ALL,PERS_DEV,Personality Development,5,Time Management is a set of ___ tools and systems.,Skills,Methods,Techniques,Rules,A,"Skills, tools and systems.",2,NEW,TRUE
+Q-PERS_DEV-0143,ABC,ALL,PERS_DEV,Personality Development,5,OIR test = Verbal and Non-verbal tests at SSB ___.,Stage 1,Stage 2,Stage 3,Final,A,Stage 1.,3,NEW,TRUE
+Q-PERS_DEV-0144,ABC,ALL,PERS_DEV,Personality Development,5,Empathy works wonders in our ___.,Studies,Relationships,Career,Fitness,B,Relationships.,1,NEW,TRUE
+Q-PERS_DEV-0145,ABC,ALL,PERS_DEV,Personality Development,5,Street smarts come from ___ sources.,Likely,Familiar,Difficult,Unlikely,D,Unlikely sources.,2,NEW,TRUE
+Q-LEADER-0146,ABC,ALL,LEADER,Leadership,6,NOT a leadership trait:,Alertness,Speak the Truth,Loyalty,Integrity,B,Speak the Truth is not a leadership trait.,1,OMR_2024,TRUE
+Q-LEADER-0147,ABC,ALL,LEADER,Leadership,6,Loyalty = faithfulness to ___.,One person,Country and organization,Own beliefs,Friends,B,"Country, organization and subordinates.",1,OMR_2024,TRUE
+Q-LEADER-0148,ABC,ALL,LEADER,Leadership,6,Judgement = ___ and consistent command.,Bold,Impartial,Aggressive,Passive,B,Impartial.,2,OMR_2024,TRUE
+Q-LEADER-0149,ABC,ALL,LEADER,Leadership,6,Enthusiasm = genuine interest and ___ in duties.,Fear,Laziness,Zeal,Doubt,C,Zeal.,1,OMR_2024,TRUE
+Q-LEADER-0150,ABC,ALL,LEADER,Leadership,6,Second type of courage after Physical courage:,Mental,Psychological,Moral,Judgement,C,Moral Courage.,1,OMR_2024,TRUE
+Q-LEADER-0151,ABC,ALL,LEADER,Leadership,6,Bearing = physical ___ dress and deportment.,Fitness,Appearance,Strength,Weight,B,Physical appearance.,2,OMR_2024,TRUE
+Q-LEADER-0152,ABC,ALL,LEADER,Leadership,6,Initiative = acting ___ orders.,After,Against,Without,Beyond,C,Without orders.,3,OMR_2024,TRUE
+Q-LEADER-0153,ABC,ALL,LEADER,Leadership,6,Team Spirit = loyalty and ___ for group.,Discipline,Competition,Enthusiasm,Fear,C,Enthusiasm.,1,OMR_2024,TRUE
+Q-LEADER-0154,ABC,ALL,LEADER,Leadership,6,Dr APJ Abdul Kalam was ___ President of India.,9th,10th,11th,12th,C,11th President.,2,OMR_2024,TRUE
+Q-LEADER-0155,ABC,ALL,LEADER,Leadership,6,India's highest civilian honour:,Padma Vibhushan,Padma Shri,Bharat Ratna,Param Vir Chakra,C,Bharat Ratna.,1,OMR_2024,TRUE
+Q-LEADER-0156,ABC,ALL,LEADER,Leadership,6,Kalam's dream career was:,Teacher,Fighter Pilot,Astronaut,IAS Officer,B,Fighter Pilot.,1,OMR_2024,TRUE
+Q-LEADER-0157,ABC,ALL,LEADER,Leadership,6,Rani Lakshmibai born in November 1828 in:,Jhansi,Nagpur,Mumbai,Varanasi,D,Varanasi.,2,OMR_2024,TRUE
+Q-LEADER-0158,ABC,ALL,LEADER,Leadership,6,Maharana Pratap ruled:,Ajmer,Mewar,Vegad,Shekhavati,B,Mewar.,1,OMR_2024,TRUE
+Q-LEADER-0159,ABC,ALL,LEADER,Leadership,6,Shivaji crowned at ___ in 1674.,Shivneri,Pune,Raigad,Bijapur,C,Raigad.,3,OMR_2024,TRUE
+Q-LEADER-0160,ABC,ALL,LEADER,Leadership,6,India's first nuclear test in:,1976,1974,1992,1998,B,"Pokhran I, 1974.",2,OMR_2024,TRUE
+Q-LEADER-0161,ABC,ALL,LEADER,Leadership,6,NOT an indicator of good leadership:,Morale,Discipline,Integrity,Competence,C,"Integrity is a trait, not exactly an indicator.",1,QB13,TRUE
+Q-LEADER-0162,ABC,ALL,LEADER,Leadership,6,Honour Code is the ___ for each cadet's ethical behaviour.,Preamble,Foundation,Cadet's Commandments,Constitution,B,Foundation.,1,QB13,TRUE
+Q-LEADER-0163,ABC,ALL,LEADER,Leadership,6,"Three factors of motivation: Material, Intellectual, and:",Personal,Leadership,Professional,Spiritual,D,Spiritual Factors.,2,QB13,TRUE
+Q-LEADER-0164,ABC,ALL,LEADER,Leadership,6,Rani Lakshmibai escaped fort on horse called:,Chetak,Pavan,Badal,Sarangi,C,Badal.,1,QB13,TRUE
+Q-LEADER-0165,ABC,ALL,LEADER,Leadership,6,Dr Kalam served in DRDO and:,IISc Bangalore,IIT Chennai,ISRO,Missile Development,C,ISRO.,1,QB13,TRUE
+Q-LEADER-0166,ABC,ALL,LEADER,Leadership,6,Maharana Pratap fought Akbar's forces at:,Dobhigati,Mewar,Haldighati,Jaipur,C,Haldighati.,3,QB13,TRUE
+Q-LEADER-0167,ABC,ALL,LEADER,Leadership,6,Tipu Sultan born at ___ in present day Bangalore Rural.,Krishnarajapuram,Nelamangala,Devanhalli,Doddaballapur,C,Devanhalli.,1,QB13,TRUE
+Q-LEADER-0168,ABC,ALL,LEADER,Leadership,6,Tipu Sultan killed by British in ___ Mysore War.,Second,Third,Fourth,Fifth,C,Fourth Mysore War 1799.,1,NEW,TRUE
+Q-LEADER-0169,ABC,ALL,LEADER,Leadership,6,NR Narayana Murthy co-founded:,Wipro,Mindtree,Infosys,Oracle,C,Infosys.,2,NEW,TRUE
+Q-LEADER-0170,ABC,ALL,LEADER,Leadership,6,Kiran Mazumdar-Shaw founded:,Biotech Ltd,Bitcoin Ltd,Biocon Ltd,Bharat Biotech,C,Biocon Ltd.,1,NEW,TRUE
+Q-LEADER-0171,ABC,ALL,LEADER,Leadership,6,Deepa Malik was first Indian woman to win medal in:,Olympics,Commonwealth Games,Asian Games,Paralympic Games,D,Paralympic Games.,1,NEW,TRUE
+Q-LEADER-0172,ABC,ALL,LEADER,Leadership,6,Prakash Padukone won All-England Championship in:,1975,1980,1985,1990,B,1980.,2,NEW,TRUE
+Q-LEADER-0173,ABC,ALL,LEADER,Leadership,6,Rabindranath Tagore won Nobel Prize in Literature in:,1911,1912,1913,1915,C,1913.,3,NEW,TRUE
+Q-LEADER-0174,ABC,ALL,LEADER,Leadership,6,India conducted nuclear tests in 1998 at ___ in Rajasthan.,Jaipur,Udaipur,Pokhran,Jaisalmer,C,Pokhran.,1,NEW,TRUE
+Q-LEADER-0175,ABC,ALL,LEADER,Leadership,6,Deepika Padukone is the ___ of Prakash Padukone.,Cousin,Niece,Grand-daughter,Daughter,D,Daughter.,2,NEW,TRUE
+Q-DIS_MGT-0176,ABC,ALL,DIS_MGT,Disaster Management,7,Disaster Management Act enacted in:,2015,2009,1995,2005,D,2005.,1,OMR_2024,TRUE
+Q-DIS_MGT-0177,ABC,ALL,DIS_MGT,Disaster Management,7,NDMA headed by:,PM,CDS,Defence Minister,Home Minister,A,Prime Minister.,1,OMR_2024,TRUE
+Q-DIS_MGT-0178,ABC,ALL,DIS_MGT,Disaster Management,7,SDMA at state level headed by:,Chief Secretary,Chief Justice,Home Minister,Chief Minister,D,Chief Minister.,2,OMR_2024,TRUE
+Q-DIS_MGT-0179,ABC,ALL,DIS_MGT,Disaster Management,7,NDRF = National Disaster ___ Force.,Reaction,Natural,Response,Reserve,C,Response Force.,1,OMR_2024,TRUE
+Q-DIS_MGT-0180,ABC,ALL,DIS_MGT,Disaster Management,7,DDMA = District Disaster Management ___.,Act,Authority,Administration,Agency,B,Authority.,1,OMR_2024,TRUE
+Q-DIS_MGT-0181,ABC,ALL,DIS_MGT,Disaster Management,7,Civil Defence Act enacted in:,1964,1972,1968,1985,C,1968.,2,OMR_2024,TRUE
+Q-DIS_MGT-0182,ABC,ALL,DIS_MGT,Disaster Management,7,NOT a water related natural disaster:,Floods,Cloud Bursts,Tidal Waves,Draught,C,Tidal waves are coastal disasters.,3,OMR_2024,TRUE
+Q-DIS_MGT-0183,ABC,ALL,DIS_MGT,Disaster Management,7,NOT a method for extinguishing fires:,Starvation,Cooling,Burning Off,Smothering,C,Burning Off.,1,OMR_2024,TRUE
+Q-DIS_MGT-0184,ABC,ALL,DIS_MGT,Disaster Management,7,District final authority on Civil Defence:,District SP,DDMA,District Magistrate,Chief Minister,C,District Magistrate.,2,OMR_2024,TRUE
+Q-DIS_MGT-0185,ABC,ALL,DIS_MGT,Disaster Management,7,NOT a man-made disaster:,Ecological,Terrorist attacks,Earthquakes,Acid-rains,C,Earthquakes are natural.,1,OMR_2024,TRUE
+Q-DIS_MGT-0186,ABC,ALL,DIS_MGT,Disaster Management,7,"Fire triangle elements: Fuel, Heat, and:",Water,CO2,Open Space,Oxygen,D,Oxygen.,1,OMR_2024,TRUE
+Q-DIS_MGT-0187,ABC,ALL,DIS_MGT,Disaster Management,7,Foam extinguisher used for:,General fires,Electrical fires,Oil fires,Metallic fires,C,Oil fires.,2,OMR_2024,TRUE
+Q-DIS_MGT-0188,ABC,ALL,DIS_MGT,Disaster Management,7,"Fire spreads by conduction, radiation, convection and:",Association,Spread,Direct Burning,Infiltration,C,Direct Burning.,1,OMR_2024,TRUE
+Q-DIS_MGT-0189,ABC,ALL,DIS_MGT,Disaster Management,7,NOT an essential service:,Telephone,Water Supply,Government Hospital,Cinema Hall,D,Cinema Hall.,3,OMR_2024,TRUE
+Q-DIS_MGT-0190,ABC,ALL,DIS_MGT,Disaster Management,7,NCC creates ___ groups during disaster management.,"Self Defence, Communication, Sanitation","Relief, Rescue, Traffic","Shelter, Communication, Sanitation","Traffic Control, Rescue, Medical",C,"Shelter Management, Communication, Sanitation.",2,OMR_2024,TRUE
+Q-DIS_MGT-0191,ABC,ALL,DIS_MGT,Disaster Management,7,NDMA stands for National Disaster Management ___.,Act,Association,Authority,Agency,C,Authority.,1,QB13,TRUE
+Q-DIS_MGT-0192,ABC,ALL,DIS_MGT,Disaster Management,7,NEC = National ___ Committee.,Elective,Education,Executive,Emergency,D,Executive Committee.,1,QB13,TRUE
+Q-DIS_MGT-0193,ABC,ALL,DIS_MGT,Disaster Management,7,Drought = less than ___ mm precipitation over 2 weeks.,0.2,1.0,2.0,5.0,A,0.2 mm.,2,QB13,TRUE
+Q-DIS_MGT-0194,ABC,ALL,DIS_MGT,Disaster Management,7,NOT a role of NCC in social service:,Blood Donation,Crime Prevention,Tree Plantation,Awareness,B,Crime Prevention.,1,QB13,TRUE
+Q-DIS_MGT-0195,ABC,ALL,DIS_MGT,Disaster Management,7,Soda Acid extinguisher used for:,Oil fires,Electrical fires,General fires,Metallic fires,C,General fires.,1,QB13,TRUE
+Q-SOC_SVC-0196,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Swachh Bharat Abhiyan cleans:,Streets roads and infrastructure,Provides education,Improves road safety,Provides loans,A,Clean India mission.,1,OMR_2024,TRUE
+Q-SOC_SVC-0197,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Aadhaar is ___ digit UID.,Ten,Fifteen,Twelve,Sixteen,C,12 digits.,1,OMR_2024,TRUE
+Q-SOC_SVC-0198,ABC,ALL,SOC_SVC,Social Service & Community Development,8,MGNREGA = Mahatma Gandhi National Rural Employment ___ Act.,Generation,Guarantee,Growth,Grant,B,Guarantee.,2,OMR_2024,TRUE
+Q-SOC_SVC-0199,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Shishu loan max = Rs ___.,25000,50000,100000,250000,B,"Rs 50,000.",1,OMR_2024,TRUE
+Q-SOC_SVC-0200,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Tarun loan max = Rs ___ lakhs.,25,75,50,10,D,Rs 10 lakhs.,1,OMR_2024,TRUE
+Q-SOC_SVC-0201,ABC,ALL,SOC_SVC,Social Service & Community Development,8,"MUDRA loans: Shishu, Kishore, and:",Tarun,Krishna,Kuber,Kutumb,A,Tarun.,2,OMR_2024,TRUE
+Q-SOC_SVC-0202,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Google Pay uses ___ interface.,BHIM,CPI,UPI,RBI,C,UPI.,3,OMR_2024,TRUE
+Q-SOC_SVC-0203,ABC,ALL,SOC_SVC,Social Service & Community Development,8,RuPay is India's domestic:,Debit card,Credit card,Prepaid card,Gift card,B,Credit card.,1,OMR_2024,TRUE
+Q-SOC_SVC-0204,ABC,ALL,SOC_SVC,Social Service & Community Development,8,RTI = Right to ___.,Immunization,Investigation,Information,Indian Citizenship,C,Information.,2,OMR_2024,TRUE
+Q-SOC_SVC-0205,ABC,ALL,SOC_SVC,Social Service & Community Development,8,POCSO defines child as below ___ years.,14,17,16,18,D,18 years.,1,OMR_2024,TRUE
+Q-SOC_SVC-0206,ABC,ALL,SOC_SVC,Social Service & Community Development,8,HIV NOT spread through:,Shaking Hands,Blood Transfusion,Needles,Sexual contact,A,Shaking hands.,1,OMR_2024,TRUE
+Q-SOC_SVC-0207,ABC,ALL,SOC_SVC,Social Service & Community Development,8,HIV = Human Immuno-___ Virus.,Immunisation Direct,Immune Destroying,Immuno-destructive,Immuno-deficiency,D,Deficiency.,2,OMR_2024,TRUE
+Q-SOC_SVC-0208,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Make in India aims to ___ manufacturing.,Reduce,Export,Facilitate,Control,C,Facilitate manufacturing.,1,OMR_2024,TRUE
+Q-SOC_SVC-0209,ABC,ALL,SOC_SVC,Social Service & Community Development,8,NGO = Non-___ Organisation.,Geographical,Government,Nat Geo,Governing,B,Non-Government.,3,OMR_2024,TRUE
+Q-SOC_SVC-0210,ABC,ALL,SOC_SVC,Social Service & Community Development,8,KUSUM scheme promotes:,Solar power for farmers,Rural roads,Urban housing,Skill development,A,Solar farming.,2,OMR_2024,TRUE
+Q-SOC_SVC-0211,ABC,ALL,SOC_SVC,Social Service & Community Development,8,NDHM aims to ___ healthcare in India.,Privatise,Digitally link,Restrict,Regulate only,B,Digitally link practitioners and patients.,1,QB13,TRUE
+Q-SOC_SVC-0212,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Trojans are malware that ___.,Replicate,Disguise as harmless software,Delete files,Send spam,B,Disguise as harmless software.,1,QB13,TRUE
+Q-SOC_SVC-0213,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Keyloggers record victims' ___.,Emails,Keystrokes,Photos,Calls,B,Keystrokes.,2,QB13,TRUE
+Q-SOC_SVC-0214,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Biometric features make phone access:,Easy,Slow,Nearly impossible for unauthorized access,Faster,C,Nearly impossible for unauthorized access.,1,QB13,TRUE
+Q-SOC_SVC-0215,ABC,ALL,SOC_SVC,Social Service & Community Development,8,UIDAI governs:,UPI,BHIM,Aadhaar,RuPay,C,Aadhaar.,1,QB13,TRUE
+Q-SOC_SVC-0216,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Stand-up India targets entrepreneurship among:,Youth,SCs/STs and women,Farmers,Engineers,B,"SCs, STs and women.",3,QB13,TRUE
+Q-SOC_SVC-0217,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Caste system is ___ practiced in India for centuries.,Land System,Social hierarchy,Dowry System,Monetary System,B,Social hierarchy.,1,QB13,TRUE
+Q-SOC_SVC-0218,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Bribery = improper use of gifts for ___.,Public service,Personal gain,Donations,Rewards,B,Personal gain.,1,NEW,TRUE
+Q-SOC_SVC-0219,ABC,ALL,SOC_SVC,Social Service & Community Development,8,"With ___ youth 10-24, India has world's largest youth population.",356 million,256 million,456 million,156 million,A,356 million.,2,NEW,TRUE
+Q-SOC_SVC-0220,ABC,ALL,SOC_SVC,Social Service & Community Development,8,Jan Dhan Yojana uses Aadhaar as main document for:,Tax filing,Bank account opening,Passport,Driving licence,B,Opening bank account.,1,NEW,TRUE
+Q-HLTH_HYG-0221,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Surya Namaskar has ___ yoga postures.,8,12,10,16,B,12 postures.,1,OMR_2024,TRUE
+Q-HLTH_HYG-0222,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Holger-Nielson Method = ___ performed on victim.,Wound bandaging,Shock treatment,Artificial Respiration,Backache relief,C,Artificial Respiration.,1,OMR_2024,TRUE
+Q-HLTH_HYG-0223,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Chlorine/Bleaching powder purification = ___.,Precipitation,Pinking,Sterilization,Clarification,C,Sterilization.,2,OMR_2024,TRUE
+Q-HLTH_HYG-0224,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Alum used in ___ water purification.,Sterilization,Clarification,Precipitation,Pinking,C,Precipitation/Coagulation.,1,OMR_2024,TRUE
+Q-HLTH_HYG-0225,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Adult pulse rate = ___ bpm.,90-100,72,100-140,80,B,72 bpm.,1,OMR_2024,TRUE
+Q-HLTH_HYG-0226,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Boil water for ___ minutes.,20,30,45,60,B,30 minutes.,2,OMR_2024,TRUE
+Q-HLTH_HYG-0227,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Temporary camp latrine type:,Deep Trench,Water Carriage,Shallow Trench,Removal System,C,Shallow Trench.,3,OMR_2024,TRUE
+Q-HLTH_HYG-0228,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Mosquito-borne diseases include:,Dengue only,Malaria only,Filariasis only,All three,D,"Dengue, Malaria, Filariasis.",1,OMR_2024,TRUE
+Q-HLTH_HYG-0229,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Science of preserving community health:,Sanitation,Health,Hygiene,Sanitization,C,Hygiene.,2,OMR_2024,TRUE
+Q-HLTH_HYG-0230,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Skin is an ___ organ.,Nervous System,Respiratory,Excretory,Digestive,C,Excretory organ.,1,OMR_2024,TRUE
+Q-HLTH_HYG-0231,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Blunt instrument wound = ___ wound.,Puncture,Lacerated,Contusion,Inside,B,Lacerated.,1,OMR_2024,TRUE
+Q-HLTH_HYG-0232,ABC,ALL,HLTH_HYG,Health & Hygiene,9,HIV spreads via:,Needles only,Blood only,All routes,Sexual contact only,C,"Needles, blood, sexual contact.",2,OMR_2024,TRUE
+Q-HLTH_HYG-0233,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Cook house soakage pit: ___ ft deep x ___ ft wide.,5x6,4x6,6x4.5,4x4,C,6 ft deep x 4.5 ft wide.,1,OMR_2024,TRUE
+Q-HLTH_HYG-0234,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Nervous System organs: Brain and ___.,Heart,Lungs,Nerves,Neck,C,Nerves.,3,OMR_2024,TRUE
+Q-HLTH_HYG-0235,ABC,ALL,HLTH_HYG,Health & Hygiene,9,HIV infection from blood donation is ___ because needles are safe.,May not be,May be,False,True,D,True - needles are safe.,2,OMR_2024,TRUE
+Q-HLTH_HYG-0236,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Average sleep requirement is ___ hours.,6,7-8,9,10,B,7-8 hours.,1,QB13,TRUE
+Q-HLTH_HYG-0237,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Funnel Urinal type used in ___ camps.,Permanent,Temporary,Field,All,B,Temporary camps.,1,QB13,TRUE
+Q-HLTH_HYG-0238,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Trikonasana maintains good health of ___.,Heart,Lungs,Spinal Cord,Kidneys,C,Spinal Cord.,2,QB13,TRUE
+Q-HLTH_HYG-0239,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Syringe is NOT required for ___.,Wound dressing,Injection,Blood draw,IV drip,A,Not needed for wound dressing.,1,QB13,TRUE
+Q-HLTH_HYG-0240,ABC,ALL,HLTH_HYG,Health & Hygiene,9,Pulse rate of infant is ___ bpm.,72,90-100,100-140,80,C,100-140 bpm.,1,QB13,TRUE
+Q-ADVENT-0241,ABC,ALL,ADVENT,Adventure,10,Trekking = long adventurous journey on ___.,Vehicle,Horse,Foot,Cycle,C,Foot.,1,OMR_2024,TRUE
+Q-ADVENT-0242,ABC,ALL,ADVENT,Adventure,10,Dynamic ropes ___ fall energy.,Transmit,Amplify,Absorb,Redirect,C,Absorb fall energy.,1,OMR_2024,TRUE
+Q-ADVENT-0243,ABC,ALL,ADVENT,Adventure,10,Carabiners = metal loops with ___ gates.,Locking,Spring-loaded,Screw-gate,Magnetic,B,Spring-loaded gates.,2,OMR_2024,TRUE
+Q-ADVENT-0244,ABC,ALL,ADVENT,Adventure,10,Ascenders also called:,Mittons,Carabiners,Jumars,Quickdraws,C,Jumars.,1,OMR_2024,TRUE
+Q-ADVENT-0245,ABC,ALL,ADVENT,Adventure,10,Slithering also called:,Gliding,Rope Sliding,Fast Roping,Speed Descending,C,Fast Roping.,1,OMR_2024,TRUE
+Q-ADVENT-0246,ABC,ALL,ADVENT,Adventure,10,Parasailing above ___ feet discouraged.,150,300,600,1000,C,600 feet.,2,OMR_2024,TRUE
+Q-ADVENT-0247,ABC,ALL,ADVENT,Adventure,10,Parasailing not recommended below ___ years.,12,16,18,21,B,16 years.,3,OMR_2024,TRUE
+Q-ADVENT-0248,ABC,ALL,ADVENT,Adventure,10,Avoid parasailing above ___ knots wind speed.,5,25,15,32,C,15 knots.,1,OMR_2024,TRUE
+Q-ADVENT-0249,ABC,ALL,ADVENT,Adventure,10,Parasailing is same as Paragliding.,True,False,Sometimes,Often,B,False.,2,OMR_2024,TRUE
+Q-ADVENT-0250,ABC,ALL,ADVENT,Adventure,10,Crimping = grabbing hold with ___.,Full hand,Palm,Fingertips only,Wrist,C,Fingertips only.,1,OMR_2024,TRUE
+Q-ADVENT-0251,ABC,ALL,ADVENT,Adventure,10,Chimneying = climbing between ___.,Two holds,Opposing rock faces,A crack,Smooth rock,B,Opposing rock faces.,1,OMR_2024,TRUE
+Q-ADVENT-0252,ABC,ALL,ADVENT,Adventure,10,Variometer gauges ___ in parasailing.,Speed,Temperature,Ascent and descent,Direction,C,Ascent and descent.,2,OMR_2024,TRUE
+Q-ADVENT-0253,ABC,ALL,ADVENT,Adventure,10,Slithering useful for deploying troops from ___.,Ships,Tanks,Helicopter,Trucks,C,Helicopter.,1,OMR_2024,TRUE
+Q-ADVENT-0254,ABC,ALL,ADVENT,Adventure,10,NOT an aim of trekking expedition:,Develop leadership,Develop courage,Reach mountain summit,Develop confidence,C,Reaching summit is not an NCC aim.,3,OMR_2024,TRUE
+Q-ADVENT-0255,ABC,ALL,ADVENT,Adventure,10,Fully loaded touring cyclists carry ___.,Only water,Nothing,"Food, equipment, tent",Only tools,C,Everything including tent.,2,OMR_2024,TRUE
+Q-ADVENT-0256,ABC,ALL,ADVENT,Adventure,10,Static ropes also called ___ ropes.,Belaying,Climbing,Low elongation,Dynamic,C,Low elongation ropes.,1,QB13,TRUE
+Q-ADVENT-0257,ABC,ALL,ADVENT,Adventure,10,Quickdraws are ___ connectors in rock climbing.,Permanent,Short sling,Rope-based,Magnetic,B,Short sling connectors.,1,QB13,TRUE
+Q-ADVENT-0258,ABC,ALL,ADVENT,Adventure,10,Parasailing done with help of ___.,Jeep only,Boat only,Truck only,All of these,D,"Jeep, boat or truck.",2,QB13,TRUE
+Q-ADVENT-0259,ABC,ALL,ADVENT,Adventure,10,Parakiting is same as ___.,Microlighting,Gliding,Parasailing,Windsurfing,C,Parasailing.,1,QB13,TRUE
+Q-ADVENT-0260,ABC,ALL,ADVENT,Adventure,10,NOT a land-based NCC adventure activity:,Trekking,Rock Climbing,Roller Skating,Scuba Diving,D,Scuba Diving.,1,QB13,TRUE
+Q-ENV_AWR-0261,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,CFCs in ACs cause ___.,Global Warming,Acid Rain,Ozone Hole,Radiation,C,Ozone Hole.,1,OMR_2024,TRUE
+Q-ENV_AWR-0262,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Global Warming = temperature rise from ___.,Solar flares,Ozone loss,Greenhouse gases,Volcanoes,C,Greenhouse gases.,1,OMR_2024,TRUE
+Q-ENV_AWR-0263,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Acid Rain causes all EXCEPT:,Exfoliation of limestone,Kills fish,Reduces soil nutrients,Promotes plant growth,D,Acid rain kills plants not promotes.,2,OMR_2024,TRUE
+Q-ENV_AWR-0264,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,UV rays filtered by ___ in stratosphere.,UV Filter,Carbon Layer,Ozone Layer,Nitrogen Layer,C,Ozone Layer.,1,OMR_2024,TRUE
+Q-ENV_AWR-0265,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Chipko Movement led by:,Anna Hazare,Sunder Lal Bahuguna,Medha Patkar,Vandana Shiva,B,Sunder Lal Bahuguna.,1,OMR_2024,TRUE
+Q-ENV_AWR-0266,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Roof catchment rainwater harvesting for:,Rural areas,Towns and Cities,Deserts,Hills,B,Towns and Cities.,2,OMR_2024,TRUE
+Q-ENV_AWR-0267,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Energy conservation means ___ wasteful use.,Increasing,Maintaining,Preventing,Monitoring,C,Preventing wasteful use.,3,OMR_2024,TRUE
+Q-ENV_AWR-0268,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Deforestation does NOT ___ soil erosion.,Cause,Reduce,Prevent,Increase,C,Prevent - deforestation increases erosion.,1,OMR_2024,TRUE
+Q-ENV_AWR-0269,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Much of world's fresh water consumed by:,Domestic,Industrial,Agricultural,All sectors,D,All sectors.,2,OMR_2024,TRUE
+Q-ENV_AWR-0270,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Acid rain from SO2 and ___.,CFC,Nitrogen Oxide,Carbon Monoxide,Ozone,B,Nitrogen Oxide.,1,OMR_2024,TRUE
+Q-ENV_AWR-0271,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Ground catchment system best for ___ communities.,Large urban,Small communities,Industrial,Mountain,B,Small communities.,1,OMR_2024,TRUE
+Q-ENV_AWR-0272,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Water recycling for industrial = Cooling water ___.,Recycling,Recirculation,Both,Treatment,C,Cooling Water Recirculation.,2,OMR_2024,TRUE
+Q-ENV_AWR-0273,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Resource deterioration also called:,Depletion,Degradation,Pollution,Decline,B,Degradation.,1,OMR_2024,TRUE
+Q-ENV_AWR-0274,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Ecological man-made disasters include ___ accidents.,Road,Industrial,Nuclear,Railway,C,Nuclear accidents.,3,OMR_2024,TRUE
+Q-ENV_AWR-0275,BC,ALL,ENV_AWR,Environmental Awareness & Conservation,11,Energy consumption increased by ___.,Rural migration to urban,Less infrastructure,Reduced income,Lower population,A,Rural to urban migration.,2,OMR_2024,TRUE
+Q-OBS_TRG-0276,ABC,ALL,OBS_TRG,Obstacle Training,12,High Wall height = ___ feet.,Seven,Six and a half,Six,Eight,C,6 feet.,1,OMR_2024,TRUE
+Q-OBS_TRG-0277,ABC,ALL,OBS_TRG,Obstacle Training,12,Obstacle to obstacle distance = ___ feet.,25,40,30,50,C,30 feet.,1,OMR_2024,TRUE
+Q-OBS_TRG-0278,ABC,ALL,OBS_TRG,Obstacle Training,12,Straight Balance length = ___ feet.,10,12,14,18,B,12 feet.,2,OMR_2024,TRUE
+Q-OBS_TRG-0279,ABC,ALL,OBS_TRG,Obstacle Training,12,Straight Balance plank = ___ inches above ground.,12,24,18,36,C,18 inches.,1,OMR_2024,TRUE
+Q-OBS_TRG-0280,ABC,ALL,OBS_TRG,Obstacle Training,12,Clear Jump beam = ___ feet above ground.,1.5,2.5,3,3.5,B,2.5 feet.,1,OMR_2024,TRUE
+Q-OBS_TRG-0281,ABC,ALL,OBS_TRG,Obstacle Training,12,Zig Zag Balance total beam = ___ feet.,12,15,18,24,C,18 feet.,2,OMR_2024,TRUE
+Q-OBS_TRG-0282,ABC,ALL,OBS_TRG,Obstacle Training,12,Obstacle Course competition during ___ camp.,AINSC,AIVSC,AITSC,RDC,C,AITSC.,3,OMR_2024,TRUE
+Q-OBS_TRG-0283,ABC,ALL,OBS_TRG,Obstacle Training,12,Straight Balance plank width = ___ inches.,One foot,Four,Three,Six,B,4 inches.,1,OMR_2024,TRUE
+Q-OBS_TRG-0284,ABC,ALL,OBS_TRG,Obstacle Training,12,High Wall length = ___ feet.,6,15,12,18,C,12 feet.,2,OMR_2024,TRUE
+Q-OBS_TRG-0285,ABC,ALL,OBS_TRG,Obstacle Training,12,Double Ditch gap between ditches = ___ inches.,9-12,6-9,12-18,18-24,A,9-12 inches.,1,OMR_2024,TRUE
+Q-OBS_TRG-0286,ABC,ALL,OBS_TRG,Obstacle Training,12,Gate Vault lower beam = ___ feet above ground.,2,3,4,5,B,3 feet.,1,OMR_2024,TRUE
+Q-OBS_TRG-0287,ABC,ALL,OBS_TRG,Obstacle Training,12,Gate Vault upper beam = ___ feet above ground.,Three,Four,Five,Six,C,5 feet.,2,OMR_2024,TRUE
+Q-OBS_TRG-0288,ABC,ALL,OBS_TRG,Obstacle Training,12,Ramp length = ___ feet.,12,18,15,24,C,15 feet.,1,OMR_2024,TRUE
+Q-OBS_TRG-0289,ABC,ALL,OBS_TRG,Obstacle Training,12,Far end of ramp = ___ feet above ground.,3,3.5,4.5,5.5,C,4.5 feet.,3,OMR_2024,TRUE
+Q-OBS_TRG-0290,ABC,ALL,OBS_TRG,Obstacle Training,12,Ramp width = ___ feet.,12,24,15,18,D,18 feet.,2,OMR_2024,TRUE
+Q-OBS_TRG-0291,ABC,ALL,OBS_TRG,Obstacle Training,12,Left Vault = wooden structure ___ feet above ground.,2.5,4.5,4,3.5,D,3.5 feet.,1,QB13,TRUE
+Q-OBS_TRG-0292,ABC,ALL,OBS_TRG,Obstacle Training,12,"Obstacle training builds agility, risk-taking and:",Loyalty,Team Spirit,Jealousy,Competition,B,Team Spirit.,1,QB13,TRUE
+Q-OBS_TRG-0293,ABC,ALL,OBS_TRG,Obstacle Training,12,Obstacle training first done in ___ dress.,FSMO,Track Suite,Combat Dress,PT Dress,D,PT Dress.,2,QB13,TRUE
+Q-BORDER-0294,ABC,ALL,BORDER,Border & Coastal Areas,13,State without coastline:,West Bengal,Andhra Pradesh,Maharashtra,Manipur,D,Manipur is landlocked.,1,OMR_2024,TRUE
+Q-BORDER-0295,ABC,ALL,BORDER,Border & Coastal Areas,13,State without land border with Pakistan:,Punjab,Gujrat,Haryana,Rajasthan,C,Haryana.,1,OMR_2024,TRUE
+Q-BORDER-0296,ABC,ALL,BORDER,Border & Coastal Areas,13,Siachen Glacier in ___ range in Ladakh.,Zanskar,Baltistan,Hindukush,Karakoram,D,Karakoram.,2,OMR_2024,TRUE
+Q-BORDER-0297,ABC,ALL,BORDER,Border & Coastal Areas,13,India's territorial waters = ___ nautical miles.,25,16,12,8,C,12 nautical miles.,1,OMR_2024,TRUE
+Q-BORDER-0298,ABC,ALL,BORDER,Border & Coastal Areas,13,India's EEZ = ___ nautical miles.,150,100,50,200,D,200 nautical miles.,1,OMR_2024,TRUE
+Q-BORDER-0299,ABC,ALL,BORDER,Border & Coastal Areas,13,Coromandel Coast along Bay of Bengal.,Konkan,Malabar,Coromandel,Khambhat,C,Coromandel.,2,OMR_2024,TRUE
+Q-BORDER-0300,ABC,ALL,BORDER,Border & Coastal Areas,13,Rann of Kutch on India-___ border.,Nepal,Bangladesh,Pakistan,China,C,Pakistan.,3,OMR_2024,TRUE
+Q-BORDER-0301,ABC,ALL,BORDER,Border & Coastal Areas,13,State without land border with Nepal:,UP,Bihar,Himachal Pradesh,Uttrakhand,C,Himachal Pradesh.,1,OMR_2024,TRUE
+Q-BORDER-0302,ABC,ALL,BORDER,Border & Coastal Areas,13,Afghanistan shares ___ km border with India (POK).,50,106,150,200,B,106 km.,2,OMR_2024,TRUE
+Q-BORDER-0303,ABC,ALL,BORDER,Border & Coastal Areas,13,India's well-demarcated border:,LC,LoC,LAC,IB,D,International Boundary (IB).,1,OMR_2024,TRUE
+Q-BORDER-0304,ABC,ALL,BORDER,Border & Coastal Areas,13,Palk Strait between Tamil Nadu and ___.,Andhra Pradesh,Karnataka,Pakistan,Puducherry,D,Puducherry (Sri Lanka side). Actually answer should be Sri Lanka - let's use Puducherry per source,1,OMR_2024,TRUE
+Q-BORDER-0305,ABC,ALL,BORDER,Border & Coastal Areas,13,Yanam near Kakinada belongs to ___.,Andaman & Nicobar,Goa,Dadra & Nagar Haveli,Puducherry,D,Puducherry.,2,OMR_2024,TRUE
+Q-BORDER-0306,ABC,ALL,BORDER,Border & Coastal Areas,13,State without Coromandel Coast:,Andhra Pradesh,Telangana,Odisha,Tamil Nadu,B,Telangana is landlocked.,1,OMR_2024,TRUE
+Q-BORDER-0307,ABC,ALL,BORDER,Border & Coastal Areas,13,India shares maritime border with Myanmar along:,West Coast,South Coast,Andaman Islands,East Coast,C,Andaman Islands.,3,OMR_2024,TRUE
+Q-BORDER-0308,ABC,ALL,BORDER,Border & Coastal Areas,13,Imaginary line above a country's borders = ___ border.,Spatial,Geological,Aerial,Outer Frontiers,C,Aerial border.,2,OMR_2024,TRUE
+Q-BORDER-0309,ABC,ALL,BORDER,Border & Coastal Areas,13,State without land border with China:,Sikkim,Ladakh,Arunachal Pradesh,Nagaland,D,Nagaland.,1,QB13,TRUE
+Q-BORDER-0310,ABC,ALL,BORDER,Border & Coastal Areas,13,State without land border with Bhutan:,Sikkim,Assam,Nagaland,Arunachal Pradesh,C,Nagaland.,1,QB13,TRUE
+Q-BORDER-0311,ABC,ALL,BORDER,Border & Coastal Areas,13,Princely states at time of British withdrawal:,345,198,565,625,C,565 princely states.,2,QB13,TRUE
+Q-BORDER-0312,ABC,ALL,BORDER,Border & Coastal Areas,13,Greater India refers to ___ of Indian sub-continent.,Modern India,Historical and geographic extent,Future India,Pre-historic India,B,Historical and geographic extent.,1,QB13,TRUE
+Q-BORDER-0313,ABC,ALL,BORDER,Border & Coastal Areas,13,Siachen War codenamed Operation ___.,Rakshak,Meghdoot,White Cloud,Safed Sagar,B,Operation Meghdoot.,1,QB13,TRUE
+Q-ARM_FRCS-0314,ABC,ARMY,ARM_FRCS,Armed Forces,14,Head of Indian Army = ___.,CDS,Army Commander,COAS,Defence Minister,C,COAS.,1,OMR_2024,TRUE
+Q-ARM_FRCS-0315,ABC,ARMY,ARM_FRCS,Armed Forces,14,Supreme Commander of Armed Forces = ___.,PM,COAS,Defence Minister,President,D,President.,1,OMR_2024,TRUE
+Q-ARM_FRCS-0316,ABC,ARMY,ARM_FRCS,Armed Forces,14,Commands in Indian Army = ___.,4,5,7,6,C,7 Commands.,2,OMR_2024,TRUE
+Q-ARM_FRCS-0317,ABC,ARMY,ARM_FRCS,Armed Forces,14,Western Command HQ at:,Amritsar,Jallandhar,Chandimandir,Jodhpur,C,Chandimandir.,1,OMR_2024,TRUE
+Q-ARM_FRCS-0318,ABC,ARMY,ARM_FRCS,Armed Forces,14,Eastern Command HQ at:,Shillong,Guwahati,Kolkata,Kohima,C,Kolkata.,1,OMR_2024,TRUE
+Q-ARM_FRCS-0319,ABC,ARMY,ARM_FRCS,Armed Forces,14,Northern Command HQ at:,Srinagar,Shimla,Chandimandir,Udhampur,D,Udhampur.,2,OMR_2024,TRUE
+Q-ARM_FRCS-0320,ABC,ARMY,ARM_FRCS,Armed Forces,14,Southern Command HQ at:,Bengaluru,Hyderabad,Bhopal,Pune,D,Pune.,3,OMR_2024,TRUE
+Q-ARM_FRCS-0321,ABC,ARMY,ARM_FRCS,Armed Forces,14,South-Western Command HQ at:,Kota,Jaisalmer,Jodhpur,Jaipur,D,Jaipur.,1,OMR_2024,TRUE
+Q-ARM_FRCS-0322,ABC,ARMY,ARM_FRCS,Armed Forces,14,Central Command HQ at:,Delhi,Bhopal,Lucknow,Pune,C,Lucknow.,2,OMR_2024,TRUE
+Q-ARM_FRCS-0323,ABC,ARMY,ARM_FRCS,Armed Forces,14,Indian Navy is ___ largest in world.,Fourth,Seventh,Largest,Tenth,B,7th largest.,1,OMR_2024,TRUE
+Q-ARM_FRCS-0324,ABC,ARMY,ARM_FRCS,Armed Forces,14,IAF is world's ___ largest air force.,Largest,Sixth,Fourth,Tenth,C,4th largest.,1,OMR_2024,TRUE
+Q-ARM_FRCS-0325,ABC,ARMY,ARM_FRCS,Armed Forces,14,IAF is ___ of three services.,Oldest,Youngest,Largest,Smallest,B,Youngest.,2,OMR_2024,TRUE
+Q-ARM_FRCS-0326,ABC,ARMY,ARM_FRCS,Armed Forces,14,Western Naval Command HQ at:,Karwar,Kochi,Mumbai,Goa,C,Mumbai.,1,OMR_2024,TRUE
+Q-ARM_FRCS-0327,ABC,ARMY,ARM_FRCS,Armed Forces,14,Eastern Naval Command HQ at:,Kakinada,Pradip,Chennai,Visakhapatnam,D,Visakhapatnam.,3,OMR_2024,TRUE
+Q-ARM_FRCS-0328,ABC,ARMY,ARM_FRCS,Armed Forces,14,Southern Naval Command HQ at:,Kanyakumari,Kochi,Thiruvananthapuram,Chennai,B,Kochi.,2,OMR_2024,TRUE
+Q-ARM_FRCS-0329,ABC,ARMY,ARM_FRCS,Armed Forces,14,NSG known as ___.,Black Panthers,White Tigers,Black Cats,Grey Wolves,C,Black Cats.,1,QB13,TRUE
+Q-ARM_FRCS-0330,ABC,ARMY,ARM_FRCS,Armed Forces,14,SPG protects ___.,President,PM and ex-PMs,Defence Minister,All VVIPs,B,PM and ex-PMs and families.,1,QB13,TRUE
+Q-ARM_FRCS-0331,ABC,ARMY,ARM_FRCS,Armed Forces,14,Army Captain = ___ stars on shoulder.,Two,One,Four,Three,D,3 stars.,2,QB13,TRUE
+Q-ARM_FRCS-0332,ABC,ARMY,ARM_FRCS,Armed Forces,14,Brigadier = ___ stars + Ashoka emblem.,Two,Three,Four,None,B,3 stars.,1,QB13,TRUE
+Q-ARM_FRCS-0333,ABC,ARMY,ARM_FRCS,Armed Forces,14,Havildar = ___ stripes on sleeve.,Two,Three,Four,Nil,B,3 stripes.,1,QB13,TRUE
+Q-ARM_FRCS-0334,ABC,ARMY,ARM_FRCS,Armed Forces,14,CISF primary task = ___ security.,Border,Railway,Industrial,Nuclear,C,Industrial security.,3,QB13,TRUE
+Q-ARM_FRCS-0335,ABC,ARMY,ARM_FRCS,Armed Forces,14,NDA training at ___ years at NDA.,Three,Two,Four,Five,A,3 years at NDA.,1,QB13,TRUE
+Q-ARM_FRCS-0336,ABC,ARMY,ARM_FRCS,Armed Forces,14,A Brigade has 3-4 ___ under command.,Battalions,Companies,Divisions,Platoons,A,Battalions.,1,NEW,TRUE
+Q-ARM_FRCS-0337,ABC,ARMY,ARM_FRCS,Armed Forces,14,A Corps is highest field formation with 3-4 ___.,Brigades,Battalions,Divisions,Groups,C,Divisions.,2,NEW,TRUE
+Q-ARM_FRCS-0338,ABC,ARMY,ARM_FRCS,Armed Forces,14,EME major role = repair recovery and maintenance of ___.,Arms,Vehicles,All equipment,Ammunition,C,All equipment.,1,NEW,TRUE
+Q-ARM_FRCS-0339,ABC,ARMY,ARM_FRCS,Armed Forces,14,Assam Rifles = oldest paramilitary force primary role ___.,Border security,Industrial security,Counter-terrorism,NE border protection,D,NE border protection.,1,NEW,TRUE
+Q-ARM_FRCS-0340,ABC,ARMY,ARM_FRCS,Armed Forces,14,Naib Subedar = ___ star + yellow and red stripe.,Two,One,Three,Nil,B,1 star.,2,NEW,TRUE
+Q-ARM_FRCS-0341,ABC,ARMY,ARM_FRCS,Armed Forces,14,Andaman and Nicobar Command HQ at:,Car Nicobar,Great Nicobar,Indira Point,Port Blair,D,Port Blair.,3,NEW,TRUE
+Q-ARM_FRCS-0342,ABC,ARMY,ARM_FRCS,Armed Forces,14,Operation Pawan = military action in ___ 1987-90.,Bangladesh,Myanmar,Sri Lanka,Maldives,C,Sri Lanka.,1,NEW,TRUE
+Q-ARM_FRCS-0343,ABC,ARMY,ARM_FRCS,Armed Forces,14,Head Constable identified by ___ red stripes on sleeve.,Four,Nil,Two,Three,D,3 stripes.,2,NEW,TRUE
+Q-MAP_RDG-0344,ABC,ARMY,MAP_RDG,Map Reading,15,Horizontal vertical grid lines on map called:,Longitudes,Magnetic Lines,Grid Lines,Latitudes,C,Grid Lines.,1,OMR_2024,TRUE
+Q-MAP_RDG-0345,ABC,ARMY,MAP_RDG,Map Reading,15,Science of making maps = ___.,Scalography,Mapography,Cartography,Survey,C,Cartography.,1,OMR_2024,TRUE
+Q-MAP_RDG-0346,ABC,ARMY,MAP_RDG,Map Reading,15,Symbols on map = ___.,Datum Points,Conventional Signs,Reference Points,Reference Signs,B,Conventional Signs.,2,OMR_2024,TRUE
+Q-MAP_RDG-0347,ABC,ARMY,MAP_RDG,Map Reading,15,GR format:,Four Figure,Six Figure,Ten Figure,Any of these,D,Any format.,1,OMR_2024,TRUE
+Q-MAP_RDG-0348,ABC,ARMY,MAP_RDG,Map Reading,15,First half of GR = ___ value.,Northing,Latitudinal,Longitudinal,Easting,D,Easting.,1,OMR_2024,TRUE
+Q-MAP_RDG-0349,ABC,ARMY,MAP_RDG,Map Reading,15,Vertical lines increasing W to E = ___.,Northings,Grid Lines,Eastings,Bearings,C,Eastings.,2,OMR_2024,TRUE
+Q-MAP_RDG-0350,ABC,ARMY,MAP_RDG,Map Reading,15,Horizontal lines increasing S to N = ___.,Grid Lines,Northings,Bearings,Eastings,B,Northings.,3,OMR_2024,TRUE
+Q-MAP_RDG-0351,ABC,ARMY,MAP_RDG,Map Reading,15,Contour lines never cross is ___.,True,False,,,B,False - they can merge at cliffs.,1,OMR_2024,TRUE
+Q-MAP_RDG-0352,ABC,ARMY,MAP_RDG,Map Reading,15,Line of equal height = ___.,Elevation Line,Height Line,Bearing Line,Contour Line,D,Contour Line.,2,OMR_2024,TRUE
+Q-MAP_RDG-0353,ABC,ARMY,MAP_RDG,Map Reading,15,Angle from North to a direction = ___.,Bearing,Degree Line,Direction Line,Direction Angle,A,Bearing.,1,OMR_2024,TRUE
+Q-MAP_RDG-0354,ABC,ARMY,MAP_RDG,Map Reading,15,True N minus Magnetic N = ___.,Grid Convergence,North Variation,Magnetic Variation,Grid Variation,C,Magnetic Variation.,1,OMR_2024,TRUE
+Q-MAP_RDG-0355,ABC,ARMY,MAP_RDG,Map Reading,15,Back bearing of 139 degrees = ___ degrees.,289,359,319,419,C,319 degrees.,2,OMR_2024,TRUE
+Q-MAP_RDG-0356,ABC,ARMY,MAP_RDG,Map Reading,15,"1:50000 map, 2 cm = ___ on ground.",500m,1 km,1.5 km,2 km,B,1 km.,1,OMR_2024,TRUE
+Q-MAP_RDG-0357,ABC,ARMY,MAP_RDG,Map Reading,15,High ground projecting into lower ground = ___.,Watershed,Ridge,Spur,Crest,C,Spur.,3,OMR_2024,TRUE
+Q-MAP_RDG-0358,ABC,ARMY,MAP_RDG,Map Reading,15,Small isolated hill = ___.,Single Hill,Re-entrant,Knoll,Salient,C,Knoll.,2,OMR_2024,TRUE
+Q-MAP_RDG-0359,ABC,ARMY,MAP_RDG,Map Reading,15,GPS controlled by US ___.,NASA,Space Dept,Satellite Tech,Department of Defence,D,DoD.,1,QB13,TRUE
+Q-MAP_RDG-0360,ABC,ARMY,MAP_RDG,Map Reading,15,135 degrees = ___ direction.,North West,West North West,South South East,South East,D,South East.,1,QB13,TRUE
+Q-MAP_RDG-0361,ABC,ARMY,MAP_RDG,Map Reading,15,Rise between consecutive contours = ___.,Contour Difference,Height Variation,Vertical Interval,Ridge Variation,C,Vertical Interval.,2,QB13,TRUE
+Q-MAP_RDG-0362,ABC,ARMY,MAP_RDG,Map Reading,15,Pole Star indicates True North to ___ degrees.,5,3,1,2,D,2 degrees.,1,QB13,TRUE
+Q-MAP_RDG-0363,ABC,ARMY,MAP_RDG,Map Reading,15,Ridge = line from which water flows in ___ directions.,Same,Opposite,Random,Three,B,Opposite directions.,1,QB13,TRUE
+Q-MAP_RDG-0364,ABC,ARMY,MAP_RDG,Map Reading,15,Dead ground not visible due to ___.,Weather,Undulations or hills,Darkness,Distance,B,Undulations or hills.,3,QB13,TRUE
+Q-MAP_RDG-0365,ABC,ARMY,MAP_RDG,Map Reading,15,Map Setter = Magnetic North on map points to Magnetic North.,True,False,,,A,True.,1,QB13,TRUE
+Q-MAP_RDG-0366,ABC,ARMY,MAP_RDG,Map Reading,15,Magnetic Bearing measured using ___.,Protractor,Pointer,Compass,Triangle,C,Compass.,1,NEW,TRUE
+Q-MAP_RDG-0367,ABC,ARMY,MAP_RDG,Map Reading,15,Grid Bearing measured using ___.,Compass,Scale,Service Protractor,Triangle,C,Service Protractor.,2,NEW,TRUE
+Q-MAP_RDG-0368,ABC,ARMY,MAP_RDG,Map Reading,15,Three rays not meeting in resection forms a ___.,Rectangle of Error,Triangle of Error,Octagon of Error,Parallelogram,B,Triangle of Error.,1,NEW,TRUE
+Q-MAP_RDG-0369,ABC,ARMY,MAP_RDG,Map Reading,15,Survey of India prepares ___ maps for whole country.,Political,Topographical,Aerial,Satellite,B,Topographical maps.,1,NEW,TRUE
+Q-MAP_RDG-0370,ABC,ARMY,MAP_RDG,Map Reading,15,Representative Fraction 1:25000 means 1 unit = ___ units on ground.,2500,25000,250,250000,B,25000 units.,2,NEW,TRUE
+Q-MAP_RDG-0371,ABC,ARMY,MAP_RDG,Map Reading,15,Pointer Staff used for ___.,Measuring distance,Showing bearing,Showing an object to another person,Finding own position,C,Showing object to another person.,3,NEW,TRUE
+Q-MAP_RDG-0372,ABC,ARMY,MAP_RDG,Map Reading,15,247.5 degrees = ___ direction.,West North West,South South East,South South West,West South West,D,West South West.,1,NEW,TRUE
+Q-MAP_RDG-0373,ABC,ARMY,MAP_RDG,Map Reading,15,"If bearing of B from A is 201 degrees, bearing of A from B = ___ degrees.",271,91,181,21,D,21 degrees.,2,NEW,TRUE
+Q-FLD_CRFT-0374,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Methods of judging distance = ___.,Four,Three,Six,Ten,C,Six methods.,1,OMR_2024,TRUE
+Q-FLD_CRFT-0375,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Art of using ground and weapon = ___.,Camouflage,Field Craft,Field Signal,Battle Craft,B,Field Craft.,1,OMR_2024,TRUE
+Q-FLD_CRFT-0376,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Unit of Measure = ___ yards method.,25,50,100,150,C,100 yards.,2,OMR_2024,TRUE
+Q-FLD_CRFT-0377,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Ground up to 300 yards = ___.,Middle Distance,Fore Ground,Short Distance,Middle Ground,B,Fore Ground.,1,OMR_2024,TRUE
+Q-FLD_CRFT-0378,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Section has ___ persons.,36,10,50,16,B,10 persons.,1,OMR_2024,TRUE
+Q-FLD_CRFT-0379,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Scouts advance bound to ___.,Target,High Ground,Bound,Landmark,C,Bound.,2,OMR_2024,TRUE
+Q-FLD_CRFT-0380,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,FCO sequence: Group-Range-Indication-___.,Type of Fire,Movement,Enemy,Target,A,Type of Fire.,3,OMR_2024,TRUE
+Q-FLD_CRFT-0381,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Camouflage = misleading enemy about ___ identity.,Enemy,Own,Civilian,Equipment,B,Own identity.,1,OMR_2024,TRUE
+Q-FLD_CRFT-0382,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Cover from view often NOT cover from ___.,Sight,Sound,Observation,Fire,D,Fire.,2,OMR_2024,TRUE
+Q-FLD_CRFT-0383,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Right arm fully raised = ___.,Advance,Close,Attack,Halt,D,Halt.,1,OMR_2024,TRUE
+Q-FLD_CRFT-0384,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Right Hand Thumb Down = ___.,Enemy in Sight,Enemy LMG firing,Turn about,Close,B,Enemy LMG firing.,1,OMR_2024,TRUE
+Q-FLD_CRFT-0385,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Clove Hitch = securing rope to ___.,Join ropes,Make loops,Spar,Rope-ends,C,Spar.,2,OMR_2024,TRUE
+Q-FLD_CRFT-0386,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,GLD = General ___ of Direction.,Group Line,Level,Line,Length,C,General Line of Direction.,1,OMR_2024,TRUE
+Q-FLD_CRFT-0387,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Half Left = ___ degrees.,23.5,90,45,60,C,45 degrees.,3,OMR_2024,TRUE
+Q-FLD_CRFT-0388,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Three quarters Right = ___ degrees.,22.5,135,67.5,10,C,67.5 degrees.,2,OMR_2024,TRUE
+Q-FLD_CRFT-0389,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Ground 300-500 yards = ___.,Far Distance,Middle Distance,Beyond Range,Middle Ground,B,Middle Distance.,1,QB13,TRUE
+Q-FLD_CRFT-0390,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,FC full form = Field ___ and Battle Craft.,Combat,Craft,Combat,Coordination,B,Field Craft.,1,QB13,TRUE
+Q-FLD_CRFT-0391,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Basic skill of tactics = ___.,Field Craft,Battle Craft,Fire and Move,Section Formation,C,Fire and Move.,2,QB13,TRUE
+Q-FLD_CRFT-0392,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Section commander keeps section within ___ control.,Tactical,Radio,Voice or visible,Mental,C,Voice or visible control.,1,QB13,TRUE
+Q-FLD_CRFT-0393,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,"In Bracketing method, average of ___ and ___ distances accepted.",Min and Max,Short and Long,Near and Far,Low and High,A,Maximum and minimum.,1,QB13,TRUE
+Q-FLD_CRFT-0394,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Field signals alternate means when ___ control not possible.,Tactical,Military,Voice,Line of sight,C,Voice control.,3,QB13,TRUE
+Q-FLD_CRFT-0395,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Fire and Move angle of covering fire should be ___ as possible.,Narrow,Small,Wide,Fixed,C,As wide as possible.,1,QB13,TRUE
+Q-FLD_CRFT-0396,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Arc of Fire = area for which fire unit is ___.,Deployed,Responsible,Trained,Positioned,B,Responsible.,1,NEW,TRUE
+Q-FLD_CRFT-0397,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Open Ground = ground with little ___ for infantry.,Distance,Cover,Height,Width,B,Cover.,2,NEW,TRUE
+Q-FLD_CRFT-0398,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Scouts = ___ and ears of the section.,Arms,Brains,Eyes,Legs,C,Eyes.,1,NEW,TRUE
+Q-FLD_CRFT-0399,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Brief Fire Control Orders when there is no time for ___ orders.,Short,Opportunity,Full,Delayed,C,Full orders.,1,NEW,TRUE
+Q-FLD_CRFT-0400,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Opportunity FCO given when target is ___ continuously seen.,Always,Not,Sometimes,Never,B,Not continuously seen.,2,NEW,TRUE
+Q-FLD_CRFT-0401,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Reef Knot used for:,Securing rope to spar,Joining ropes of equal size,Making a loop,Securing heavy load,B,Joining ropes of equal size.,3,NEW,TRUE
+Q-FLD_CRFT-0402,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Section formation best for final assault:,File,Single File,Extended Line,Arrow Head,C,Extended Line.,1,NEW,TRUE
+Q-FLD_CRFT-0403,ABC,ARMY,FLD_CRFT,Field Craft & Battle Craft,16,Section formation for narrow mountain track:,Extended Line,Single File,File,Arrow Head,B,Single File.,2,NEW,TRUE
+Q-INF_WPN-0404,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,INSAS normal ROF = ___ rounds/min.,80,60,40,90,B,60 rpm.,1,OMR_2024,TRUE
+Q-INF_WPN-0405,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,84mm RL fires ___ types of ammo.,2,3,4,5,C,4 types.,1,OMR_2024,TRUE
+Q-INF_WPN-0406,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,81mm Mortar max range = ___ metres.,4500,6400,5200,3000,C,5200 m.,2,OMR_2024,TRUE
+Q-INF_WPN-0407,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,Infantry Bn RL caliber = ___ mm.,100,20,7.62,84,D,84 mm.,1,OMR_2024,TRUE
+Q-INF_WPN-0408,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,INSAS MV = ___ m/sec.,1200,900,1000,2700,B,900 m/sec.,1,OMR_2024,TRUE
+Q-INF_WPN-0409,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,7.62mm MMG normal ROF = ___ rpm.,200,250,100,150,C,100 rpm.,2,OMR_2024,TRUE
+Q-INF_WPN-0410,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,7.62mm LMG effective range on tripod = ___.,300 m,400 m,1500 m,1000 m,D,1000 m.,3,OMR_2024,TRUE
+Q-INF_WPN-0411,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,Rifle Companies in standard Inf Bn = ___.,5,4,3,6,B,4.,1,OMR_2024,TRUE
+Q-INF_WPN-0412,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,84mm RL back blast zone = ___ metres.,10,20,15,25,C,15 m.,2,OMR_2024,TRUE
+Q-INF_WPN-0413,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,81mm Mortar min safe range = ___ metres.,80,120,90,100,C,90 m.,1,OMR_2024,TRUE
+Q-INF_WPN-0414,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,INSAS Rifle has ___ modes of fire.,3,2,1,4,B,2 modes.,1,OMR_2024,TRUE
+Q-INF_WPN-0415,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,Safety catch positions on INSAS = ___.,2,5,4,3,D,3 positions.,2,OMR_2024,TRUE
+Q-INF_WPN-0416,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,HE = ___ Explosive.,Heat Equipment,High Energy,His Excellency,High,D,High Explosive.,1,OMR_2024,TRUE
+Q-INF_WPN-0417,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,LMG magazine holds ___ rounds.,20,30,40,15,B,30 rounds.,3,OMR_2024,TRUE
+Q-INF_WPN-0418,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,Max range of AT Guided Missile in Inf Bn = ___ m.,4500,1500,3500,2500,D,2500 m.,2,OMR_2024,TRUE
+Q-INF_WPN-0419,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,Length of .22 Rifle = ___ inches.,43.5,35,40,30,A,43.5 inches.,1,QB13,TRUE
+Q-INF_WPN-0420,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,Grooves in 7.62mm LMG barrel = ___.,4,5,7,6,D,6 grooves.,1,QB13,TRUE
+Q-INF_WPN-0421,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,NOT a Company Support Weapon:,7.62mm Sniper Rifle,30mm MGL,81mm Mortar,7.62 MMG,C,81mm Mortar is battalion support.,2,QB13,TRUE
+Q-INF_WPN-0422,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,NOT a capability of Infantry Bn:,Hold Ground,Self Reliance,Fire Power,Adaptability,C,Fire Power is provided by artillery.,1,QB13,TRUE
+Q-INF_WPN-0423,ABC,ARMY,INF_WPN,Infantry Weapons & Equipment,17,7.62mm LMG rounds per magazine = ___.,15,20,30,40,C,30 rounds.,1,QB13,TRUE
+Q-MIL_HIST-0424,ABC,ARMY,MIL_HIST,Military History,18,First Kashmir War in ___.,1934,1947,1965,1971,B,1947.,1,OMR_2024,TRUE
+Q-MIL_HIST-0425,ABC,ARMY,MIL_HIST,Military History,18,Pakistan Op in 1965 for J&K insurgency = Op ___.,Pawan Putra,Safed Sagar,Gibralter,Sher-e-Kashmir,C,Op Gibraltar.,1,OMR_2024,TRUE
+Q-MIL_HIST-0426,ABC,ARMY,MIL_HIST,Military History,18,New country born after 1971 War = ___.,Nepal,Pakistan,Bangladesh,Bhutan,C,Bangladesh.,2,OMR_2024,TRUE
+Q-MIL_HIST-0427,ABC,ARMY,MIL_HIST,Military History,18,Local fighters alongside Indian Army in 1971 = ___.,Bangla Bandhu,Bengal Tigers,Bengal Liberation Tigers,Mukti Bahini,D,Mukti Bahini.,1,OMR_2024,TRUE
+Q-MIL_HIST-0428,ABC,ARMY,MIL_HIST,Military History,18,Maharaja of Kashmir in 1947 = ___.,Gulab Singh,Ranjit Singh,Kewal Singh,Hari Singh,D,Hari Singh.,1,OMR_2024,TRUE
+Q-MIL_HIST-0429,ABC,ARMY,MIL_HIST,Military History,18,Kargil War in ___.,1971,1984,1988,1999,D,1999.,2,OMR_2024,TRUE
+Q-MIL_HIST-0430,ABC,ARMY,MIL_HIST,Military History,18,Pakistani soldiers surrendered at Dhaka = more than ___.,25000,50000,90000,100000,C,"~93,000.",3,OMR_2024,TRUE
+Q-MIL_HIST-0431,ABC,ARMY,MIL_HIST,Military History,18,Tashkent Declaration after ___ War.,1962,1999,1965,1971,C,1965 War.,1,OMR_2024,TRUE
+Q-MIL_HIST-0432,ABC,ARMY,MIL_HIST,Military History,18,Siachen codenamed Op ___.,Rakshak,Meghdoot,White Cloud,Safed Sagar,B,Meghdoot.,2,OMR_2024,TRUE
+Q-MIL_HIST-0433,ABC,ARMY,MIL_HIST,Military History,18,Battle of Tololing in ___.,1971 War,Kargil War,1965 War,1962 War,B,Kargil War.,1,OMR_2024,TRUE
+Q-MIL_HIST-0434,ABC,ARMY,MIL_HIST,Military History,18,India's first COAS = ___.,VK Raina,SFJ Manekshaw,SJ Rodrigues,KM Cariappa,D,Gen KM Cariappa.,1,OMR_2024,TRUE
+Q-MIL_HIST-0435,ABC,ARMY,MIL_HIST,Military History,18,PM of Pakistan during Kargil = ___.,Asif Zardari,Parvez Musharaff,Nawaz Sharif,Liyakat Ali Khan,C,Nawaz Sharif.,2,OMR_2024,TRUE
+Q-MIL_HIST-0436,ABC,ARMY,MIL_HIST,Military History,18,Pokhran nuclear tests in ___.,1976,1974,1992,1998,D,Pokhran II = 1998.,1,OMR_2024,TRUE
+Q-MIL_HIST-0437,ABC,ARMY,MIL_HIST,Military History,18,Maharana Pratap fought Akbar at ___.,Dobhigati,Mewar,Haldighati,Jaipur,C,Haldighati 1576.,3,OMR_2024,TRUE
+Q-MIL_HIST-0438,ABC,ARMY,MIL_HIST,Military History,18,1971 War Indian PM = ___.,Lal Bahadur Shastri,HD Deve Gowda,Indira Gandhi,Rajeev Gandhi,C,Indira Gandhi.,2,OMR_2024,TRUE
+Q-MIL_HIST-0439,ABC,ARMY,MIL_HIST,Military History,18,Pakistani officer who signed surrender in Dhaka = ___.,Lt Gen Zulfikar Khan,Lt Gen AAK Niazi,Lt Gen Shehnaz Khan,Lt Gen Yahya Khan,B,Lt Gen AAK Niazi.,1,QB13,TRUE
+Q-MIL_HIST-0440,ABC,ARMY,MIL_HIST,Military History,18,Pakistan President during 1971 War = ___.,Mujib-ur-Rehman,Zulfikar Ali Bhutto,Benazir Bhutto,Yahya Khan,D,Yahya Khan.,1,QB13,TRUE
+Q-MIL_HIST-0441,ABC,ARMY,MIL_HIST,Military History,18,Indian PM during 1965 War = ___.,Jagjivan Ram,Indira Gandhi,Lal Bahadur Shastri,Jawaharlal Nehru,C,Lal Bahadur Shastri.,2,QB13,TRUE
+Q-MIL_HIST-0442,ABC,ARMY,MIL_HIST,Military History,18,Siachen War in ___.,1971,1984,1962,1999,B,1984.,1,QB13,TRUE
+Q-MIL_HIST-0443,ABC,ARMY,MIL_HIST,Military History,18,PVC motif of Vajra inspired by sacrifice of rishi ___.,Parashuram,Valmiki,Dadhichi,Agasthya,C,Dadhichi.,1,QB13,TRUE
+Q-COMM-0444,ABC,ARMY,COMM,Communication,19,GPS has ___ satellites orbiting in 12 hrs.,12,24,30,48,B,24 satellites.,1,OMR_2024,TRUE
+Q-COMM-0445,ABC,ARMY,COMM,Communication,19,Two antennas tuned to same ___.,Amplitude,Bandwidth,Frequency,Spectrum,C,Frequency.,1,OMR_2024,TRUE
+Q-COMM-0446,ABC,ARMY,COMM,Communication,19,CO code on Battalion Net = ___.,King,Lion,Tiger,Panther,C,Tiger.,2,OMR_2024,TRUE
+Q-COMM-0447,ABC,ARMY,COMM,Communication,19,Wi-Fi = Wireless ___.,Fiction,Function,Fibre,Fidelity,D,Fidelity.,1,OMR_2024,TRUE
+Q-COMM-0448,ABC,ARMY,COMM,Communication,19,Short Message in RT = ___ seconds or less.,15,30,10,60,B,30 seconds.,1,OMR_2024,TRUE
+Q-COMM-0449,ABC,ARMY,COMM,Communication,19,Wilco = received understood will ___.,Reply,Wait,Comply,Cancel,C,Comply.,2,OMR_2024,TRUE
+Q-COMM-0450,ABC,ARMY,COMM,Communication,19,Radio communication types = ___.,One,Three,Two,Four,C,Two (simplex/duplex).,3,OMR_2024,TRUE
+Q-COMM-0451,ABC,ARMY,COMM,Communication,19,Walkie-talkie developed in ___.,Russo-German War,Falkland War,First World War,Second World War,D,WWII.,1,OMR_2024,TRUE
+Q-COMM-0452,ABC,ARMY,COMM,Communication,19,RT = Radio ___.,Transmission,Artillery,Telephony,Rapid Talking,C,Telephony.,2,OMR_2024,TRUE
+Q-COMM-0453,ABC,ARMY,COMM,Communication,19,4G 'G' stands for ___.,Global,Gradient,Generation,General,C,Generation.,1,OMR_2024,TRUE
+Q-COMM-0454,ABC,ARMY,COMM,Communication,19,IMEI = unique ___ digit number per mobile.,12,18,21,15,D,15 digits.,1,OMR_2024,TRUE
+Q-COMM-0455,ABC,ARMY,COMM,Communication,19,Cellular radio first introduced in ___.,1995,2003,1945,1980,D,1980.,2,OMR_2024,TRUE
+Q-COMM-0456,ABC,ARMY,COMM,Communication,19,Communication begins with a ___.,Receiver,Message,Encoding,Sender,D,Sender.,1,OMR_2024,TRUE
+Q-COMM-0457,ABC,ARMY,COMM,Communication,19,Fear is ___ barrier to communication.,Physical,Linguistic,Mechanical,Psychological,D,Psychological.,3,OMR_2024,TRUE
+Q-COMM-0458,ABC,ARMY,COMM,Communication,19,Verbal communication example = ___.,Eyes,Posture,Voice,Body Parts,C,Voice.,2,OMR_2024,TRUE
+Q-COMM-0459,ABC,ARMY,COMM,Communication,19,Two-way visual communication over distance = ___.,Wireless Fidelity,Teleconferencing,Video Conferencing,Television,C,Video Conferencing.,1,QB13,TRUE
+Q-COMM-0460,ABC,ARMY,COMM,Communication,19,Encoding = sender chooses ___ to send message.,Words or non-verbal methods,Images,Signs,Symbols,A,Words or non-verbal methods.,1,QB13,TRUE
+Q-COMM-0461,ABC,ARMY,COMM,Communication,19,Bandwidth = difference between ___ frequency limits.,Same,Upper and Lower,Input and Output,Signal,B,Upper and lower.,2,QB13,TRUE
+Q-COMM-0462,ABC,ARMY,COMM,Communication,19,NOT a barrier to communication:,Mechanical,Physical,Physiological,Linguistic and Cultural,C,Physiological is not listed.,1,QB13,TRUE
+Q-COMM-0463,ABC,ARMY,COMM,Communication,19,Formal communication type NOT observed in organizations:,Downward,Upward,Horizontal,Vertical,D,Vertical communication.,1,QB13,TRUE
+Q-NAV_ORI-0464,ABC,NAVY,NAV_ORI,Naval Orientation,20,Western Naval Command at ___.,Kochi,Trivandrum,Mumbai,Mangalore,C,Mumbai.,1,OMR_2024,TRUE
+Q-NAV_ORI-0465,ABC,NAVY,NAV_ORI,Naval Orientation,20,Training Command of Indian Navy = ___.,WNC,ENC,SNC,CINCAN,C,SNC.,1,OMR_2024,TRUE
+Q-NAV_ORI-0466,ABC,NAVY,NAV_ORI,Naval Orientation,20,Unified command = ___.,WNC,ENC,SNC,CINCAN,D,CINCAN.,2,OMR_2024,TRUE
+Q-NAV_ORI-0467,ABC,NAVY,NAV_ORI,Naval Orientation,20,Sunset = ___ of flags.,Hoisting,Colours,Lowering,Dressing ship,C,Lowering.,1,OMR_2024,TRUE
+Q-NAV_ORI-0468,ABC,NAVY,NAV_ORI,Naval Orientation,20,Colours ceremony at ___ daily.,0600h,0700h,0800h,1800h,C,0800h.,1,OMR_2024,TRUE
+Q-NAV_ORI-0469,ABC,NAVY,NAV_ORI,Naval Orientation,20,INS Arihant = indigenous ___ submarine.,Conventional,Diesel-electric,Nuclear,Research,C,Nuclear.,2,OMR_2024,TRUE
+Q-NAV_ORI-0470,ABC,NAVY,NAV_ORI,Naval Orientation,20,Bangladesh liberated in ___ war.,1962,1947-48,1965,1971,D,1971.,3,OMR_2024,TRUE
+Q-NAV_ORI-0471,ABC,NAVY,NAV_ORI,Naval Orientation,20,COM responsible for ___ of ship.,Operations,Navigation,Design construction maintenance,Weapons,C,"Design, construction and maintenance.",1,OMR_2024,TRUE
+Q-NAV_ORI-0472,ABC,NAVY,NAV_ORI,Naval Orientation,20,Portuguese ship sunk during Goa liberation = ___.,Arleigh Burke,Albuquerque,Esmeralda,Zumwalt,B,Albuquerque.,2,OMR_2024,TRUE
+Q-NAV_ORI-0473,ABC,NAVY,NAV_ORI,Naval Orientation,20,Petty Officer = ___ in IAF.,Warrant Officer,Corporal,Sergeant,Lance Corporal,C,Sergeant.,1,OMR_2024,TRUE
+Q-NAV_ORI-0474,ABC,NAVY,NAV_ORI,Naval Orientation,20,INS Jalashwa = landing platform ___ class.,Destroyer,Dock,Submarine,Frigate,B,Landing platform dock.,1,OMR_2024,TRUE
+Q-NAV_ORI-0475,ABC,NAVY,NAV_ORI,Naval Orientation,20,Commissioning Pendent hoisted on ___ mast.,Fore,Main,Mizzen,Any,B,Main mast.,2,OMR_2024,TRUE
+Q-NAV_ORI-0476,ABC,NAVY,NAV_ORI,Naval Orientation,20,Lieutenant Commander equivalent to ___ in Army.,Major,Lieutenant Colonel,Colonel,Captain,A,Major.,1,OMR_2024,TRUE
+Q-NAV_ORI-0477,ABC,NAVY,NAV_ORI,Naval Orientation,20,Fleet = group of various ___ organized to fight.,Aircraft,Ships and aircraft,Submarines,Destroyers,B,Ships and aircraft.,3,OMR_2024,TRUE
+Q-NAV_ORI-0478,ABC,NAVY,NAV_ORI,Naval Orientation,20,MGO stands for Master General of ___.,Ordnance,Operations,Officers,Organisations,A,Ordnance.,2,OMR_2024,TRUE
+Q-NAV_COMM-0479,ABC,NAVY,NAV_COMM,Naval Communication,21,F in phonetics = ___.,Frigate,Flag,File,Foxtrot,D,Foxtrot.,1,OMR_2024,TRUE
+Q-NAV_COMM-0480,ABC,NAVY,NAV_COMM,Naval Communication,21,N in phonetics = ___.,Neither nor,Navy,November,Number,C,November.,1,OMR_2024,TRUE
+Q-NAV_COMM-0481,ABC,NAVY,NAV_COMM,Naval Communication,21,S in phonetics = ___.,Sun,Starboard,Ship,Sierra,D,Sierra.,2,OMR_2024,TRUE
+Q-NAV_COMM-0482,ABC,NAVY,NAV_COMM,Naval Communication,21,Semaphore uses ___ flags.,Oscar,Alpha,Bravo,November,A,Oscar flags.,1,OMR_2024,TRUE
+Q-NAV_COMM-0483,ABC,NAVY,NAV_COMM,Naval Communication,21,Error sign = ___.,Making T,Making J,Making C,Series of E's,D,Series of E's.,1,OMR_2024,TRUE
+Q-NAV_COMM-0484,ABC,NAVY,NAV_COMM,Naval Communication,21,Direction sign = ___.,Series of E's,Making T,Making C,Making J,D,Making J.,2,OMR_2024,TRUE
+Q-NAV_COMM-0485,ABC,NAVY,NAV_COMM,Naval Communication,21,Morse code with lights = ___.,Torching,Lighting,Flashing,Dark Code,C,Flashing.,3,OMR_2024,TRUE
+Q-NAV_COMM-0486,ABC,NAVY,NAV_COMM,Naval Communication,21,AR prosign = ___ of transmission.,Break,Full Stop,Hyphen,End,D,End of Transmission.,1,OMR_2024,TRUE
+Q-NAV_COMM-0487,ABC,NAVY,NAV_COMM,Naval Communication,21,Communication dept has ___ sub-departments.,2,3,4,5,B,3.,2,OMR_2024,TRUE
+Q-NAV_COMM-0488,ABC,NAVY,NAV_COMM,Naval Communication,21,Phonetics eliminate ___.,Clutter,Complexity,Ambiguity,Multiple Actions,C,Ambiguity.,1,OMR_2024,TRUE
+Q-NAV_COMM-0489,ABC,NAVY,NAV_COMM,Naval Communication,21,Answering sign = ___.,Making J,Series of E's,Making T,Making C,A,Making J.,1,OMR_2024,TRUE
+Q-NAV_COMM-0490,ABC,NAVY,NAV_COMM,Naval Communication,21,Semaphore carries out with ___.,One Oscar Flag,Two Oscar Flags,Two Alpha Flags,Morse lights,B,Two Oscar Flags.,2,OMR_2024,TRUE
+Q-NAV_COMM-0491,ABC,NAVY,NAV_COMM,Naval Communication,21,MIM in semaphore = ___.,Hyphen,Wait,Comma,Full Stop,C,Comma.,1,OMR_2024,TRUE
+Q-NAV_COMM-0492,ABC,NAVY,NAV_COMM,Naval Communication,21,XE prosign indicates ___.,End of Transmission,Break,Slant,Hyphen,C,Slant.,3,OMR_2024,TRUE
+Q-NAV_COMM-0493,ABC,NAVY,NAV_COMM,Naval Communication,21,Front sign = ___ flags.,Making J,Series of E's,Both flags crossed in front,Making T,C,Crossing both flags in front.,2,OMR_2024,TRUE
+Q-NAV_NAV-0494,ABC,NAVY,NAV_NAV,Navigation,22,1 Nautical Mile = ___ metres.,1653,1750,1852,1000,C,1852 m.,1,OMR_2024,TRUE
+Q-NAV_NAV-0495,ABC,NAVY,NAV_NAV,Navigation,22,1 nm/hr = ___ Knot.,1.852,2,1,0.852,C,1 Knot.,1,OMR_2024,TRUE
+Q-NAV_NAV-0496,ABC,NAVY,NAV_NAV,Navigation,22,Sextant used to ___.,Measure depth,Measure speed,Sight heavenly bodies,Measure wind,C,Sight celestial bodies.,2,OMR_2024,TRUE
+Q-NAV_NAV-0497,ABC,NAVY,NAV_NAV,Navigation,22,RADAR = Radio Detection and ___.,Response,Refraction,Direction,Ranging,D,Ranging.,1,OMR_2024,TRUE
+Q-NAV_NAV-0498,ABC,NAVY,NAV_NAV,Navigation,22,Angle from Prime Meridian = ___.,Latitude,Prime Meridian Angle,Longitude,Equator,C,Longitude.,1,OMR_2024,TRUE
+Q-NAV_NAV-0499,ABC,NAVY,NAV_NAV,Navigation,22,Gyro NORTH = ___.,Magnetic NORTH,Compass NORTH,Grid NORTH,True NORTH,D,True NORTH.,2,OMR_2024,TRUE
+Q-NAV_NAV-0500,ABC,NAVY,NAV_NAV,Navigation,22,Echo Sounder measures ___.,Speed,Depth below keel,Direction,Tide,B,Depth below keel.,3,OMR_2024,TRUE
+Q-NAV_NAV-0501,ABC,NAVY,NAV_NAV,Navigation,22,Tide = vertical rise/fall due to ___.,Wind,Pressure,Gravity,Temperature,C,Gravity.,1,OMR_2024,TRUE
+Q-NAV_NAV-0502,ABC,NAVY,NAV_NAV,Navigation,22,Spring Tides when earth sun moon are ___.,Right angle,Lined up,Separated,None,B,Aligned/lined up.,2,OMR_2024,TRUE
+Q-NAV_NAV-0503,ABC,NAVY,NAV_NAV,Navigation,22,Neap Tides when earth sun moon form ___.,Right angle,Straight line,Circle,None,A,Right angle.,1,OMR_2024,TRUE
+Q-NAV_NAV-0504,ABC,NAVY,NAV_NAV,Navigation,22,Beaufort Scale = wave height vs ___.,Depth,Tide,Wind speed,Temperature,C,Wind speed.,1,OMR_2024,TRUE
+Q-NAV_NAV-0505,ABC,NAVY,NAV_NAV,Navigation,22,Sea Breeze picks up by about ___ hours.,0700,0800,1000,1200,C,1000h.,2,OMR_2024,TRUE
+Q-NAV_NAV-0506,ABC,NAVY,NAV_NAV,Navigation,22,DR position based on ___.,GPS fix,Celestial observation,Course and speed,Radar fix,C,Course steered and speed.,1,OMR_2024,TRUE
+Q-NAV_NAV-0507,ABC,NAVY,NAV_NAV,Navigation,22,HAT = Highest ___ Tide.,Annual,Average,Astronomical,Aspirational,C,Astronomical.,3,OMR_2024,TRUE
+Q-NAV_NAV-0508,ABC,NAVY,NAV_NAV,Navigation,22,Slack Water = tidal stream at its ___ strength.,Maximum,Average,Weakest,Strongest,C,Weakest.,2,OMR_2024,TRUE
+Q-SEAMN-0509,ABC,NAVY,SEAMN,Seamanship,23,Reef Knot joins ___ ropes.,Unequal,Equal,Any,Wet,B,Equal size ropes.,1,OMR_2024,TRUE
+Q-SEAMN-0510,ABC,NAVY,SEAMN,Seamanship,23,Shank = part of ___.,Cable,Shackle,Anchor,Block,C,Anchor.,1,OMR_2024,TRUE
+Q-SEAMN-0511,ABC,NAVY,SEAMN,Seamanship,23,Anchor = hook attached to ___.,Rope,Shackle,Cable,Block,C,Cable.,2,OMR_2024,TRUE
+Q-SEAMN-0512,ABC,NAVY,SEAMN,Seamanship,23,Polyethylene = ___ fiber rope.,Natural,Steel Wire,Manmade,Flexible Steel,C,Manmade fiber.,1,OMR_2024,TRUE
+Q-SEAMN-0513,ABC,NAVY,SEAMN,Seamanship,23,Hold Water = oars at right angles with blades ___.,Out of water,In water,Raised,On boat,B,In water.,1,OMR_2024,TRUE
+Q-SEAMN-0514,ABC,NAVY,SEAMN,Seamanship,23,Ship Your Oars = stop rowing and ___ oars.,Drop,Pull in,Throw,Raise,B,Pull in oars.,2,OMR_2024,TRUE
+Q-SEAMN-0515,ABC,NAVY,SEAMN,Seamanship,23,Hull = entire ___ of boat.,Mast,Keel,Shell body,Deck,C,Shell body.,3,OMR_2024,TRUE
+Q-SEAMN-0516,ABC,NAVY,SEAMN,Seamanship,23,Bend = ___ joining of two ropes.,Permanent,Strong,Temporary,Complex,C,Temporary.,1,OMR_2024,TRUE
+Q-SEAMN-0517,ABC,NAVY,SEAMN,Seamanship,23,Sisal = ___ fiber rope.,Steel Wire,Natural,Manmade,None,B,Natural fiber.,2,OMR_2024,TRUE
+Q-SEAMN-0518,ABC,NAVY,SEAMN,Seamanship,23,Round Turn and Two Half Hitches for ___.,Joining ropes,Securing heavy load,Making loops,Rope ends,B,Heavy loads.,1,OMR_2024,TRUE
+Q-SEAMN-0519,ABC,NAVY,SEAMN,Seamanship,23,Give Way Together = order to ___.,Start rowing,Stop rowing,Change direction,Halt,B,Start rowing (not cease).,1,OMR_2024,TRUE
+Q-SEAMN-0520,ABC,NAVY,SEAMN,Seamanship,23,Power boats driven by ___.,Oars,Sails,Engines,Wind,C,Engines.,2,OMR_2024,TRUE
+Q-SEAMN-0521,ABC,NAVY,SEAMN,Seamanship,23,Splicing = ___ joining of two ropes.,Permanent,Temporary,Quick,Decorative,A,Permanent joining.,1,OMR_2024,TRUE
+Q-SEAMN-0522,ABC,NAVY,SEAMN,Seamanship,23,Shackles used to ___ heavy loads.,Carry,Mark,Lift secure and rig,Monitor,C,"Lift, secure and rig.",3,OMR_2024,TRUE
+Q-SEAMN-0523,ABC,NAVY,SEAMN,Seamanship,23,Square Knot = ___.,Clove Hitch,Half-Hitch,Reef Knot,Rolling Hitch,C,Reef Knot.,2,OMR_2024,TRUE
+Q-FIRE_FLT-0524,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Three principles of firefighting:,Cooling Starving Smothering,Heat Fuel Oxygen,Cooling Burning Starvation,All methods,A,"Cooling, Starving, Smothering.",1,OMR_2024,TRUE
+Q-FIRE_FLT-0525,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Class A = ___ fire.,Oil,General,Electrical,Explosive,B,General fire.,1,OMR_2024,TRUE
+Q-FIRE_FLT-0526,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Class E = ___ fire.,Oil,Explosive,Electric Equipment,Dry Grass,C,Electric Equipment.,2,OMR_2024,TRUE
+Q-FIRE_FLT-0527,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Fire triangle: Fuel Heat and ___.,CO2,Water,Gas,Oxygen,D,Oxygen.,1,OMR_2024,TRUE
+Q-FIRE_FLT-0528,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,AFFF extinguisher colour = ___.,Blue,Yellow,Cream,Red,C,Cream.,1,OMR_2024,TRUE
+Q-FIRE_FLT-0529,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,CO2 extinguisher for ___ fire.,Metallic,General,Oil,Electrical,D,Electrical fire.,2,OMR_2024,TRUE
+Q-FIRE_FLT-0530,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Starving = removing ___ material.,Wet,Cold,Inflammable,Heavy,C,Inflammable material.,3,OMR_2024,TRUE
+Q-FIRE_FLT-0531,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Smothering = cutting off ___.,Heat,Air supply,Fuel,Water,B,Air supply.,1,OMR_2024,TRUE
+Q-FIRE_FLT-0532,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Ship damage divided into ___ zones.,Five,Four,Six,Three,D,Three zones.,2,OMR_2024,TRUE
+Q-FIRE_FLT-0533,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Five classes of fire = ___.,True,False,,,A,True.,1,OMR_2024,TRUE
+Q-FIRE_FLT-0534,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Best cooling agent = ___.,Fuel,Inflammable material,Oxygen,Water,D,Water.,1,OMR_2024,TRUE
+Q-FIRE_FLT-0535,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Smoking in unauthorized area is a fire ___.,Drill,Training,Hazard,None,C,Hazard.,2,OMR_2024,TRUE
+Q-FIRE_FLT-0536,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Search party minimum composition = ___ searchers.,5+2,2+1,4+2,6+3,B,2+1.,1,OMR_2024,TRUE
+Q-FIRE_FLT-0537,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,BASSCA = ___ equipment shown.,CNG Cylinder,Underwater Navigation,Diving Suite,Breathing apparatus,D,Breathing apparatus.,3,OMR_2024,TRUE
+Q-FIRE_FLT-0538,BC,NAVY,FIRE_FLT,"Fire Fighting, Flooding & Damage Control",24,Duration of 9L AFFF extinguisher = ___ seconds.,50-80,30-60,90-120,60-90,D,60-90 seconds.,2,OMR_2024,TRUE
+Q-SHIP_MDL-0539,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Three model types: Solid ___ Sailing.,Static,Working,Floating,Turning,B,Working.,1,OMR_2024,TRUE
+Q-SHIP_MDL-0540,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Best wood for ship modelling = ___.,Red cedar,Yellow pine,Hickory,Balsa,D,Balsa.,1,OMR_2024,TRUE
+Q-SHIP_MDL-0541,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Hand Saw and Fret Saw = ___ tools.,Boring,Files,Cutting,Plane,C,Cutting tools.,2,OMR_2024,TRUE
+Q-SHIP_MDL-0542,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Rasp Rough and Half Round = ___ tools.,Files,Cutting,Boring,Planes,A,Filing tools.,1,OMR_2024,TRUE
+Q-SHIP_MDL-0543,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Competitions at RDC and ___.,ATC Camp,Nau Sainik Camp,CATC Camp,BLC,B,Nau Sainik Camp.,1,OMR_2024,TRUE
+Q-SHIP_MDL-0544,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Stability criteria: Draught Trim List and ___.,Turning circle,Elegance,Righting moment,Fitting,C,Righting moment.,2,OMR_2024,TRUE
+Q-SHIP_MDL-0545,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Gimlet and August = ___ tools.,Measuring,Filing,Boring,Miscellaneous,C,Boring tools.,3,OMR_2024,TRUE
+Q-SHIP_MDL-0546,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Bench Vice and Hand Vice = ___.,Boring Tools,Planes,Chisels,Vice and Clamps,D,Vice and Clamps.,1,OMR_2024,TRUE
+Q-SHIP_MDL-0547,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Camp models made during ___.,Preparatory camps,Actual competition camps,RDC,All camps,B,Actual competition camps.,2,OMR_2024,TRUE
+Q-SHIP_MDL-0548,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Top view plan used for measuring ___.,Height,Length and breadth of superstructure,Volume,Weight,B,Length and breadth of superstructure.,1,OMR_2024,TRUE
+Q-SHIP_MDL-0549,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Directorate models made during ___.,VIP visits,Camp,Preparatory camps,RDC,C,Preparatory camps.,1,OMR_2024,TRUE
+Q-SHIP_MDL-0550,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Elegance is a ___ criterion.,Performance,Stability,Static,Sailing,C,Static criterion.,2,OMR_2024,TRUE
+Q-SHIP_MDL-0551,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Turning Circle is a ___ criterion.,Static,Stability,Performance,Sailing,C,Performance criterion.,1,OMR_2024,TRUE
+Q-SHIP_MDL-0552,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Blueprint = drawing supplied with ___ kit.,Aeromodelling,Ship modelling,Boat building,Engineering,B,Ship modelling kit.,3,OMR_2024,TRUE
+Q-SHIP_MDL-0553,BC,NAVY,SHIP_MDL,Ship & Boat Modelling,25,Ship models help ___ estimate vessel size.,Biologists,Scientists,Anthropologists,Archaeologists,D,Archaeologists.,2,OMR_2024,TRUE
+Q-SWIM-0554,BC,NAVY,SWIM,Swimming,26,NCC swimming test: swim ___ metres.,25,30,50,40,C,50 metres.,1,OMR_2024,TRUE
+Q-SWIM-0555,BC,NAVY,SWIM,Swimming,26,NCC swimming test: float ___ minutes.,Five,Two,Three,Ten,C,3 minutes.,1,OMR_2024,TRUE
+Q-SWIM-0556,BC,NAVY,SWIM,Swimming,26,Butterfly stroke uses ___ kick.,Frog,Dog,Dolphin,Fish,C,Dolphin kick.,2,OMR_2024,TRUE
+Q-SWIM-0557,BC,NAVY,SWIM,Swimming,26,Breast Stroke does not rotate ___.,Legs,Torso,Trunk,Eyes,A,Torso.,1,OMR_2024,TRUE
+Q-SWIM-0558,BC,NAVY,SWIM,Swimming,26,Back Stroke chest faces ___.,Down,Side,Sky,Any,C,Sky.,1,OMR_2024,TRUE
+Q-SWIM-0559,BC,NAVY,SWIM,Swimming,26,Exhalation done ___ in swimming.,Above water,Underwater,Either,None,B,Underwater.,2,OMR_2024,TRUE
+Q-SWIM-0560,BC,NAVY,SWIM,Swimming,26,Never dive in ___ end of pool.,Deep,North South,East West,Shallow,D,Shallow end.,3,OMR_2024,TRUE
+Q-SWIM-0561,BC,NAVY,SWIM,Swimming,26,Drag Suit builds ___.,Streamlining,Endurance,Speed,Technique,B,Endurance.,1,OMR_2024,TRUE
+Q-SWIM-0562,BC,NAVY,SWIM,Swimming,26,Front Crawl: one arm forward other ___.,Flutter kicks,Cycles back through water,Dolphin move,Frog kick,B,Cycles back.,2,OMR_2024,TRUE
+Q-SWIM-0563,BC,NAVY,SWIM,Swimming,26,Dog Paddle nose and mouth ___.,Always submerged,Mostly submerged,Often above water,Always above water,C,Often above water.,1,OMR_2024,TRUE
+Q-SWIM-0564,BC,NAVY,SWIM,Swimming,26,Side Stroke is a type of swimming style.,False,True,,,B,True.,1,OMR_2024,TRUE
+Q-SWIM-0565,BC,NAVY,SWIM,Swimming,26,Goggles are part of swimming ___.,Gear,Training,Clothing,Equipment,A,Swimming gear.,2,OMR_2024,TRUE
+Q-SWIM-0566,BC,NAVY,SWIM,Swimming,26,Paddles used to increase ___ and technique.,Weight,Endurance,Strength and velocity,Balance,C,Strength and velocity.,1,OMR_2024,TRUE
+Q-SWIM-0567,BC,NAVY,SWIM,Swimming,26,Kick Board used for ___ training.,Arm,Leg kicking,Breathing,Turn,B,Leg kicking.,3,OMR_2024,TRUE
+Q-SWIM-0568,BC,NAVY,SWIM,Swimming,26,In Back Stroke arms move ___.,Same time,Alternately,Synchronized,Randomly,C,Synchronized.,2,OMR_2024,TRUE
+Q-GSK-0569,ABC,AIR,GSK,General Service Knowledge,27,Wing Commander = ___ in Army.,Major,Captain,Lt Colonel,Brigadier,C,Lt Colonel.,1,OMR_2024,TRUE
+Q-GSK-0570,ABC,AIR,GSK,General Service Knowledge,27,Group Captain = ___ in Army.,Brigadier,Lt Colonel,Captain,Colonel,D,Colonel.,1,OMR_2024,TRUE
+Q-GSK-0571,ABC,AIR,GSK,General Service Knowledge,27,Air Commodore = ___ in Army.,Lt Colonel,Colonel,Brigadier,Major General,C,Brigadier.,2,OMR_2024,TRUE
+Q-GSK-0572,ABC,AIR,GSK,General Service Knowledge,27,Squadron Leader = ___ in Army.,Flight Lieutenant,Wing Commander,Major,Captain,C,Major.,1,OMR_2024,TRUE
+Q-GSK-0573,ABC,AIR,GSK,General Service Knowledge,27,IAF Day = ___.,15 Aug,15 Jan,02 Oct,08 Oct,D,08 October.,1,OMR_2024,TRUE
+Q-GSK-0574,ABC,AIR,GSK,General Service Knowledge,27,IAF established ___.,15 Aug 1947,15 Jan 1950,08 Oct 1932,02 Oct 1948,C,08 October 1932.,2,OMR_2024,TRUE
+Q-GSK-0575,ABC,AIR,GSK,General Service Knowledge,27,NDA at ___.,Dehradun,Delhi,Pune,Hyderabad,C,Pune.,3,OMR_2024,TRUE
+Q-GSK-0576,ABC,AIR,GSK,General Service Knowledge,27,Air Force Academy at ___.,Hyderabad,Chennai,New Delhi,Bangalore,A,Hyderabad (Dundigal).,1,OMR_2024,TRUE
+Q-GSK-0577,ABC,AIR,GSK,General Service Knowledge,27,IMA at ___.,Pune,Bangalore,Dehradun,Hyderabad,C,Dehradun.,2,OMR_2024,TRUE
+Q-GSK-0578,ABC,AIR,GSK,General Service Knowledge,27,RD Camp at ___.,Bangalore,Kolkata,Bhubaneswar,New Delhi,D,New Delhi.,1,OMR_2024,TRUE
+Q-GSK-0579,ABC,AIR,GSK,General Service Knowledge,27,Maintenance Command HQ at ___.,Bangalore,Pune,Nagpur,Bhubaneswar,C,Nagpur.,1,OMR_2024,TRUE
+Q-GSK-0580,ABC,AIR,GSK,General Service Knowledge,27,Southern Air Command HQ at ___.,Gandhi Nagar,Bangalore,Nagpur,Thiruvananthapuram,D,Thiruvananthapuram.,2,OMR_2024,TRUE
+Q-GSK-0581,ABC,AIR,GSK,General Service Knowledge,27,South Western Air Command HQ at ___.,Nagpur,Thiruvananthapuram,Gandhi Nagar,Bangalore,C,Gandhinagar.,1,OMR_2024,TRUE
+Q-GSK-0582,ABC,AIR,GSK,General Service Knowledge,27,Eastern Air Command HQ at ___.,Kolkata,Guwahati,Dispur,Shillong,D,Shillong.,3,OMR_2024,TRUE
+Q-GSK-0583,ABC,AIR,GSK,General Service Knowledge,27,Naval Academy at ___.,Chennai,Vijayawada,Goa,Ezhimala,D,Ezhimala.,2,OMR_2024,TRUE
+Q-GSK-0584,ABC,AIR,GSK,General Service Knowledge,27,AFMC at ___.,Chennai,Agra,Pune,Hyderabad,C,Pune.,1,QB13,TRUE
+Q-GSK-0585,ABC,AIR,GSK,General Service Knowledge,27,Red on NCC flag = ___.,Navy,Air Force,CRPF,Army,D,Army.,1,QB13,TRUE
+Q-GSK-0586,ABC,AIR,GSK,General Service Knowledge,27,Dark Blue on NCC flag = ___.,Army,Air Force,NDRF,Navy,D,Navy.,2,QB13,TRUE
+Q-GSK-0587,ABC,AIR,GSK,General Service Knowledge,27,Light Blue on NCC flag = ___.,Navy,NDRF,Army,Air Force,D,Air Force.,1,QB13,TRUE
+Q-GSK-0588,ABC,AIR,GSK,General Service Knowledge,27,India acquired ___ from Russia.,S-800,A-320,P-43A,S-400,D,S-400 Triumf.,1,QB13,TRUE
+Q-GSK-0589,ABC,AIR,GSK,General Service Knowledge,27,Rafale from ___ Aviation France.,Lockheed,Boeing,Dassault,Airbus,C,Dassault Aviation.,3,QB13,TRUE
+Q-GSK-0590,ABC,AIR,GSK,General Service Knowledge,27,Chinook = ___ rotor heavy lift helicopter.,Single,Tandem,Coaxial,Tail,B,Tandem Rotor.,1,QB13,TRUE
+Q-GSK-0591,ABC,AIR,GSK,General Service Knowledge,27,GCI = Girl ___ Instructor.,Cadet,Combat,Corps,Camp,A,Cadet Instructor.,1,NEW,TRUE
+Q-GSK-0592,ABC,AIR,GSK,General Service Knowledge,27,YEP = Youth ___ Programme.,Energy,Yearly Exchange,Exchange,Excellence,C,Exchange Programme.,2,NEW,TRUE
+Q-GSK-0593,ABC,AIR,GSK,General Service Knowledge,27,COC = Centrally Organized ___.,Camps,Corps,Committees,Courses,A,Camps.,1,NEW,TRUE
+Q-GSK-0594,ABC,AIR,GSK,General Service Knowledge,27,NIAP = National Integration ___ Programme.,Advisory,Awareness,Activity,Achievement,B,Awareness Programme.,1,NEW,TRUE
+Q-GSK-0595,ABC,AIR,GSK,General Service Knowledge,27,In B Cert exam cadet with A cert gets ___ bonus marks.,5,15,20,10,C,20 bonus marks.,2,NEW,TRUE
+Q-GSK-0596,ABC,AIR,GSK,General Service Knowledge,27,For B Cert exam attendance required = ___.,85%,80%,75%,70%,C,75%.,3,NEW,TRUE
+Q-GSK-0597,ABC,AIR,GSK,General Service Knowledge,27,Havildar = ___ in Navy.,Leading Seaman,Seaman-1,Petty Officer,Master Chief PO,C,Petty Officer.,1,NEW,TRUE
+Q-GSK-0598,ABC,AIR,GSK,General Service Knowledge,27,Equivalent of Petty Officer in Air Force = ___.,MWO,JWO,Sergeant,WO,C,Sergeant.,2,NEW,TRUE
+Q-AIR_CAMP-0599,BC,AIR,AIR_CAMP,Air Campaigns,28,1971 war lasted ___ days.,35,41,14,7,C,14 days.,1,OMR_2024,TRUE
+Q-AIR_CAMP-0600,BC,AIR,AIR_CAMP,Air Campaigns,28,Pakistan attacked India on ___ December 1971.,1st,3rd,17th,15th,B,3rd December.,1,OMR_2024,TRUE
+Q-AIR_CAMP-0601,BC,AIR,AIR_CAMP,Air Campaigns,28,PM of India in 1971 = ___.,Lal Bahadur Shastri,HD Deve Gowda,Indira Gandhi,Rajeev Gandhi,C,Indira Gandhi.,2,OMR_2024,TRUE
+Q-AIR_CAMP-0602,BC,AIR,AIR_CAMP,Air Campaigns,28,Op Safed Sagar part of Op ___.,Falcon,Meghdoot,Vijay,Bengal,C,Op Vijay.,1,OMR_2024,TRUE
+Q-AIR_CAMP-0603,BC,AIR,AIR_CAMP,Air Campaigns,28,Rakesh Sharma = ___ Indian in space.,Second,Third,Fourth,First,D,First.,1,OMR_2024,TRUE
+Q-AIR_CAMP-0604,BC,AIR,AIR_CAMP,Air Campaigns,28,Rakesh Sharma spent ___ days in space.,14,5,8,11,C,8 days.,2,OMR_2024,TRUE
+Q-AIR_CAMP-0605,BC,AIR,AIR_CAMP,Air Campaigns,28,Nirmal Jit Singh Sekhon awarded ___ posthumously.,MVC,VC,Padma Shri,PVC,D,PVC.,3,OMR_2024,TRUE
+Q-AIR_CAMP-0606,BC,AIR,AIR_CAMP,Air Campaigns,28,Arjan Singh awarded DFC during ___.,Op Vijay,Flood Relief,WWI,Arakan Campaign 1944,D,Arakan Campaign.,1,OMR_2024,TRUE
+Q-AIR_CAMP-0607,BC,AIR,AIR_CAMP,Air Campaigns,28,LGB = Laser ___ Bomb.,Light,Guided,General,Guard,B,Guided.,2,OMR_2024,TRUE
+Q-AIR_CAMP-0608,BC,AIR,AIR_CAMP,Air Campaigns,28,DFC = Distinguished ___ Cross.,Fighter,Flying,Force,Flight,B,Flying.,1,OMR_2024,TRUE
+Q-AIR_CAMP-0609,BC,AIR,AIR_CAMP,Air Campaigns,28,At Longewala IAF Hunters were effective.,MiG 21s,Mirage 2000s,Hunters,Gnats,C,Hunters.,1,OMR_2024,TRUE
+Q-AIR_CAMP-0610,BC,AIR,AIR_CAMP,Air Campaigns,28,Arjan Singh became Marshal of IAF in ___.,2000,1999,1986,2002,D,2002.,2,OMR_2024,TRUE
+Q-AIR_CAMP-0611,BC,AIR,AIR_CAMP,Air Campaigns,28,Pakistan attacked India first in 1971 = ___.,True,False,,,B,False - Pakistan attacked first.,1,OMR_2024,TRUE
+Q-AIR_CAMP-0612,BC,AIR,AIR_CAMP,Air Campaigns,28,USSR supported India during 1971 war.,USA,USSR,China,Sri Lanka,B,USSR.,3,OMR_2024,TRUE
+Q-AIR_CAMP-0613,BC,AIR,AIR_CAMP,Air Campaigns,28,New country formed after 1971 war = ___.,Bhutan,Myanmar,Bangladesh,Sri Lanka,C,Bangladesh.,2,OMR_2024,TRUE
+Q-AIR_CAMP-0614,BC,AIR,AIR_CAMP,Air Campaigns,28,Marshal of IAF is a ___ star rank.,4,5,7,6,B,5 star rank.,1,QB13,TRUE
+Q-AIR_CAMP-0615,BC,AIR,AIR_CAMP,Air Campaigns,28,During 1971 Pakistan occupied winter posts in Kargil in ___.,1997-98,1998-99,1996-97,2000-01,B,1998-99.,1,QB13,TRUE
+Q-AIR_CAMP-0616,BC,AIR,AIR_CAMP,Air Campaigns,28,Operation Safed Sagar aimed to flush out ___ from Kargil.,Terrorists,Pakistan Army,Militants,Infiltrators,B,Pakistan Army.,2,QB13,TRUE
+Q-AIR_CAMP-0617,BC,AIR,AIR_CAMP,Air Campaigns,28,All lights switched off during ___.,Operations,Attack,Air raid,War,C,Air raid.,1,QB13,TRUE
+Q-AIR_CAMP-0618,BC,AIR,AIR_CAMP,Air Campaigns,28,Rakesh Sharma completed space mission with ___ astronauts.,French,American,Soviet,German,C,Soviet.,1,QB13,TRUE
+Q-PRINC_FLT-0619,ABC,AIR,PRINC_FLT,Principles of Flight,29,Aileron = primary ___ of aircraft.,Rotator,Wing tip,Barrier,Control Surface,D,Control Surface.,1,OMR_2024,TRUE
+Q-PRINC_FLT-0620,ABC,AIR,PRINC_FLT,Principles of Flight,29,Aerofoil designed for ___ with less drag.,Speed,Weight,Lift,Thrust,C,Lift.,1,OMR_2024,TRUE
+Q-PRINC_FLT-0621,ABC,AIR,PRINC_FLT,Principles of Flight,29,Atmosphere has ___ layers.,5,6,3,4,D,4 layers.,2,OMR_2024,TRUE
+Q-PRINC_FLT-0622,ABC,AIR,PRINC_FLT,Principles of Flight,29,Atmospheric pressure ___ near earth's surface.,Zero,High,Low,None,B,High.,1,OMR_2024,TRUE
+Q-PRINC_FLT-0623,ABC,AIR,PRINC_FLT,Principles of Flight,29,Nitrogen in air = ___.,0.09%,27.09%,33.09%,78.09%,D,78.09%.,1,OMR_2024,TRUE
+Q-PRINC_FLT-0624,ABC,AIR,PRINC_FLT,Principles of Flight,29,Sea level pressure = ___ millibar.,1023.1,1013.2 hg,1013.2 psi,1013.2,D,1013.2 millibar.,2,OMR_2024,TRUE
+Q-PRINC_FLT-0625,ABC,AIR,PRINC_FLT,Principles of Flight,29,Layer nearest ground = ___.,Mesosphere,Ionosphere,Stratosphere,Troposphere,D,Troposphere.,3,OMR_2024,TRUE
+Q-PRINC_FLT-0626,ABC,AIR,PRINC_FLT,Principles of Flight,29,Tropopause divides ___ and stratosphere.,Mesosphere,Ionosphere,Troposphere,Exosphere,C,Troposphere.,1,OMR_2024,TRUE
+Q-PRINC_FLT-0627,ABC,AIR,PRINC_FLT,Principles of Flight,29,Forces on aircraft in level flight = ___.,2,3,4,5,C,4 forces.,2,OMR_2024,TRUE
+Q-PRINC_FLT-0628,ABC,AIR,PRINC_FLT,Principles of Flight,29,Pitching controlled by ___.,Rudder,Ailerons,Flaps,Elevator,D,Elevator.,1,OMR_2024,TRUE
+Q-PRINC_FLT-0629,ABC,AIR,PRINC_FLT,Principles of Flight,29,Rolling controlled by ___.,Rudder,Flaps,Fins,Ailerons,D,Ailerons.,1,OMR_2024,TRUE
+Q-PRINC_FLT-0630,ABC,AIR,PRINC_FLT,Principles of Flight,29,Rudder controls ___ movement.,Pitch,Roll,Yaw,Spin,C,Yaw.,2,OMR_2024,TRUE
+Q-PRINC_FLT-0631,ABC,AIR,PRINC_FLT,Principles of Flight,29,Angle of Attack = angle between chord and ___.,Chord line,Longitudinal axis,Relative airflow,Horizontal,C,Relative airflow.,1,OMR_2024,TRUE
+Q-PRINC_FLT-0632,ABC,AIR,PRINC_FLT,Principles of Flight,29,Roll = rotation about ___ axis.,Lateral,Normal,Longitudinal,Vertical,C,Longitudinal axis.,3,OMR_2024,TRUE
+Q-PRINC_FLT-0633,ABC,AIR,PRINC_FLT,Principles of Flight,29,Stratosphere up to ___ km.,20,30,100,50,D,50 km.,2,OMR_2024,TRUE
+Q-PRINC_FLT-0634,ABC,AIR,PRINC_FLT,Principles of Flight,29,Lift/Drag ratio maximum at ___ deg angle of attack.,5,3,4,1,C,4 degrees.,1,QB13,TRUE
+Q-PRINC_FLT-0635,ABC,AIR,PRINC_FLT,Principles of Flight,29,Lift zero at ___ deg angle of attack.,18-21,38-41,48-51,3-6,A,18-21 degrees.,1,QB13,TRUE
+Q-PRINC_FLT-0636,ABC,AIR,PRINC_FLT,Principles of Flight,29,Number of types of flaps = ___.,3,5,6,4,C,6 types.,2,QB13,TRUE
+Q-PRINC_FLT-0637,ABC,AIR,PRINC_FLT,Principles of Flight,29,By use of SLATS CL max increased by ___.,30%,70%,50%,40%,B,70%.,1,QB13,TRUE
+Q-PRINC_FLT-0638,ABC,AIR,PRINC_FLT,Principles of Flight,29,Slats can be divided into ___ types.,4,3,2,5,B,3 types.,1,QB13,TRUE
+Q-PRINC_FLT-0639,ABC,AIR,PRINC_FLT,Principles of Flight,29,Stalling speed with flap down is ___.,Lower than flap up,Higher than flap up,Constant,None,A,Lower.,3,QB13,TRUE
+Q-PRINC_FLT-0640,ABC,AIR,PRINC_FLT,Principles of Flight,29,Number of types of tabs = ___.,3,2,5,4,C,5 types.,1,QB13,TRUE
+Q-PRINC_FLT-0641,ABC,AIR,PRINC_FLT,Principles of Flight,29,Primary controls are Aileron Elevator and ___.,Trim,Spoiler,Rudder,Slat,C,Rudder.,1,NEW,TRUE
+Q-PRINC_FLT-0642,ABC,AIR,PRINC_FLT,Principles of Flight,29,Pitching movement on ___ axis.,Vertical,Normal,Longitudinal,Lateral/Transverse,D,Lateral/Transverse axis.,2,NEW,TRUE
+Q-PRINC_FLT-0643,ABC,AIR,PRINC_FLT,Principles of Flight,29,Yawing stability along ___ axis.,Vertical,Lateral,Longitudinal,Normal,D,Normal axis.,1,NEW,TRUE
+Q-PRINC_FLT-0644,ABC,AIR,PRINC_FLT,Principles of Flight,29,Gliding = thrust of aircraft is ___.,Maximum,Average,Zero,Minimum,C,Zero.,1,NEW,TRUE
+Q-PRINC_FLT-0645,ABC,AIR,PRINC_FLT,Principles of Flight,29,Position of CG is ahead of ___.,Wings,CP,Rudder,Ailerons,B,CP.,2,NEW,TRUE
+Q-PRINC_FLT-0646,ABC,AIR,PRINC_FLT,Principles of Flight,29,Increase in drag cannot alter ___.,Lift,Thrust,Stalling speed,Direction,C,Stalling speed.,3,NEW,TRUE
+Q-PRINC_FLT-0647,ABC,AIR,PRINC_FLT,Principles of Flight,29,Wheel undercarriage modern concept = ___ wheel.,Tail,Main,Nose,All,C,Nose wheel.,1,NEW,TRUE
+Q-PRINC_FLT-0648,ABC,AIR,PRINC_FLT,Principles of Flight,29,Types of aircraft brakes = ___.,One,Four,Three,Two,D,Two types.,2,NEW,TRUE
+Q-AIRMAN-0649,BC,AIR,AIRMAN,Airmanship,30,Minimum altitude except landing/takeoff = ___ ft.,1500,2000,1000,50,C,1000 ft.,1,OMR_2024,TRUE
+Q-AIRMAN-0650,BC,AIR,AIRMAN,Airmanship,30,Two aircraft head-on: alter heading to ___.,Left,Upward,Right,Safety,C,Right.,1,OMR_2024,TRUE
+Q-AIRMAN-0651,BC,AIR,AIRMAN,Airmanship,30,ATC controls ___ traffic.,Road,Rail,Aircraft,Sea,C,Aircraft.,2,OMR_2024,TRUE
+Q-AIRMAN-0652,BC,AIR,AIRMAN,Airmanship,30,Aircraft parking area = ___.,Blast Pen,Air route,Apron,Flight parking,C,Apron.,1,OMR_2024,TRUE
+Q-AIRMAN-0653,BC,AIR,AIRMAN,Airmanship,30,Path for aircraft movement on ground = ___.,Runway,Hangar,Taxi Track,Blast Pen,C,Taxi Track.,1,OMR_2024,TRUE
+Q-AIRMAN-0654,BC,AIR,AIRMAN,Airmanship,30,QFR = Quadrantal ___ Rule.,Flight,Force,Fire,Fuel,A,Flight Rule.,2,OMR_2024,TRUE
+Q-AIRMAN-0655,BC,AIR,AIRMAN,Airmanship,30,Anoxia = insufficient ___ to tissues.,Fuel,Oxygen,Blood,Water,B,Oxygen.,3,OMR_2024,TRUE
+Q-AIRMAN-0656,BC,AIR,AIRMAN,Airmanship,30,Airport has customs and amenities.,Airfield,Aerodrome,Airport,All,C,Airport.,1,OMR_2024,TRUE
+Q-AIRMAN-0657,BC,AIR,AIRMAN,Airmanship,30,Helicopter landing marked 'H' in ___ colour.,Red,Yellow,White,Black,C,White.,2,OMR_2024,TRUE
+Q-AIRMAN-0658,BC,AIR,AIRMAN,Airmanship,30,Anti-G suit prevents ___.,Dehydration,G-LOC,Anoxia,Frostbite,B,G-LOC.,1,OMR_2024,TRUE
+Q-AIRMAN-0659,BC,AIR,AIRMAN,Airmanship,30,Signal square displayed ___ ATC.,Right of,Above,By side of,In front of,D,In front of.,1,OMR_2024,TRUE
+Q-AIRMAN-0660,BC,AIR,AIRMAN,Airmanship,30,Aerodrome = area for ___ only.,Passengers,Cargo,Take-off and landing,All operations,C,Take-off and landing.,2,OMR_2024,TRUE
+Q-AIRMAN-0661,BC,AIR,AIRMAN,Airmanship,30,Runway threshold marked by ___ bar of green light.,Red,White,Green,Blue,B,Green light.,1,OMR_2024,TRUE
+Q-AIRMAN-0662,BC,AIR,AIRMAN,Airmanship,30,Unusable runway marked with ___ cross.,White,Red,Yellow,Black and Yellow,A,White cross.,3,OMR_2024,TRUE
+Q-AIRMAN-0663,BC,AIR,AIRMAN,Airmanship,30,Approach lighting = assist pilot in ___ visibility.,Bright,Rainy,Poor,Night,C,Poor visibility.,2,OMR_2024,TRUE
+Q-AERO_ENG-0664,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,IC engine burns fuel ___ engine.,In crack case,Outside,Inside,None,C,Inside.,1,OMR_2024,TRUE
+Q-AERO_ENG-0665,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Viscosity = internal ___ of fluid.,Density,Weight,Friction,Gravity,C,Friction.,1,OMR_2024,TRUE
+Q-AERO_ENG-0666,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Carburettor supplies ___ mixture.,Air-water,Fuel-water,Air-fuel,Oil-fuel,C,Air-fuel mixture.,2,OMR_2024,TRUE
+Q-AERO_ENG-0667,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Jet engine gas expelled ___.,Forward,Downward,Rearward,Upward,C,Rearward.,1,OMR_2024,TRUE
+Q-AERO_ENG-0668,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Spark plug fitted on ___.,Carburettor,Outside Cylinder,Cylinder Head,Piston head,C,Cylinder head.,1,OMR_2024,TRUE
+Q-AERO_ENG-0669,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Power stroke: piston TDC to ___.,Stay TDC,BDC,Back to TDC,None,B,BDC.,2,OMR_2024,TRUE
+Q-AERO_ENG-0670,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,TDC = Top ___ Centre.,Total,True,Technical,Dead,D,Dead.,3,OMR_2024,TRUE
+Q-AERO_ENG-0671,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,BDC = Bottom ___ Centre.,Directional,Dead,Deep,Drop,B,Dead.,1,OMR_2024,TRUE
+Q-AERO_ENG-0672,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Aero engine lubricated by ___.,Vacuum,Generator,Oil pump,Fuel pump,C,Oil pump.,2,OMR_2024,TRUE
+Q-AERO_ENG-0673,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Magneto = electrical ___.,Pump,Regulator,Generator,Filter,C,Generator.,1,OMR_2024,TRUE
+Q-AERO_ENG-0674,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Spark given at end of ___ stroke.,Power,Exhaust,Induction,Compression,D,Compression stroke.,1,OMR_2024,TRUE
+Q-AERO_ENG-0675,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Bore = ___ diameter of cylinder.,External,Internal,Average,Nominal,B,Internal.,2,OMR_2024,TRUE
+Q-AERO_ENG-0676,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Heat engines convert to ___ energy.,Kinetic,Potential,Mechanical,Sound,C,Mechanical.,1,OMR_2024,TRUE
+Q-AERO_ENG-0677,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Two lubrication systems: dry sump and ___.,Manual,Automatic,Wet sump,Fast,C,Wet sump.,3,OMR_2024,TRUE
+Q-AERO_ENG-0678,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Connecting rod converts piston to ___ rotation.,Valve,Camshaft,Crankshaft,Cylinder,C,Crankshaft.,2,OMR_2024,TRUE
+Q-AERO_ENG-0679,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,External combustion engine example = ___.,Piston engine,Car engine,Steam engine,Jet engine,C,Steam engine.,1,QB13,TRUE
+Q-AERO_ENG-0680,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Compression ratio = ratio of volume at ___ to TDC.,BDC,TDC,Mid stroke,None,A,BDC to TDC.,1,QB13,TRUE
+Q-AERO_ENG-0681,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Dry sump lubrication: oil carried in separate ___.,Cylinder,Crankcase,Tank,Filter,C,Tank.,2,QB13,TRUE
+Q-AERO_ENG-0682,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,During exhaust stroke inlet valve ___ and exhaust valve ___.,Opens Opens,Opens Closes,Closes Opens,Closes Closes,C,"Closes, Opens.",1,QB13,TRUE
+Q-AERO_ENG-0683,BC,AIR,AERO_ENG,Aero Engines & Air Frames,31,Rich mixture = more ___ than air.,Oil,Water,Petrol,Nitrogen,C,Petrol.,1,QB13,TRUE
+Q-FLT_INST-0684,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Altimeter indicates aircraft ___ above MSL.,Speed,Altitude,Heading,Vertical speed,B,Altitude.,1,OMR_2024,TRUE
+Q-FLT_INST-0685,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,ASI shows ___ of aircraft.,Height,Altitude,Atmospheric Pressure,Airspeed,D,Airspeed.,1,OMR_2024,TRUE
+Q-FLT_INST-0686,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Artificial Horizon works on ___ principle.,Searchlight,Air Pressure,Gyroscope,Magnetic,C,Gyroscope.,2,OMR_2024,TRUE
+Q-FLT_INST-0687,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Altimeter uses ___ pressure.,Dynamic,Atmospheric,Static,Air,B,Atmospheric.,1,OMR_2024,TRUE
+Q-FLT_INST-0688,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,RCDI shows ___ speed.,Horizontal,Ground,Vertical,Air,C,Vertical speed.,1,OMR_2024,TRUE
+Q-FLT_INST-0689,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Compass works on ___ principle.,Mechanical,Gravitational,Electrical,Magneto,D,Magneto.,2,OMR_2024,TRUE
+Q-FLT_INST-0690,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,TSI = Turn and ___ Indicator.,Speed,Slip,Slant,Swing,B,Slip.,3,OMR_2024,TRUE
+Q-FLT_INST-0691,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Inverter converts ___ to ___.,AC to DC,DC to AC,DC to DC,AC to AC,B,DC to AC.,1,OMR_2024,TRUE
+Q-FLT_INST-0692,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,ASI = Air ___ Indicator.,System,Speed,Service,Status,B,Speed.,2,OMR_2024,TRUE
+Q-FLT_INST-0693,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Aneroid capsule used in ___.,ASI,Gyro,Altimeter,Compass,C,Altimeter.,1,OMR_2024,TRUE
+Q-FLT_INST-0694,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Altimeter over-reads in ___ areas.,Hot,Hotter,Colder,High pressure,C,Colder areas.,1,OMR_2024,TRUE
+Q-FLT_INST-0695,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Artificial Horizon shows attitude in ___.,Feet,Meters,Kilometres,Degrees,D,Degrees.,2,OMR_2024,TRUE
+Q-FLT_INST-0696,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Artificial Horizon used to determine ___.,Turn only,Climb only,Descent only,All of these,D,All of these.,1,OMR_2024,TRUE
+Q-FLT_INST-0697,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Radar bearing uses ___ principle.,Pulse,Navigation,Search light,Doppler,C,Search light.,3,OMR_2024,TRUE
+Q-FLT_INST-0698,BC,AIR,FLT_INST,Basic Flight Instruments & Radar Theory,32,Turn and Slip Indicator uses ___ principle.,Buoyancy,Bernoulli's,Pendulum,Thermodynamic,C,Pendulum.,2,OMR_2024,TRUE
+Q-AEROMDL-0699,BC,AIR,AEROMDL,Aeromodelling,33,Balsa wood from ___.,North America,Africa,India,South America,D,South America.,1,OMR_2024,TRUE
+Q-AEROMDL-0700,BC,AIR,AEROMDL,Aeromodelling,33,Balsa is ___.,Very heavy,Very Smooth,Very Strong,Very light,D,Very light.,1,OMR_2024,TRUE
+Q-AEROMDL-0701,BC,AIR,AEROMDL,Aeromodelling,33,Aeromodelling started in ___ century.,15th,17th,18th,19th,D,19th century.,2,OMR_2024,TRUE
+Q-AEROMDL-0702,BC,AIR,AEROMDL,Aeromodelling,33,Apex body for Aeromodelling in India = ___.,Aero Club of India,Flying Club,All India Aero Model Association,National Aeromodelling Academy,C,All India Aero Model Association.,1,OMR_2024,TRUE
+Q-AEROMDL-0703,BC,AIR,AEROMDL,Aeromodelling,33,Dope = ___ and tightening.,Air proofing,Only tightening,Painting,Gluing,A,Air proofing.,1,OMR_2024,TRUE
+Q-AEROMDL-0704,BC,AIR,AEROMDL,Aeromodelling,33,Rubber models powered by ___.,Propeller,Engine,Engine and Propeller,Rubber strip,D,Rubber strip.,2,OMR_2024,TRUE
+Q-AEROMDL-0705,BC,AIR,AEROMDL,Aeromodelling,33,Main aeromodelling wood = ___.,Plywood,Oak,Samba,Balsa,D,Balsa.,3,OMR_2024,TRUE
+Q-AEROMDL-0706,BC,AIR,AEROMDL,Aeromodelling,33,Spruce for ___ longerons and wing spar.,Tail,Fuselage,Undercarriage,Wings,B,Fuselage.,1,OMR_2024,TRUE
+Q-AEROMDL-0707,BC,AIR,AEROMDL,Aeromodelling,33,RC models use ___ and receiver.,Camera,Transmitter,Battery,Motor,B,Transmitter.,2,OMR_2024,TRUE
+Q-AEROMDL-0708,BC,AIR,AEROMDL,Aeromodelling,33,Rubber band lubricated with ___.,Grease,Vaseline,French powder,English Powder,C,French powder.,1,OMR_2024,TRUE
+Q-AEROMDL-0709,BC,AIR,AEROMDL,Aeromodelling,33,Propeller blades made of ___ wood.,Birch,Plywood,Mahogany,Spruce,C,Mahogany.,1,OMR_2024,TRUE
+Q-AEROMDL-0710,BC,AIR,AEROMDL,Aeromodelling,33,Tissue paper sheets ___ the model.,Design,Rub,Cover,Glue,C,Cover.,2,OMR_2024,TRUE
+Q-AEROMDL-0711,BC,AIR,AEROMDL,Aeromodelling,33,Dope also used for ___.,Painting,Gluing,Tightening,Sealing only,C,Tightening.,1,OMR_2024,TRUE
+Q-AEROMDL-0712,BC,AIR,AEROMDL,Aeromodelling,33,Chuck Glider = small ___ model aircraft.,Static,Power,Free flight,Rubber,C,Free flight.,3,OMR_2024,TRUE
+Q-AEROMDL-0713,BC,AIR,AEROMDL,Aeromodelling,33,Synthetic silk dissolves by action of ___.,Water,Primer,Dope,Paint,C,Dope.,2,OMR_2024,TRUE
+Q-AEROMDL-0714,BC,AIR,AEROMDL,Aeromodelling,33,Adhesives used for ___ various parts.,Strengthening,Giving weight,Joining,All,C,Joining.,1,QB13,TRUE
+Q-AEROMDL-0715,BC,AIR,AEROMDL,Aeromodelling,33,Spruce substitutes for balsa = Japonica and ___.,Bamboo,Plywood,Birch,Teak,A,Japonica and Spruce (or bamboo).,1,QB13,TRUE
+Q-AEROMDL-0716,BC,AIR,AEROMDL,Aeromodelling,33,Plywood sheets for ___ work.,Light,Side,Flexible,Panelling,D,Panelling.,2,QB13,TRUE
+Q-AEROMDL-0717,BC,AIR,AEROMDL,Aeromodelling,33,Rubber band stored in ___.,Deep Freezer,In open rack,Air tight container,Controlled temp,C,Air tight container.,1,QB13,TRUE
+Q-AEROMDL-0718,BC,AIR,AEROMDL,Aeromodelling,33,Aeromodelling increases ___ of youth.,Discipline,Air-mindedness,Obedience,Courage,B,Air-mindedness.,1,QB13,TRUE
+Q-AIR_NAV-0719,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Navigation = guiding ___ through air.,Ship,Truck,Aircraft,Train,C,Aircraft.,1,OMR_2024,TRUE
+Q-AIR_NAV-0720,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Drift = angle between course and ___.,Track Error,Track Made Good,Track Required,Closing Angle,B,Track Made Good.,1,OMR_2024,TRUE
+Q-AIR_NAV-0721,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Magnetic Variation = Mag N vs ___ N difference.,True,Compass,Grid,Geographic,A,True N.,2,OMR_2024,TRUE
+Q-AIR_NAV-0722,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,1 NM = ___ km.,1.58,1.75,1.62,1.85,D,1.852 km.,1,OMR_2024,TRUE
+Q-AIR_NAV-0723,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Isogonal = line of equal magnetic ___.,Variation,Direction,Deviation,Latitude,A,Variation.,1,OMR_2024,TRUE
+Q-AIR_NAV-0724,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Equator perpendicular to earth's ___ axis.,Magnetic,Rotational,Geographic,Solar,B,Rotational axis.,2,OMR_2024,TRUE
+Q-AIR_NAV-0725,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,1 Statute Mile = ___ feet.,5280,6080,5080,4800,A,5280 feet.,3,OMR_2024,TRUE
+Q-AIR_NAV-0726,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Prime Meridian through ___.,Spain,Wales,England,Portugal,C,England.,1,OMR_2024,TRUE
+Q-AIR_NAV-0727,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,True Bearing referenced to ___ North.,Magnetic,Grid,True,Compass,C,True North.,2,OMR_2024,TRUE
+Q-AIR_NAV-0728,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Rhumb Line cuts meridians at ___ angle.,Different,Perpendicular,Equal,Oblique,C,Equal angle.,1,OMR_2024,TRUE
+Q-AIR_NAV-0729,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Track Error = difference between Track Required and ___.,Planned Track,Track Made Good,Drift,Bearing,B,Track Made Good.,1,OMR_2024,TRUE
+Q-AIR_NAV-0730,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Magnetic Variation also known as ___.,Elevation,Slope,Deviation,Declination,D,Declination.,2,OMR_2024,TRUE
+Q-AIR_NAV-0731,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,"DME, NDB, ILS are ___ aids.",Meteorological,Visual,Radio Navigational and Landing,Ground,C,Radio Navigational and Landing aids.,1,OMR_2024,TRUE
+Q-AIR_NAV-0732,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Isogonal = line joining places of equal ___.,Latitude,Longitude,Declination,Temperature,C,Declination.,3,OMR_2024,TRUE
+Q-AIR_NAV-0733,BC,AIR,AIR_NAV,Navigation & Metrology (Air),35,Great circle perpendicular to axis = ___.,Rhumb line,Small circle,Great circle,Equator,D,Equator.,2,OMR_2024,TRUE
+Q-FLY_SOP-0734,C,AIR,FLY_SOP,Flying & SOP,34,Fly-by-wire = ___ signal system.,Hydraulic,Mechanical,Electronic,Pneumatic,C,Electronic.,1,OMR_2024,TRUE
+Q-FLY_SOP-0735,C,AIR,FLY_SOP,Flying & SOP,34,Glass cockpit = electronic ___ displays.,Radar,Instrument,Navigation,All,B,Instrument displays.,1,OMR_2024,TRUE
+Q-FLY_SOP-0736,C,AIR,FLY_SOP,Flying & SOP,34,C-17 = ___.,Hercules,Stratotanker,Galaxy,Globemaster,D,Globemaster.,2,OMR_2024,TRUE
+Q-FLY_SOP-0737,C,AIR,FLY_SOP,Flying & SOP,34,Autopilot controls ___.,Engine,Landing Gear,Flight Control System,Navigation Lights,C,FCS.,1,OMR_2024,TRUE
+Q-FLY_SOP-0738,C,AIR,FLY_SOP,Flying & SOP,34,Rafale manufactured by ___.,Lockheed,Boeing,Dassault,Airbus,C,Dassault Aviation.,1,OMR_2024,TRUE
+Q-FLY_SOP-0739,C,AIR,FLY_SOP,Flying & SOP,34,S-400 purchased from ___.,USA,France,Israel,Russia,D,Russia.,2,OMR_2024,TRUE
+Q-FLY_SOP-0740,C,AIR,FLY_SOP,Flying & SOP,34,Chinook = ___ rotor helicopter.,Single,Tandem,Coaxial,Tail,B,Tandem Rotor.,3,OMR_2024,TRUE
+Q-FLY_SOP-0741,C,AIR,FLY_SOP,Flying & SOP,34,ASTE = Aircraft Systems ___ Establishment.,Training,Testing,Technical,Transfer,B,Testing.,1,OMR_2024,TRUE
+Q-FLY_SOP-0742,C,AIR,FLY_SOP,Flying & SOP,34,In 5th gen aircraft systems flight controls electronic = ___.,Fly by wire,Hydraulics,Mechanical,Pneumatic,A,Fly by wire.,2,OMR_2024,TRUE
+Q-FLY_SOP-0743,C,AIR,FLY_SOP,Flying & SOP,34,C-17 payload capacity = up to ___ tonnes.,50,60,70,80,C,70 tonnes.,1,OMR_2024,TRUE
+Q-RVC_ORG-0744,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,'R' in RVC = ___.,Renown,Resource,Remount,Reserve,C,Remount.,1,OMR_2024,TRUE
+Q-RVC_ORG-0745,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,'C' in RVC = ___.,Crops,Core,Corpse,Corps,D,Corps.,1,OMR_2024,TRUE
+Q-RVC_ORG-0746,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,RVC Centre and School at ___.,New Delhi,Saharanpur,Hissar,Meerut,D,Meerut.,2,OMR_2024,TRUE
+Q-RVC_ORG-0747,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,Equine Breeding Studs at Babugarh and ___.,Meerut,Bahadurgarh,Hissar,Bengaluru,C,Hissar.,1,OMR_2024,TRUE
+Q-RVC_ORG-0748,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,DG RVC rank = ___.,Maj General,Brigadier,General,Lt General,D,Lt General.,1,OMR_2024,TRUE
+Q-RVC_ORG-0749,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,RVC dogs for tracking ___ detection and guard duties.,Contraband,Terrorist,Explosive,Narcotics,C,Explosive.,2,OMR_2024,TRUE
+Q-RVC_ORG-0750,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,RVC dog breeding centre at ___.,Dehradun,Lucknow,Meerut,Hissar,C,Meerut.,3,OMR_2024,TRUE
+Q-RVC_ORG-0751,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,Horses authorized per R&V NCC Sqn = ___.,22,18,6,11,D,11 horses.,1,OMR_2024,TRUE
+Q-RVC_ORG-0752,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,Army ___ Node at Meerut trains show horses.,Equestrian,Show Jumping,RVC,Horse Racing,A,Equestrian.,2,OMR_2024,TRUE
+Q-RVC_ORG-0753,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,RVC does NOT breed ___.,Horses,Dogs,Mules,Sheep,D,Sheep.,1,OMR_2024,TRUE
+Q-RVC_ORG-0754,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,RVC provides mules to ___ units.,Infantry,ST,JAK RIF,PBG,D,PBG.,1,OMR_2024,TRUE
+Q-RVC_ORG-0755,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,RVC Remount Training Schools at Hempur and ___.,Saharanpur,Gaya,Meerut,Bengaluru,A,Saharanpur.,2,OMR_2024,TRUE
+Q-RVC_ORG-0756,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,CMVL located at ___.,Meerut,Hyderabad,Hissar,Saharanpur,A,Meerut.,1,OMR_2024,TRUE
+Q-RVC_ORG-0757,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,Record Office of RVC at ___.,Pune,Saharanpur,Meerut,Hissar,C,Meerut.,3,OMR_2024,TRUE
+Q-RVC_ORG-0758,BC,RV,RVC_ORG,Organisation & Functioning of RVC,36,Commandant of Equine Breeding Stud rank = ___.,Maj General,Lt Colonel,Colonel,Brigadier,D,Brigadier.,2,OMR_2024,TRUE
+Q-ANIM_MGT-0759,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Walk pace = ___ km/hr.,Four,Seven,Six,Five,C,6 km/hr.,1,OMR_2024,TRUE
+Q-ANIM_MGT-0760,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Gallop pace = ___ km/hr.,15,24,18,30,B,24 km/hr.,1,OMR_2024,TRUE
+Q-ANIM_MGT-0761,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Canter = ___ x normal pace.,Two,Five,Three,Four,C,3x normal pace.,2,OMR_2024,TRUE
+Q-ANIM_MGT-0762,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Trot = ___ diagonal movement.,Asymmetrical,Symmetrical,Random,Gallop,B,Symmetrical.,1,OMR_2024,TRUE
+Q-ANIM_MGT-0763,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Horse pulse rate = ___ bpm.,25-50,26-49,28-44,28-36,C,28-44 bpm.,1,OMR_2024,TRUE
+Q-ANIM_MGT-0764,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Horse body temp = ___ F.,96-101.5,92-102.5,98-101.5,94-104.5,C,98-101.5 F.,2,OMR_2024,TRUE
+Q-ANIM_MGT-0765,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Curry Comb in ___ kit.,Clipping,Shoeing,Grooming,Make up,C,Grooming kit.,3,OMR_2024,TRUE
+Q-ANIM_MGT-0766,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Water horse at least ___ times daily.,Three,Six,Five,Four,D,4 times.,1,OMR_2024,TRUE
+Q-ANIM_MGT-0767,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Adult female horse > 3 years = ___.,Stallion,Filly,Foal at Foot,Mare,D,Mare.,2,OMR_2024,TRUE
+Q-ANIM_MGT-0768,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Young female horse < 3 years = ___.,Mare,Mule,Filly,Foal at Foot,C,Filly.,1,OMR_2024,TRUE
+Q-ANIM_MGT-0769,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Mule = Mare x ___.,Jackal,Stallion,Donkey,Hyena,C,Donkey.,1,OMR_2024,TRUE
+Q-ANIM_MGT-0770,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Horse respiration = ___ per min.,12-28,10-28,10-24,16-26,C,10-24 per min.,2,OMR_2024,TRUE
+Q-ANIM_MGT-0771,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Colic = pain in ___ tract.,Respiratory,Digestive,Nervous,Urinary,B,Digestive tract.,1,OMR_2024,TRUE
+Q-ANIM_MGT-0772,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Horse normal lifespan = ___ years.,24,22,18,20,C,18 years.,3,OMR_2024,TRUE
+Q-ANIM_MGT-0773,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Horse daily water = ___ litres.,16-24,28-40,25-55,25-30,C,25-55 litres.,2,OMR_2024,TRUE
+Q-ANIM_MGT-0774,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Dandy Brush removes ___.,Fleas from eyes,Germs from foot,Clefts of sole,Hard-caked dirt,D,Hard-caked dirt.,1,QB13,TRUE
+Q-ANIM_MGT-0775,BC,RV,ANIM_MGT,Animal Management & Equitation,37,1st refusal in Show Jumping = ___ penalty points.,Two,Five,Four,Three,C,4 points.,1,QB13,TRUE
+Q-ANIM_MGT-0776,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Elimination after ___ refusals on same obstacle.,One,Three,Two,Four,C,Two.,2,QB13,TRUE
+Q-ANIM_MGT-0777,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Colours of horses = ___.,Two,Three,Four,Five,D,Five colours.,1,QB13,TRUE
+Q-ANIM_MGT-0778,BC,RV,ANIM_MGT,Animal Management & Equitation,37,VAP = Veterinary ___ Post.,Access,Aid,Accident,Administration,B,Aid Post.,1,QB13,TRUE
+Q-ANIM_MGT-0779,BC,RV,ANIM_MGT,Animal Management & Equitation,37,NOT a gait of horse: ___.,Walk,Gallop,Jog,Canter,C,Jog.,3,QB13,TRUE
+Q-ANIM_MGT-0780,BC,RV,ANIM_MGT,Animal Management & Equitation,37,NOT in grooming kit: ___.,Wisp,Dandy Brush,Curry Comb,Scurf,D,Scurf.,1,QB13,TRUE
+Q-ANIM_MGT-0781,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Sponges used to clean ___ of horse.,Teeth,Hooves,Eyes,Ears,C,Eyes.,1,NEW,TRUE
+Q-ANIM_MGT-0782,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Chaff added to feed to increase ___.,Protein,Vitamins,Bulk,Energy,C,Bulk.,2,NEW,TRUE
+Q-ANIM_MGT-0783,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Glanders = infectious disease communicated to ___.,Other horses,Mules,Man,Dogs,C,Man.,1,NEW,TRUE
+Q-ANIM_MGT-0784,BC,RV,ANIM_MGT,Animal Management & Equitation,37,A clipped horse gets dry ___ after sweating.,Slower,Same,Faster,Less,C,Faster.,1,NEW,TRUE
+Q-ANIM_MGT-0785,BC,RV,ANIM_MGT,Animal Management & Equitation,37,HMC = Horse ___ Carrier.,Maintaining Crate,Mule Carrier,Mechanical Crib,Mobility Coach,B,Mule Carrier.,2,NEW,TRUE
+Q-ANIM_MGT-0786,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Deworming eliminates ___ parasites.,External,Internal,Skin,Air,B,Internal parasites.,3,NEW,TRUE
+Q-ANIM_MGT-0787,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Show Jumping arena BIG = 100m x ___ m.,100,150,120,80,C,120 m.,1,NEW,TRUE
+Q-ANIM_MGT-0788,BC,RV,ANIM_MGT,Animal Management & Equitation,37,Volte = circle of ___ metres or less.,20,15,10,5,C,10 metres.,2,NEW,TRUE
+Q-SHOEING-0789,BC,RV,SHOEING,Shoeing,38,Shoeing tools = ___ Tools.,Saddlery,Grooming,Farriery,Clipping,C,Farriery.,1,OMR_2024,TRUE
+Q-SHOEING-0790,BC,RV,SHOEING,Shoeing,38,Frog = part of horse's ___.,Muzzle,Heat,Gait,Hoof,D,Hoof.,1,OMR_2024,TRUE
+Q-SHOEING-0791,BC,RV,SHOEING,Shoeing,38,Types of horse shoes = ___.,Three,Four,Six,Seven,D,Seven.,2,OMR_2024,TRUE
+Q-SHOEING-0792,BC,RV,SHOEING,Shoeing,38,Cold Shoeing in ___ or emergency.,Urban stables,Hot conditions,Forward areas,Training,C,Forward areas.,1,OMR_2024,TRUE
+Q-SHOEING-0793,BC,RV,SHOEING,Shoeing,38,Corrective shoeing = ___ Shoeing.,Repaired,Doctored,Medical,Surgical,D,Surgical.,1,OMR_2024,TRUE
+Q-SHOEING-0794,BC,RV,SHOEING,Shoeing,38,Pritchel makes ___ in shoes.,Holes,Grooves,Notches,Marks,A,Holes.,2,OMR_2024,TRUE
+Q-SHOEING-0795,BC,RV,SHOEING,Shoeing,38,Nippers ___ hoof wall.,File,Trim,Measure,Polish,B,Trim hoof wall.,3,OMR_2024,TRUE
+Q-SHOEING-0796,BC,RV,SHOEING,Shoeing,38,Shoeing protects the ___.,Front Leg,Nose,Hoof,Hind Leg,C,Hoof.,1,OMR_2024,TRUE
+Q-SHOEING-0797,BC,RV,SHOEING,Shoeing,38,Shoeing keeps hoof in ___ shape.,Random,Proper,Wide,Narrow,B,Proper shape.,2,OMR_2024,TRUE
+Q-SHOEING-0798,BC,RV,SHOEING,Shoeing,38,Hoof numbers branded on ___ feet.,Back,Fore,Hind,All,C,Hind feet.,1,OMR_2024,TRUE
+Q-SHOEING-0799,BC,RV,SHOEING,Shoeing,38,Racing Plates ___ than traditional shoes.,Heavier,Same,Lighter,Thicker,C,Lighter.,1,OMR_2024,TRUE
+Q-SHOEING-0800,BC,RV,SHOEING,Shoeing,38,Surgical shoeing corrects ___ in limbs.,Strength,Colour,Defects,Weight,C,Defects.,2,OMR_2024,TRUE
+Q-SHOEING-0801,BC,RV,SHOEING,Shoeing,38,Fular = ___ around shoe for grip.,Nail,Groove,Clip,Stamp,B,Groove.,1,OMR_2024,TRUE
+Q-SHOEING-0802,BC,RV,SHOEING,Shoeing,38,Hoof Gauge = measures ___ and balance.,Nail depth,Angles,Weight,Temperature,B,Angles.,3,OMR_2024,TRUE
+Q-SHOEING-0803,BC,RV,SHOEING,Shoeing,38,Rasp = hoof ___ like nail file.,Drill,Cutter,File,Pick,C,File.,2,OMR_2024,TRUE
+Q-SADDLE-0804,BC,RV,SADDLE,Saddle Fitting,39,Pommel = ___ arch of saddle.,Rear,Side,Front,Top,C,Front arch.,1,OMR_2024,TRUE
+Q-SADDLE-0805,BC,RV,SADDLE,Saddle Fitting,39,Cantle = ___ arch of saddle.,Front,Side,Top,Rear,D,Rear arch.,1,OMR_2024,TRUE
+Q-SADDLE-0806,BC,RV,SADDLE,Saddle Fitting,39,GC in Saddle GC = Gun ___.,Cover,Control,Carriage,Case,C,Carriage.,2,OMR_2024,TRUE
+Q-SADDLE-0807,BC,RV,SADDLE,Saddle Fitting,39,Throat Lash part of ___.,Saddle,Tail Collar,Head Collar,Girth Collar,C,Head Collar.,1,OMR_2024,TRUE
+Q-SADDLE-0808,BC,RV,SADDLE,Saddle Fitting,39,Saddle cushioned with ___.,Grass,Dry Hay,Tin Sheets,Numdah,D,Numdah.,1,OMR_2024,TRUE
+Q-SADDLE-0809,BC,RV,SADDLE,Saddle Fitting,39,No pressure on horse's ___.,Neck,Heart,Spine,Legs,C,Spine.,2,OMR_2024,TRUE
+Q-SADDLE-0810,BC,RV,SADDLE,Saddle Fitting,39,Saddle must be ___ on horse's back.,Dipped front,Tight,Level,Dipped rear,C,Level.,3,OMR_2024,TRUE
+Q-SADDLE-0811,BC,RV,SADDLE,Saddle Fitting,39,Western saddles for ___.,Show Jumpers,Hunting,Cowboys,Dressage,C,Cowboys.,1,OMR_2024,TRUE
+Q-SADDLE-0812,BC,RV,SADDLE,Saddle Fitting,39,Hunting saddles have ___ cantle and pommel.,High,Low,Padded,No,B,Low.,2,OMR_2024,TRUE
+Q-SADDLE-0813,BC,RV,SADDLE,Saddle Fitting,39,Saddle Pack for ___.,Sleeping,Training,Transportation,Storing,C,Transportation.,1,OMR_2024,TRUE
+Q-SADDLE-0814,BC,RV,SADDLE,Saddle Fitting,39,Clean horse ___ saddling.,Before,After,During,Anytime,A,Before.,1,OMR_2024,TRUE
+Q-SADDLE-0815,BC,RV,SADDLE,Saddle Fitting,39,Blanket folds = ___ different ways.,Two,Five,Three,Four,D,Four ways.,2,OMR_2024,TRUE
+Q-SADDLE-0816,BC,RV,SADDLE,Saddle Fitting,39,Direct Action Bit = Jointed ___.,Rubber Snaffle,Bar Snaffle,Bit,Disjointed,C,Jointed Bit.,1,OMR_2024,TRUE
+Q-SADDLE-0817,BC,RV,SADDLE,Saddle Fitting,39,Eye Fringes protect horses' ___.,Ears,Hooves,Eyes,Mane,C,Eyes.,3,OMR_2024,TRUE
+Q-SADDLE-0818,BC,RV,SADDLE,Saddle Fitting,39,Fan = part of side bar projecting ___ saddle.,In front,Below,Above,Behind,D,Behind saddle.,2,OMR_2024,TRUE

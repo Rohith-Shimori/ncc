@@ -1,0 +1,40 @@
+module_id,module_name,subject_code,certificate,wing,order_in_course,unlock_after_module,min_questions_exam,pass_threshold_percent,estimated_minutes,description
+MOD-001,NCC General,NCC_GEN,ABC,ALL,1,,10,60,30,History structure incentives and organisation of NCC
+MOD-002,National Integration & Awareness,NAT_INT,ABC,ALL,2,MOD-001,10,60,25,National unity diversity culture and awareness
+MOD-003,Drill,DRILL,ABC,ALL,3,MOD-002,10,60,20,Drill commands formations and parade procedures
+MOD-004,Weapon Training,WPN_TRG,ABC,ALL,4,MOD-003,10,60,25,Weapon handling safety firing principles and grouping
+MOD-005,Personality Development,PERS_DEV,ABC,ALL,5,MOD-004,10,60,30,Communication SSB preparation leadership traits and life skills
+MOD-006,Leadership,LEADER,ABC,ALL,6,MOD-005,10,60,25,Leadership traits motivation and inspiring leaders of India
+MOD-007,Disaster Management,DIS_MGT,ABC,ALL,7,MOD-006,10,60,25,NDMA NDRF DM Act fire fighting and civil defence
+MOD-008,Social Service & Community Development,SOC_SVC,ABC,ALL,8,MOD-007,10,60,25,Government schemes digital India social welfare and community work
+MOD-009,Health & Hygiene,HLTH_HYG,ABC,ALL,9,MOD-008,10,60,25,First aid sanitation yoga hygiene and health practices
+MOD-010,Adventure,ADVENT,ABC,ALL,10,MOD-009,8,60,20,Trekking rock climbing parasailing and NCC adventure activities
+MOD-011,Environmental Awareness & Conservation,ENV_AWR,BC,ALL,11,MOD-010,8,60,20,Global warming ozone acid rain rainwater harvesting and conservation
+MOD-012,Obstacle Training,OBS_TRG,ABC,ALL,12,MOD-011,8,60,15,Obstacle course layout specifications and training methodology
+MOD-013,Border & Coastal Areas,BORDER,ABC,ALL,13,MOD-012,8,60,20,India's land and maritime borders EEZ and territorial waters
+MOD-014,Armed Forces,ARM_FRCS,ABC,ARMY,14,MOD-013,10,60,25,Organisation and structure of Indian Army Navy and Air Force
+MOD-015,Map Reading,MAP_RDG,ABC,ARMY,15,MOD-014,12,60,35,Cartography grid references bearings contours and compass work
+MOD-016,Field Craft & Battle Craft,FLD_CRFT,ABC,ARMY,16,MOD-015,12,60,30,Field craft battle craft section formations fire control and signals
+MOD-017,Introduction to Infantry Weapons,INF_WPN,ABC,ARMY,17,MOD-016,10,60,25,INSAS rifle LMG MMG 81mm mortar and 84mm rocket launcher
+MOD-018,Military History,MIL_HIST,ABC,ARMY,18,MOD-017,10,60,25,Indo-Pak wars Kargil operations and nuclear history
+MOD-019,Communication,COMM,ABC,ARMY,19,MOD-018,8,60,20,RT procedure GPS radio communication and wireless procedures
+MOD-020,Naval Orientation,NAV_ORI,ABC,NAVY,14,MOD-013,8,60,20,Naval commands INS ships ranks and naval traditions
+MOD-021,Naval Communication,NAV_COMM,ABC,NAVY,15,MOD-020,8,60,20,Phonetic alphabet semaphore flashing and communication procedures
+MOD-022,Navigation,NAV_NAV,ABC,NAVY,16,MOD-021,10,60,25,Nautical miles sextant tides radar and dead reckoning
+MOD-023,Seamanship,SEAMN,ABC,NAVY,17,MOD-022,8,60,25,Ropes knots anchors boat rowing commands and hull knowledge
+MOD-024,Fire Fighting Flooding & Damage Control,FIRE_FLT,BC,NAVY,18,MOD-023,8,60,20,Fire classes extinguishers flooding zones and ship damage control
+MOD-025,Ship & Boat Modelling,SHIP_MDL,BC,NAVY,19,MOD-024,8,60,20,Model types tools materials stability criteria and competitions
+MOD-026,Swimming,SWIM,BC,NAVY,20,MOD-025,8,60,15,Swimming styles strokes safety rules NCC swim test requirements
+MOD-027,General Service Knowledge,GSK,ABC,AIR,14,MOD-013,10,60,25,IAF ranks equivalents commands NCC flag colours and defence academies
+MOD-028,Air Campaigns,AIR_CAMP,BC,AIR,15,MOD-027,8,60,20,1971 war Kargil Op Safed Sagar Rakesh Sharma and IAF heroes
+MOD-029,Principles of Flight,PRINC_FLT,ABC,AIR,16,MOD-028,12,60,30,Aerofoil lift drag atmosphere forces on aircraft and control surfaces
+MOD-030,Airmanship,AIRMAN,BC,AIR,17,MOD-029,8,60,20,Air traffic rules parking areas taxi tracks and physiological effects
+MOD-031,Aero Engines & Air Frames,AERO_ENG,BC,AIR,18,MOD-030,10,60,25,IC engine strokes fuel systems lubrication and jet propulsion
+MOD-032,Basic Flight Instruments & Radar Theory,FLT_INST,BC,AIR,19,MOD-031,8,60,20,Altimeter ASI artificial horizon compass TSI and inverter
+MOD-033,Aeromodelling,AEROMDL,BC,AIR,20,MOD-032,10,60,25,Balsa wood model types tools dope RC models and competitions
+MOD-034,Flying & SOP,FLY_SOP,C,AIR,21,MOD-033,8,60,20,Glass cockpit fly-by-wire C-17 autopilot and 5th gen aircraft
+MOD-035,Navigation & Metrology (Air),AIR_NAV,BC,AIR,22,MOD-034,8,60,20,Drift variation bearings nautical miles isogonals and prime meridian
+MOD-036,Organisation & Functioning of RVC,RVC_ORG,BC,RV,14,MOD-013,8,60,20,RVC history organisation breeding studs and dog training centre
+MOD-037,Animal Management & Equitation,ANIM_MGT,BC,RV,15,MOD-036,12,60,30,Horse gaits vital signs grooming feeding show jumping and equitation
+MOD-038,Shoeing,SHOEING,BC,RV,16,MOD-037,10,60,20,Farriery tools hoof anatomy cold hot surgical and racing shoeing
+MOD-039,Saddle Fitting,SADDLE,BC,RV,17,MOD-038,10,60,20,Saddle parts types fitting principles head collar and numdah

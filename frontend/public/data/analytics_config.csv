@@ -1,0 +1,11 @@
+metric_id,metric_name,formula,weight_in_readiness_score,display_in_cadet_dashboard,display_in_admin_dashboard,lower_is_better,alert_threshold_percent,description
+MET-001,Module Completion Percent,(modules_passed / total_modules_for_wing_and_cert) * 100,30,TRUE,TRUE,FALSE,40,Percentage of modules the cadet has passed out of total assigned modules
+MET-002,Average Module Quiz Score,SUM(module_quiz_scores) / COUNT(module_quiz_attempts_passed),30,TRUE,TRUE,FALSE,50,Mean score across all passed module quizzes
+MET-003,Best Practice Test Score,MAX(practice_test_scores_for_cadet),40,TRUE,TRUE,FALSE,45,Highest score achieved across all practice test attempts
+MET-004,Practice Test Score Trend,linear_slope(last_5_practice_test_scores),0,TRUE,TRUE,FALSE,0,Direction of improvement over last 5 mock attempts; positive = improving
+MET-005,Average Time Per Question (seconds),total_exam_time_seconds / total_questions_answered,0,TRUE,TRUE,TRUE,0,Average seconds taken per question; lower indicates better preparation
+MET-006,Weak Subjects,subjects WHERE avg_score < 50%,0,TRUE,TRUE,FALSE,50,List of subject codes where the cadet scores below 50% on average
+MET-007,Readiness Score (0-100),(MET-001 * 0.30) + (MET-002 * 0.30) + (MET-003 * 0.40),100,TRUE,TRUE,FALSE,50,Composite score: 30% module completion + 30% avg quiz score + 40% best mock
+MET-008,Total Practice Test Attempts,COUNT(practice_test_attempts_by_cadet),0,TRUE,TRUE,FALSE,0,Total number of mock exams attempted; indicator of engagement
+MET-009,Module Quiz Pass Rate,(module_quizzes_passed / module_quizzes_attempted) * 100,0,FALSE,TRUE,FALSE,60,Percentage of module quiz attempts that resulted in a pass
+MET-010,Days Since Last Activity,TODAY() - MAX(last_login_or_attempt_date),0,FALSE,TRUE,TRUE,0,Days since cadet last logged in or attempted any quiz; admin inactivity alert > 7 days
