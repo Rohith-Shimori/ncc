@@ -6,17 +6,17 @@ import MainLayout from './layouts/MainLayout';
 import CourseLayout from './layouts/CourseLayout';
 
 // Lazy load all page components to split the main JS bundle into on-demand chunks
-const Login = lazy(() => import('./pages/Login'));
-const Register = lazy(() => import('./pages/Register'));
-const Dashboard = lazy(() => import('./pages/Dashboard'));
-const CourseCatalog = lazy(() => import('./pages/CourseCatalog'));
-const CourseDetail = lazy(() => import('./pages/CourseDetail'));
-const ChapterViewer = lazy(() => import('./pages/ChapterViewer'));
-const PracticeTests = lazy(() => import('./pages/PracticeTests'));
-const ExamRoom = lazy(() => import('./pages/ExamRoom'));
-const ExamResults = lazy(() => import('./pages/ExamResults'));
-const Performance = lazy(() => import('./pages/Performance'));
-const Profile = lazy(() => import('./pages/Profile'));
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import CourseCatalog from './pages/CourseCatalog';
+import CourseDetail from './pages/CourseDetail';
+import ChapterViewer from './pages/ChapterViewer';
+import PracticeTests from './pages/PracticeTests';
+import ExamRoom from './pages/ExamRoom';
+import ExamResults from './pages/ExamResults';
+import Performance from './pages/Performance';
+import Profile from './pages/Profile';
 
 // Instructor Route Pages
 const InstructorOverview = lazy(() => import('./pages/instructor/InstructorOverview'));
