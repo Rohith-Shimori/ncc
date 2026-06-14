@@ -71,6 +71,40 @@ const MainLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [installPrompt, setInstallPrompt] = useState(null);
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    const handleBeforeInstall = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+      if (!window.matchMedia('(display-mode: standalone)').matches) {
+        setShowInstallBanner(true);
+      }
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+    };
+  }, []);
+
+  const triggerInstall = async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+    console.log('[PWA Install] Choice outcome:', outcome);
+    setInstallPrompt(null);
+    setShowInstallBanner(false);
+  };
 
   useEffect(() => {
     if (user) {
@@ -243,6 +277,19 @@ const MainLayout = () => {
           })}
         </nav>
 
+        {showInstallBanner && (
+          <div className="mx-4 my-2 p-3 bg-gold-500/10 border border-gold-500/20 rounded-xl flex flex-col gap-1.5 animate-fadeIn">
+            <p className="text-xs text-gold-400 font-bold leading-tight">Install NCC Digital App</p>
+            <p className="text-[10px] text-surface-400">Access training materials offline instantly from your home screen!</p>
+            <button 
+              onClick={triggerInstall}
+              className="w-full text-center py-1.5 px-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs cursor-pointer active:scale-95 transition-all mt-1"
+            >
+              Install App
+            </button>
+          </div>
+        )}
+
         <div className="p-4 border-t border-white/5 mt-auto">
           <Link 
             to="/profile"
@@ -300,13 +347,16 @@ const MainLayout = () => {
               </span>
             )}
             
-            {/* Profile Avatar (Mobile + Desktop) */}
-            <Link 
-              to="/profile" 
-              className="flex items-center justify-center w-9 h-9 rounded-full bg-navy-50 dark:bg-navy-900 border border-surface-200 dark:border-surface-700 text-navy-600 dark:text-gold-500 font-bold hover:border-gold-500 transition-all active:scale-95"
-            >
-              {profile?.full_name?.charAt(0) || user?.email?.charAt(0)?.toUpperCase() || 'C'}
-            </Link>
+            {/* Profile Avatar (Mobile + Desktop) with Live Online Status Indicator */}
+            <div className="relative">
+              <Link 
+                to="/profile" 
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-navy-50 dark:bg-navy-900 border border-surface-200 dark:border-surface-700 text-navy-600 dark:text-gold-500 font-bold hover:border-gold-500 transition-all active:scale-95"
+              >
+                {profile?.full_name?.charAt(0) || user?.email?.charAt(0)?.toUpperCase() || 'C'}
+              </Link>
+              <span className={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border-2 border-surface-50 dark:border-navy-950 ${isOnline ? 'bg-emerald-500' : 'bg-amber-500 animate-pulse'}`} title={isOnline ? 'Online' : 'Offline Mode'} />
+            </div>
 
             <ThemeToggle />
 
