@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 const enabled = process.env.ENABLE_EMAIL_NOTIFICATIONS === 'true';
-const senderEmail = process.env.SMTP_FROM || 'noreply@ncc-digital-training.gov.in';
+const senderEmail = process.env.SMTP_USER || process.env.SMTP_FROM || 'nccdigi.noreply@gmail.com';
 
 const logFilePath = path.join(__dirname, '../../logs/sent_emails.log');
 
