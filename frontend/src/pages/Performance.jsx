@@ -4,9 +4,17 @@ import { supabase } from '../services/supabase';
 import { BarChart3, TrendingUp, Target, Award, BookOpen, Crown, History, Trophy, Search, ChevronRight, Shield, Flame } from 'lucide-react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useNavigate } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 
 
 export default function Performance() {
+  useSEO({
+    title: 'Cadet Analytics & Leaderboard',
+    description: 'Track your mock exam history, topic-wise strengths, certificate prep status, and view the global unit leaderboard.',
+    keywords: 'NCC Leaderboard, Cadet Performance, Score Analytics, Strengths Chart',
+    canonicalUrl: 'https://ncc-digital-training.vercel.app/performance'
+  });
+
   const { user, profile } = useAuth();
   const navigate = useNavigate();
   const [attempts, setAttempts] = useState([]);

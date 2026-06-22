@@ -3,8 +3,16 @@ import { useAuth } from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
 import { ClipboardCheck, Clock, Target, Trophy, ArrowRight } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function PracticeTests() {
+  useSEO({
+    title: 'Practice Exams',
+    description: 'Test your knowledge with timed mock exams and practice tests custom-tailored to your certificate levels.',
+    keywords: 'NCC Exams, Mock Tests, Certificate A, Certificate B, Certificate C',
+    canonicalUrl: 'https://ncc-digital-training.vercel.app/practice-tests'
+  });
+
   const { user, profile } = useAuth();
   const navigate = useNavigate();
   const [tests, setTests] = useState([]);

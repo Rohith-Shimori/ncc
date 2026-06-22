@@ -40,6 +40,7 @@ export default function Notifications() {
   }, [user]);
 
   useEffect(() => {
+    if (!user) return;
     let active = true;
     const load = async () => {
       // Defer state update to resolve set-state-in-effect lint warning
@@ -49,10 +50,34 @@ export default function Notifications() {
       }
     };
     load();
+
+    const channel = supabase
+      .channel('full_notifications_page')
+      .on('postgres_changes', {
+        event: '*',
+        schema: 'public',
+        table: 'notifications',
+        filter: `user_id=eq.${user.id}`
+      }, (payload) => {
+        if (payload.eventType === 'INSERT') {
+          setNotifications(prev => [payload.new, ...prev]);
+        } else if (payload.eventType === 'UPDATE') {
+          setNotifications(prev => prev.map(n => n.id === payload.new.id ? payload.new : n));
+        } else if (payload.eventType === 'DELETE') {
+          // If payload.old.id is present, filter it out. Sometimes delete payload only has old.id
+          const deletedId = payload.old ? payload.old.id : null;
+          if (deletedId) {
+            setNotifications(prev => prev.filter(n => n.id !== deletedId));
+          }
+        }
+      })
+      .subscribe();
+
     return () => {
       active = false;
+      supabase.removeChannel(channel);
     };
-  }, [fetchNotifications]);
+  }, [user, fetchNotifications]);
 
   const markRead = async (id) => {
     try {
@@ -131,6 +156,7 @@ export default function Notifications() {
         {notifications.length > 0 && (
           <div className="flex items-center gap-2">
             <button
+              id="notifications-mark-all-read-btn"
               onClick={markAllRead}
               disabled={actionLoading || !notifications.some(n => !n.is_read)}
               className="px-3.5 py-2 text-xs font-black bg-gold-500/10 border border-gold-500/20 rounded-xl text-gold-600 dark:text-gold-400 flex items-center gap-1.5 hover:bg-gold-500/20 active:scale-95 transition-all cursor-pointer disabled:opacity-50"
@@ -139,6 +165,7 @@ export default function Notifications() {
               <CheckSquare className="w-4 h-4" /> Mark All Read
             </button>
             <button
+              id="notifications-clear-logs-btn"
               onClick={deleteAllNotifications}
               disabled={actionLoading}
               className="px-3.5 py-2 text-xs font-black bg-red-500/10 border border-red-500/20 rounded-xl text-red-600 dark:text-red-400 flex items-center gap-1.5 hover:bg-red-500/20 active:scale-95 transition-all cursor-pointer disabled:opacity-50"
@@ -156,6 +183,7 @@ export default function Notifications() {
         <div className="relative md:col-span-5">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-400" />
           <input
+            id="notifications-search-input"
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
@@ -170,6 +198,7 @@ export default function Notifications() {
           {['All', 'Announcement', 'Exam', 'Enrollment', 'Achievement'].map((tab) => (
             <button
               key={tab}
+              id={`notifications-tab-${tab.toLowerCase()}`}
               role="tab"
               aria-selected={typeFilter === tab}
               onClick={() => setTypeFilter(tab)}
@@ -240,6 +269,7 @@ export default function Notifications() {
                   <div className="flex items-center gap-3 mt-3.5 pt-3 border-t border-surface-100 dark:border-white/5">
                     {!n.is_read && (
                       <button 
+                        id={`notifications-mark-read-btn-${n.id}`}
                         onClick={() => markRead(n.id)} 
                         className="px-2.5 py-1 bg-mgreen-500/10 hover:bg-mgreen-500/20 text-mgreen-600 dark:text-mgreen-400 border border-mgreen-500/20 rounded-lg text-[10px] font-black uppercase tracking-wider flex items-center gap-1 cursor-pointer transition-all duration-200"
                       >
@@ -249,6 +279,7 @@ export default function Notifications() {
                     
                     {n.link && (
                       <button 
+                        id={`notifications-view-btn-${n.id}`}
                         onClick={() => { markRead(n.id); navigate(n.link); }} 
                         className="px-2.5 py-1 bg-gold-500/10 hover:bg-gold-500/20 text-gold-600 dark:text-gold-400 border border-gold-500/20 rounded-lg text-[10px] font-black uppercase tracking-wider flex items-center gap-1 cursor-pointer transition-all duration-200"
                       >
@@ -257,6 +288,7 @@ export default function Notifications() {
                     )}
 
                     <button 
+                      id={`notifications-delete-btn-${n.id}`}
                       onClick={() => deleteNotification(n.id)}
                       className="ml-auto text-surface-400 hover:text-red-500 p-1 rounded-lg transition-colors cursor-pointer"
                       title="Delete log entry"

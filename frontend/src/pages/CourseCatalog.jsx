@@ -3,8 +3,16 @@ import { useAuth } from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
 import { BookOpen, Search, CheckCircle, Clock, Target, ArrowRight } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function CourseCatalog() {
+  useSEO({
+    title: 'Training Courses',
+    description: 'Explore the full curriculum of NCC training courses across Army, Navy, and Air Force wings.',
+    keywords: 'NCC Courses, Cadet Training, Army Wing, Navy Wing, Air Force Wing',
+    canonicalUrl: 'https://ncc-digital-training.vercel.app/courses'
+  });
+
   const { user, profile } = useAuth();
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);

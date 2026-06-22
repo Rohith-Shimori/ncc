@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
 import { BookOpen, ClipboardCheck, TrendingUp, Award, ArrowRight, Megaphone, Flame } from 'lucide-react';
 import heroImg from '../assets/hero.png';
+import { useSEO } from '../hooks/useSEO';
 
 const timeAgo = (d) => {
   const diff = (Date.now() - new Date(d)) / 1000;
@@ -13,6 +14,13 @@ const timeAgo = (d) => {
 };
 
 export default function Dashboard() {
+  useSEO({
+    title: 'Cadet Dashboard',
+    description: 'Track your NCC training progress, view upcoming announcements, and access your study materials.',
+    keywords: 'NCC Cadet, Cadet Dashboard, Training Progress, NCC Announcements',
+    canonicalUrl: 'https://ncc-digital-training.vercel.app/dashboard'
+  });
+
   const { user, profile, role, refreshProfile } = useAuth();
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);

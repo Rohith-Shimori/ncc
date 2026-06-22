@@ -2,8 +2,16 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { supabase } from '../services/supabase';
 import { User, Save, CheckCircle, Share2 } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Profile() {
+  useSEO({
+    title: 'Cadet Profile & Credentials',
+    description: 'Manage your National Cadet Corps service credentials, select your wing, and set your profile avatar.',
+    keywords: 'NCC Profile, Cadet Credentials, Service Number, Cadet Rank',
+    canonicalUrl: 'https://ncc-digital-training.vercel.app/profile'
+  });
+
   const { user, profile, role, fetchProfile } = useAuth();
   const [form, setForm] = useState({ full_name: '', ncc_number: '', wing: '', certificate_level: '', rank: '', unit: '', avatar_url: '' });
   const [stats, setStats] = useState({ courses: 0, tests: 0, avgScore: 0 });
