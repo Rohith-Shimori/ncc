@@ -31,3 +31,20 @@ jobs:
 
     - name: Verify Frontend Production Build
       run: npm run build --prefix frontend
+
+  database-checks:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Supabase CLI
+      uses: supabase/setup-cli@v1
+      with:
+        version: latest
+
+    - name: Verify Database Migrations Apply Cleanly
+      run: |
+        supabase db start
+        supabase db reset
+
