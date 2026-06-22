@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react';
+import { Mail, Lock, ArrowRight, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import nccLogo from '../assets/ncc-seeklogo.png';
 import paradeImg from '../assets/pexels-pramodtiwari-13315966.jpg';
 import ThemeToggle from '../components/ThemeToggle';
+import { useSEO } from '../hooks/useSEO';
 
 // Animated CountUp component for rolling number stats
 function CountUp({ end }) {
@@ -39,6 +40,13 @@ function CountUp({ end }) {
 }
 
 export default function Login() {
+  useSEO({
+    title: 'Cadet Login',
+    description: 'Login to the National Cadet Corps (NCC) Digital Training Portal to access study resources and mock tests.',
+    keywords: 'NCC, Login, Cadet Login, Digital Training Portal',
+    canonicalUrl: 'https://ncc-digital-training.vercel.app/login'
+  });
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -156,9 +164,17 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Right Panel - Login Form */}
-      <div className="flex-1 flex items-center justify-center p-6 bg-surface-50">
-        <div className="w-full max-w-md animate-fadeIn">
+      {/* Home / Back button floating on top-left of the screen */}
+      <Link to="/" className="absolute top-4 left-4 z-50 flex items-center gap-2 px-3 py-1.5 rounded-xl border border-surface-200 dark:border-white/10 bg-white/60 dark:bg-navy-900/40 backdrop-blur-md text-xs font-bold text-surface-700 dark:text-slate-300 hover:text-navy-950 dark:hover:text-white transition-all shadow-md">
+        <ArrowLeft className="w-4 h-4" /> Back to Home
+      </Link>
+
+      {/* Right Panel - Login Form inside an elegant Glassmorphic Card */}
+      <div className="flex-1 flex items-center justify-center p-6 bg-surface-50 dark:bg-navy-950 relative overflow-hidden">
+        {/* Ambient mesh background glow in the login form panel */}
+        <div className="absolute right-0 top-0 w-80 h-80 bg-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="w-full max-w-md animate-fadeIn relative z-10 ncc-glass-card p-8 md:p-10 border border-surface-200 dark:border-white/10 shadow-2xl">
           {/* Mobile logo */}
           <div className="lg:hidden flex items-center justify-center gap-2 md:gap-3 mb-6 md:mb-8">
             <img src={nccLogo} alt="NCC" className="w-9 md:w-11 h-auto" />

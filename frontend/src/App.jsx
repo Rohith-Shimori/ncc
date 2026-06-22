@@ -6,6 +6,7 @@ import MainLayout from './layouts/MainLayout';
 import CourseLayout from './layouts/CourseLayout';
 
 // Lazy load all page components to split the main JS bundle into on-demand chunks
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -38,7 +39,7 @@ const SystemActivity = lazy(() => import('./pages/admin/SystemActivity'));
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, role, loading } = useAuth();
   if (loading) {
-    return <div className="flex items-center justify-center h-screen"><div className="ncc-skeleton w-12 h-12 rounded-full"></div></div>;
+    return <div className="flex items-center justify-center h-screen"><div className="ncc-loader"></div></div>;
   }
   if (!user) {
     return <Navigate to="/login" />;
@@ -57,19 +58,19 @@ function App() {
           <Suspense fallback={
             <div className="flex flex-col items-center justify-center min-h-screen bg-surface-50 p-4">
               <div className="flex flex-col items-center gap-4 animate-fadeIn">
-                <div className="w-12 h-12 border-4 border-gold-500/20 border-t-gold-500 rounded-full animate-spin"></div>
+                <div className="ncc-loader"></div>
                 <p className="text-surface-600 font-medium text-sm animate-pulse">Loading NCC Portal...</p>
               </div>
             </div>
           }>
             <Routes>
               {/* Public Routes */}
+              <Route path="/" element={<Landing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
 
               {/* Protected Routes with Main Sidebar Layout */}
               <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
-                <Route path="/" element={<Navigate to="/dashboard" />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/courses" element={<CourseCatalog />} />
                 <Route path="/practice-tests" element={<PracticeTests />} />

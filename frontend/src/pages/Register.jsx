@@ -5,8 +5,16 @@ import { Mail, Lock, User, Hash, ArrowRight, ArrowLeft, CheckCircle } from 'luci
 import nccLogo from '../assets/ncc-seeklogo.png';
 import paradeImg2 from '../assets/pexels-pramodtiwari-13316131.jpg';
 import ThemeToggle from '../components/ThemeToggle';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Register() {
+  useSEO({
+    title: 'Cadet Enrollment',
+    description: 'Enroll in the National Cadet Corps (NCC) Digital Training Portal to start your training curriculum.',
+    keywords: 'NCC, Enroll, Register, Cadet Enrollment, Digital Training Portal',
+    canonicalUrl: 'https://ncc-digital-training.vercel.app/register'
+  });
+
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -70,6 +78,11 @@ export default function Register() {
       <img src={paradeImg2} alt="NCC Cadets" className="absolute inset-0 w-full h-full object-cover opacity-90 dark:opacity-40 transition-opacity duration-300" />
       <div className="absolute inset-0 bg-surface-50/40 dark:bg-navy-950/70 backdrop-blur-[2px] transition-colors duration-300" />
       
+      {/* Home / Back button floating on top-left of the screen */}
+      <Link to="/" className="absolute top-4 left-4 z-50 flex items-center gap-2 px-3 py-1.5 rounded-xl border border-surface-200 dark:border-white/10 bg-white/60 dark:bg-navy-900/40 backdrop-blur-md text-xs font-bold text-surface-700 dark:text-slate-300 hover:text-navy-950 dark:hover:text-white transition-all shadow-md">
+        <ArrowLeft className="w-4 h-4" /> Back to Home
+      </Link>
+
       {/* Theme Toggle at top right */}
       <div className="absolute top-4 right-4 z-20 bg-white/20 dark:bg-navy-900/40 backdrop-blur-md rounded-xl border border-white/30 dark:border-white/10">
         <ThemeToggle />

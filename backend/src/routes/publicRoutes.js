@@ -1,16 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const { supabase } = require('../config/supabase');
-
-// Simple in-memory cache
-let cachedStats = null;
-let lastCacheTime = 0;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const { getCache, setCache } = require('../config/redis');
 
 router.get('/stats', async (req, res) => {
-  const now = Date.now();
-  if (cachedStats && (now - lastCacheTime < CACHE_DURATION)) {
-    return res.json({ data: cachedStats, error: null });
+  const cacheKey = 'public_stats';
+  
+  try {
+    const cachedStatsStr = await getCache(cacheKey);
+    if (cachedStatsStr) {
+      const cachedData = JSON.parse(cachedStatsStr);
+      return res.json({ data: cachedData, error: null });
+    }
+  } catch (err) {
+    console.error('[Public Routes] Cache retrieval failed, falling back:', err);
   }
 
   try {
@@ -22,19 +25,31 @@ router.get('/stats', async (req, res) => {
     if (cadetsRes.error) throw cadetsRes.error;
     if (coursesRes.error) throw coursesRes.error;
 
-    cachedStats = {
+    const stats = {
       cadets: cadetsRes.count || 0,
       courses: coursesRes.count || 0,
       wings: 3
     };
-    lastCacheTime = now;
 
-    res.json({ data: cachedStats, error: null });
+    // Cache for 5 minutes (300 seconds)
+    try {
+      await setCache(cacheKey, JSON.stringify(stats), 300);
+    } catch (err) {
+      console.error('[Public Routes] Saving to cache failed:', err);
+    }
+
+    res.json({ data: stats, error: null });
   } catch (error) {
     console.error('[Public Routes] Stats query error:', error);
-    if (cachedStats) {
-      return res.json({ data: cachedStats, error: null });
-    }
+    
+    // Fallback: Try to get stale cache if database is down
+    try {
+      const cachedStatsStr = await getCache(cacheKey);
+      if (cachedStatsStr) {
+        return res.json({ data: JSON.parse(cachedStatsStr), error: null });
+      }
+    } catch { /* ignore */ }
+
     res.json({ data: { cadets: 33, courses: 93, wings: 3 }, error: null });
   }
 });

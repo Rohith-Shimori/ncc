@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /login
+Allow: /register
+Allow: /courses
+Allow: /practice-tests
+Disallow: /dashboard/
+Disallow: /profile/
+Disallow: /exam/
+Disallow: /exam-results/
+Disallow: /instructor/
+Disallow: /admin/
+
+Sitemap: https://ncc-digital-training.vercel.app/sitemap.xml

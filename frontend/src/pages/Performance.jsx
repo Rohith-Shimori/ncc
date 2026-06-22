@@ -79,7 +79,7 @@ export default function Performance() {
 
   if (loading) return (
     <div className="flex items-center justify-center min-h-[60vh]">
-      <div className="w-10 h-10 border-3 border-gold-500/30 border-t-gold-500 rounded-full animate-spin" />
+      <div className="ncc-loader" />
     </div>
   );
 

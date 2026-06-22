@@ -1,0 +1,30 @@
+name: CI Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install Monorepo Dependencies
+      run: npm run install:all
+
+    - name: Run Frontend Linter
+      run: npm run lint --prefix frontend
+
+    - name: Verify Frontend Production Build
+      run: npm run build --prefix frontend

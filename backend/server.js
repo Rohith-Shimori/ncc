@@ -1,11 +1,21 @@
+const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config({ path: path.join(__dirname, '.env') });
+
+const Sentry = require("@sentry/node");
+
+if (process.env.SENTRY_DSN) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    tracesSampleRate: 1.0,
+  });
+  console.log('[Sentry Config] Live Sentry DSN found. Backend error tracking active.');
+}
+
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const http = require('http');
-const path = require('path');
 const { initSocket } = require('./src/config/socket');
-
-dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 const server = http.createServer(app);
@@ -48,6 +58,15 @@ app.use('/api/exams', examRoutes);
 app.use('/api/enrollments', enrollmentRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/public', publicRoutes);
+
+// Sentry error handler (must be placed before any other error middleware and after all controllers)
+if (process.env.SENTRY_DSN) {
+  if (typeof Sentry.setupExpressErrorHandler === 'function') {
+    Sentry.setupExpressErrorHandler(app);
+  } else if (Sentry.Handlers && typeof Sentry.Handlers.errorHandler === 'function') {
+    app.use(Sentry.Handlers.errorHandler());
+  }
+}
 
 const PORT = process.env.PORT || 5000;
 
