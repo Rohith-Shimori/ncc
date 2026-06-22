@@ -3,6 +3,10 @@ const router = express.Router();
 const { supabase } = require('../config/supabase');
 const { getCache, setCache } = require('../config/redis');
 
+router.get('/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 router.get('/stats', async (req, res) => {
   const cacheKey = 'public_stats';
   

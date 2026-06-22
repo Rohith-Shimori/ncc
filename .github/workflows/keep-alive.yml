@@ -1,0 +1,24 @@
+name: Keep-Alive Pinger
+
+on:
+  schedule:
+    # Run every 10 minutes (Render free tier spins down after 15m of inactivity)
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Ping Render Backend Web Service
+      if: "${{ secrets.PRODUCTION_BACKEND_URL != '' }}"
+      run: |
+        echo "Sending keep-alive ping to Render backend..."
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.PRODUCTION_BACKEND_URL }}/health")
+        echo "Response code: $HTTP_CODE"
+
+    - name: Ping Supabase Database API
+      run: |
+        echo "Sending keep-alive ping to Supabase REST endpoint..."
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -H "apikey: ${{ secrets.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eWphZXN6bW55aXdqaWxraGxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNTk1NjgsImV4cCI6MjA5NjczNTU2OH0.836ZD1zEuylPNR13sajLkhmccsVFMJXLUWPuy7b4IqQ' }}" "https://czyjaeszmnyiwjilkhls.supabase.co/rest/v1/")
+        echo "Response code: $HTTP_CODE"
