@@ -5,10 +5,11 @@ import { User, Save, CheckCircle, Share2 } from 'lucide-react';
 
 export default function Profile() {
   const { user, profile, role, fetchProfile } = useAuth();
-  const [form, setForm] = useState({ full_name: '', ncc_number: '', wing: '', certificate_level: '', rank: '', unit: '' });
+  const [form, setForm] = useState({ full_name: '', ncc_number: '', wing: '', certificate_level: '', rank: '', unit: '', avatar_url: '' });
   const [stats, setStats] = useState({ courses: 0, tests: 0, avgScore: 0 });
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (profile) {
@@ -19,7 +20,8 @@ export default function Profile() {
         wing: profile.wing || 'Army',
         certificate_level: profile.certificate_level || 'A',
         rank: profile.rank || '',
-        unit: profile.unit || ''
+        unit: profile.unit || '',
+        avatar_url: profile.avatar_url || ''
       });
     }
   }, [profile]);
@@ -36,6 +38,60 @@ export default function Profile() {
     loadStats();
   }, [user, role]);
 
+  const handleAvatarChange = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 2 * 1024 * 1024) {
+      alert('Avatar image size must be under 2MB.');
+      return;
+    }
+
+    setUploading(true);
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${user.id}/${Date.now()}.${fileExt}`;
+      
+      const { error: uploadError } = await supabase.storage
+        .from('avatars')
+        .upload(fileName, file, { cacheControl: '3600', upsert: true });
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from('avatars')
+        .getPublicUrl(fileName);
+
+      setForm(prev => ({ ...prev, avatar_url: publicUrl }));
+
+      let error;
+      if (role === 'cadet') {
+        const { error: err } = await supabase.from('cadet_profiles').update({ avatar_url: publicUrl }).eq('id', user.id);
+        error = err;
+      } else if (role === 'instructor') {
+        const { error: err } = await supabase.from('instructor_profiles').update({ avatar_url: publicUrl }).eq('id', user.id);
+        error = err;
+      } else if (role === 'admin') {
+        const { error: err } = await supabase.from('admin_profiles').update({ avatar_url: publicUrl }).eq('id', user.id);
+        error = err;
+      }
+
+      if (error) throw error;
+
+      if (fetchProfile) {
+        await fetchProfile(user.id);
+      }
+      
+      setSaved(true);
+      setTimeout(() => setSaved(false), 3000);
+    } catch (err) {
+      console.error('[Avatar Upload] Failed:', err);
+      alert('Failed to upload avatar: ' + err.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
   const handleSave = async () => {
     if (!user) return;
     setSaving(true);
@@ -46,7 +102,8 @@ export default function Profile() {
         full_name: form.full_name,
         ncc_number: form.ncc_number,
         wing: form.wing,
-        certificate_level: form.certificate_level
+        certificate_level: form.certificate_level,
+        avatar_url: form.avatar_url
       });
       error = err;
     } else if (role === 'instructor') {
@@ -54,13 +111,15 @@ export default function Profile() {
         id: user.id,
         full_name: form.full_name,
         rank: form.rank,
-        unit: form.unit
+        unit: form.unit,
+        avatar_url: form.avatar_url
       });
       error = err;
     } else if (role === 'admin') {
       const { error: err } = await supabase.from('admin_profiles').upsert({
         id: user.id,
-        full_name: form.full_name
+        full_name: form.full_name,
+        avatar_url: form.avatar_url
       });
       error = err;
     }
@@ -104,8 +163,29 @@ export default function Profile() {
       {/* Profile card */}
       <div className="ncc-glass-card p-4 md:p-6">
         <div className="flex items-center gap-3 md:gap-4 mb-5 md:mb-6">
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-navy-900 to-navy-700 flex items-center justify-center text-xl md:text-2xl font-bold text-gold-400 flex-shrink-0">
-            {form.full_name?.charAt(0) || 'C'}
+          <div className="relative group cursor-pointer flex-shrink-0">
+            {form.avatar_url ? (
+              <img 
+                src={form.avatar_url} 
+                alt={form.full_name} 
+                className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-gold-500/50 shadow-md"
+              />
+            ) : (
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-navy-900 to-navy-700 flex items-center justify-center text-xl md:text-2xl font-bold text-gold-400">
+                {form.full_name?.charAt(0) || 'C'}
+              </div>
+            )}
+            
+            <label className="absolute inset-0 flex items-center justify-center bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer text-white text-[10px] md:text-xs font-bold text-center p-1">
+              {uploading ? '...' : 'Upload'}
+              <input 
+                type="file" 
+                accept="image/*" 
+                onChange={handleAvatarChange} 
+                className="hidden" 
+                disabled={uploading}
+              />
+            </label>
           </div>
           <div className="min-w-0">
             <h2 className="text-lg md:text-xl font-bold text-navy-900 truncate">{form.full_name || 'NCC Cadet'}</h2>

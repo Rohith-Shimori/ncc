@@ -1,6 +1,7 @@
 const { supabase, getSupabaseClient } = require('../config/supabase');
 const { sendInAppAlert } = require('../config/socket');
 const { sendEmailAlert } = require('../config/email');
+const { buildAnnouncementEmail } = require('../utils/emailTemplates');
 
 const getAnnouncements = async (req, res) => {
   try {
@@ -72,22 +73,7 @@ const createAnnouncement = async (req, res) => {
 
         if (cadet.email) {
           const emailSubject = `NCC Announcement: ${title}`;
-          const emailHtml = `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #fcfcfc;">
-              <h2 style="color: #1a56db; text-align: center;">NCC Digital Training Portal</h2>
-              <hr style="border: 0; border-top: 1px solid #eee;">
-              <p>Dear Cadet <strong>${cadet.full_name || 'NCC Cadet'}</strong>,</p>
-              <p>A new announcement has been published for your wing (<strong>${target_wing || 'Common'}</strong>):</p>
-              <div style="background-color: #f3f4f6; padding: 15px; border-left: 4px solid #1a56db; margin: 15px 0; border-radius: 4px;">
-                <h3 style="margin-top: 0; color: #111827;">${title}</h3>
-                <p style="white-space: pre-line; color: #374151; margin-bottom: 0;">${content}</p>
-              </div>
-              <p style="font-size: 13px; color: #6b7280;">Priority: <span style="text-transform: uppercase; font-weight: bold; color: ${priority === 'high' ? '#ef4444' : '#3b82f6'};">${priority || 'normal'}</span></p>
-              <hr style="border: 0; border-top: 1px solid #eee;">
-              <p style="text-align: center;"><a href="http://localhost:5173/dashboard" style="background-color: #1a56db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">View Dashboard</a></p>
-              <p style="font-size: 11px; color: #9ca3af; text-align: center; margin-top: 30px;">This is an automated notification. Please do not reply to this email.</p>
-            </div>
-          `;
+          const emailHtml = buildAnnouncementEmail(cadet.full_name, target_wing, title, content, priority);
           sendEmailAlert({ to: cadet.email, subject: emailSubject, html: emailHtml }).catch(err => {
             console.error('[Announcement Controller] Error sending announcement email to', cadet.email, err);
           });

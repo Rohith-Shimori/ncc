@@ -9,6 +9,7 @@ import CourseLayout from './layouts/CourseLayout';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ResetPassword from './pages/ResetPassword';
 import Dashboard from './pages/Dashboard';
 import CourseCatalog from './pages/CourseCatalog';
 import CourseDetail from './pages/CourseDetail';
@@ -18,6 +19,7 @@ import ExamRoom from './pages/ExamRoom';
 import ExamResults from './pages/ExamResults';
 import Performance from './pages/Performance';
 import Profile from './pages/Profile';
+import Notifications from './pages/Notifications';
 
 // Instructor Route Pages
 const InstructorOverview = lazy(() => import('./pages/instructor/InstructorOverview'));
@@ -68,6 +70,7 @@ function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
 
               {/* Protected Routes with Main Sidebar Layout */}
               <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
@@ -76,6 +79,7 @@ function App() {
                 <Route path="/practice-tests" element={<PracticeTests />} />
                 <Route path="/performance" element={<Performance />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/notifications" element={<Notifications />} />
                 <Route path="/exam-results/:attemptId" element={<ExamResults />} />
                 
                 {/* Instructor Routes */}

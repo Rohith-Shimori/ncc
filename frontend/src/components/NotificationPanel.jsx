@@ -62,11 +62,7 @@ export default function NotificationPanel({ onClose, onRefresh }) {
 
   const markAllRead = async () => {
     try {
-      const { error } = await supabase.from('notifications')
-        .update({ is_read: true })
-        .eq('user_id', user.id)
-        .eq('is_read', false);
-      
+      const { error } = await supabase.rpc('fn_mark_all_notifications_read');
       if (error) throw error;
       setNotifications(prev => prev.map(n => ({ ...n, is_read: true })));
       if (onRefresh) onRefresh();
@@ -148,6 +144,17 @@ export default function NotificationPanel({ onClose, onRefresh }) {
             </div>
           ))
         )}
+      </div>
+      <div className="p-3 border-t border-surface-200 bg-white dark:bg-navy-950 sticky bottom-0 text-center z-10">
+        <button
+          onClick={() => {
+            navigate('/notifications');
+            onClose();
+          }}
+          className="text-xs font-bold text-gold-600 hover:text-gold-700 w-full py-2 hover:bg-gold-50 dark:hover:bg-white/5 rounded-xl transition cursor-pointer flex items-center justify-center gap-1"
+        >
+          View All Bulletins <ExternalLink className="w-3.5 h-3.5" />
+        </button>
       </div>
     </div>
   );

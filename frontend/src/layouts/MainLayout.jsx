@@ -19,6 +19,7 @@ const CADET_ITEMS = [
   { path: '/courses', icon: BookOpen, label: 'My Courses' },
   { path: '/practice-tests', icon: ClipboardCheck, label: 'Practice Tests' },
   { path: '/performance', icon: BarChart3, label: 'Performance' },
+  { path: '/notifications', icon: Bell, label: 'Notifications' },
   { path: '/profile', icon: User, label: 'Profile' },
 ];
 
@@ -31,6 +32,7 @@ const INSTRUCTOR_ITEMS = [
   { path: '/instructor/analytics', icon: BarChart3, label: 'Exam Analytics' },
   { path: '/instructor/imports', icon: Upload, label: 'CSV Imports' },
   { path: '/instructor/announcements', icon: Megaphone, label: 'Announcements' },
+  { path: '/notifications', icon: Bell, label: 'Notifications' },
   { path: '/profile', icon: User, label: 'Profile' },
 ];
 
@@ -47,6 +49,7 @@ const ADMIN_ITEMS = [
   { path: '/admin/imports', icon: Upload, label: 'CSV Imports' },
   { path: '/admin/announcements', icon: Megaphone, label: 'Announcements' },
   { path: '/admin/activity', icon: Activity, label: 'System Activity' },
+  { path: '/notifications', icon: Bell, label: 'Notifications' },
   { path: '/profile', icon: User, label: 'Profile' },
 ];
 
@@ -283,8 +286,12 @@ const MainLayout = () => {
             onClick={() => setSidebarOpen(false)}
             className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/10 transition-all group mb-3"
           >
-            <div className="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/30 flex items-center justify-center text-gold-500 font-bold text-lg">
-              {profile?.full_name?.charAt(0) || user?.email?.charAt(0)?.toUpperCase() || 'C'}
+            <div className="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500/30 flex items-center justify-center text-gold-500 font-bold text-lg overflow-hidden flex-shrink-0">
+              {profile?.avatar_url ? (
+                <img src={profile.avatar_url} alt={profile.full_name} className="w-full h-full object-cover" />
+              ) : (
+                profile?.full_name?.charAt(0) || user?.email?.charAt(0)?.toUpperCase() || 'C'
+              )}
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-bold text-white truncate">{profile?.full_name || 'Cadet'}</p>
@@ -338,9 +345,13 @@ const MainLayout = () => {
             <div className="relative">
               <Link 
                 to="/profile" 
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-navy-50 dark:bg-navy-900 border border-surface-200 dark:border-surface-700 text-navy-600 dark:text-gold-500 font-bold hover:border-gold-500 transition-all active:scale-95"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-navy-50 dark:bg-navy-900 border border-surface-200 dark:border-surface-700 text-navy-600 dark:text-gold-500 font-bold hover:border-gold-500 transition-all active:scale-95 overflow-hidden"
               >
-                {profile?.full_name?.charAt(0) || user?.email?.charAt(0)?.toUpperCase() || 'C'}
+                {profile?.avatar_url ? (
+                  <img src={profile.avatar_url} alt={profile.full_name} className="w-full h-full object-cover" />
+                ) : (
+                  profile?.full_name?.charAt(0) || user?.email?.charAt(0)?.toUpperCase() || 'C'
+                )}
               </Link>
               <span className={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border-2 border-surface-50 dark:border-navy-950 ${isOnline ? 'bg-emerald-500' : 'bg-amber-500 animate-pulse'}`} title={isOnline ? 'Online' : 'Offline Mode'} />
             </div>

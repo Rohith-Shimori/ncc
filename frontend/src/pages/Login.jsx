@@ -52,6 +52,8 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isForgotMode, setIsForgotMode] = useState(false);
+  const [resetSuccess, setResetSuccess] = useState(false);
   
   // Stale-while-revalidate caching to eliminate metric lag
   const [stats, setStats] = useState(() => {
@@ -93,6 +95,26 @@ export default function Login() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) { setError(error.message); }
     else { navigate('/dashboard'); }
+    setLoading(false);
+  };
+
+  const handleResetRequest = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setResetSuccess(false);
+    
+    // Redirect back to this website's /reset-password route
+    const redirectToUrl = `${window.location.origin}/reset-password`;
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: redirectToUrl
+    });
+    
+    if (error) {
+      setError(error.message);
+    } else {
+      setResetSuccess(true);
+    }
     setLoading(false);
   };
 
@@ -184,69 +206,144 @@ export default function Login() {
             </div>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold text-navy-900 mb-1">Welcome back</h2>
-          <p className="text-sm md:text-base text-surface-700 mb-6 md:mb-8">Sign in to continue your training</p>
+          {isForgotMode ? (
+            <>
+              <h2 className="text-xl md:text-2xl font-bold text-navy-900 mb-1">Reset Password</h2>
+              <p className="text-sm md:text-base text-surface-700 mb-6 md:mb-8">Enter your email to receive a secure password reset link</p>
 
-          {error && (
-            <div className="bg-danger-bg border border-danger/20 text-danger p-3 rounded-xl mb-6 text-sm font-medium animate-slideInUp">
-              {error}
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="space-y-5">
-            <div>
-              <label htmlFor="email" className="ncc-label">Email Address</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-300" />
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  className="ncc-input ncc-input-icon"
-                  placeholder="cadet@example.com"
-                  required
-                  autoComplete="email"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="password" className="ncc-label">Password</label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-300" />
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  className="ncc-input ncc-input-icon pr-10"
-                  placeholder="••••••••"
-                  required
-                  autoComplete="current-password"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-surface-300 hover:text-navy-900 transition cursor-pointer"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
-                >
-                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                </button>
-              </div>
-            </div>
-
-            <button type="submit" disabled={loading}
-              className="ncc-btn ncc-btn-primary w-full py-3 text-[15px]">
-              {loading ? (
-                <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Signing in...</span>
-              ) : (
-                <span className="flex items-center gap-2">Sign In <ArrowRight className="w-4 h-4" /></span>
+              {error && (
+                <div className="bg-danger-bg border border-danger/20 text-danger p-3 rounded-xl mb-6 text-sm font-medium animate-slideInUp">
+                  {error}
+                </div>
               )}
-            </button>
-          </form>
+
+              {resetSuccess ? (
+                <div className="bg-success-bg border border-success/20 text-success p-4 rounded-xl mb-6 text-sm font-medium animate-slideInUp text-center space-y-4">
+                  <p>A secure reset link has been dispatched to your email address.</p>
+                  <button 
+                    type="button" 
+                    onClick={() => { setIsForgotMode(false); setResetSuccess(false); setError(null); }}
+                    className="ncc-btn ncc-btn-primary w-full py-2.5 text-xs uppercase"
+                  >
+                    Back to Sign In
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleResetRequest} className="space-y-5">
+                  <div>
+                    <label htmlFor="email" className="ncc-label">Email Address</label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-300" />
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        className="ncc-input ncc-input-icon"
+                        placeholder="cadet@example.com"
+                        required
+                        autoComplete="email"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <button 
+                      type="button"
+                      onClick={() => { setIsForgotMode(false); setError(null); }}
+                      className="ncc-btn ncc-btn-ghost flex-1 py-3 text-xs uppercase cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                    <button type="submit" disabled={loading}
+                      className="ncc-btn ncc-btn-accent flex-1 py-3 text-xs uppercase cursor-pointer">
+                      {loading ? (
+                        <span className="flex items-center justify-center gap-1.5"><span className="w-3.5 h-3.5 border-2 border-navy-950/30 border-t-navy-950 rounded-full animate-spin" /> Dispatched...</span>
+                      ) : (
+                        <span>Send Reset Link</span>
+                      )}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </>
+          ) : (
+            <>
+              <h2 className="text-xl md:text-2xl font-bold text-navy-900 mb-1">Welcome back</h2>
+              <p className="text-sm md:text-base text-surface-700 mb-6 md:mb-8">Sign in to continue your training</p>
+
+              {error && (
+                <div className="bg-danger-bg border border-danger/20 text-danger p-3 rounded-xl mb-6 text-sm font-medium animate-slideInUp">
+                  {error}
+                </div>
+              )}
+
+              <form onSubmit={handleLogin} className="space-y-5">
+                <div>
+                  <label htmlFor="email" className="ncc-label">Email Address</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-300" />
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      className="ncc-input ncc-input-icon"
+                      placeholder="cadet@example.com"
+                      required
+                      autoComplete="email"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-center mb-1">
+                    <label htmlFor="password" className="ncc-label mb-0">Password</label>
+                    <button 
+                      type="button" 
+                      onClick={() => { setIsForgotMode(true); setError(null); }}
+                      className="text-xs font-semibold text-gold-600 hover:text-gold-500 cursor-pointer"
+                    >
+                      Forgot Password?
+                    </button>
+                  </div>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-surface-300" />
+                    <input
+                      id="password"
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                      className="ncc-input ncc-input-icon pr-10"
+                      placeholder="••••••••"
+                      required
+                      autoComplete="current-password"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-surface-300 hover:text-navy-900 transition cursor-pointer"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
+                </div>
+
+                <button type="submit" disabled={loading}
+                  className="ncc-btn ncc-btn-primary w-full py-3 text-[15px]">
+                  {loading ? (
+                    <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Signing in...</span>
+                  ) : (
+                    <span className="flex items-center gap-2">Sign In <ArrowRight className="w-4 h-4" /></span>
+                  )}
+                </button>
+              </form>
+            </>
+          )}
 
           <div className="mt-8 text-center text-sm text-surface-700">
             Don't have an account?{' '}

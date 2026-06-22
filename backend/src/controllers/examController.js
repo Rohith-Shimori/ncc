@@ -1,6 +1,12 @@
 const { supabase, getSupabaseClient } = require('../config/supabase');
 const { sendInAppAlert } = require('../config/socket');
 const { sendEmailAlert } = require('../config/email');
+const { 
+  buildInstructorSecurityAlertEmail, 
+  buildCadetSecurityAlertEmail, 
+  buildCadetResultEmail, 
+  buildResultReleaseEmail 
+} = require('../utils/emailTemplates');
 
 const getAttempts = async (req, res) => {
   try {
@@ -100,23 +106,8 @@ const submitExam = async (req, res) => {
           }
 
           if (inst.email) {
-            const emailHtml = `
-              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff;">
-                <h2 style="color: #ef4444; text-align: center;">NCC Exam Security Alert</h2>
-                <hr style="border: 0; border-top: 1px solid #eee;">
-                <p>Hello Instructor <strong>${inst.full_name}</strong>,</p>
-                <p>A cadet's exam attempt has been <strong>flagged by the anti-cheat system</strong>:</p>
-                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
-                  <tr style="background-color: #f9fafb;"><td style="padding: 8px; font-weight: bold;">Cadet Name:</td><td style="padding: 8px;">${cadetName}</td></tr>
-                  <tr><td style="padding: 8px; font-weight: bold;">Exam Name:</td><td style="padding: 8px;">${testName}</td></tr>
-                  <tr style="background-color: #f9fafb;"><td style="padding: 8px; font-weight: bold;">Tab Switches:</td><td style="padding: 8px; color: #ef4444; font-weight: bold;">${tab_switches}</td></tr>
-                  <tr><td style="padding: 8px; font-weight: bold;">Time Taken:</td><td style="padding: 8px;">${Math.floor(time_spent / 60)}m ${time_spent % 60}s</td></tr>
-                </table>
-                <p>The result is currently locked. Please log in to the NCC Digital Training Portal to review the attempt details.</p>
-                <hr style="border: 0; border-top: 1px solid #eee;">
-                <p style="text-align: center;"><a href="http://localhost:5173/dashboard" style="background-color: #ef4444; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Review Attempt</a></p>
-              </div>
-            `;
+            const reason = `${tab_switches} tab switches detected in ${Math.floor(time_spent / 60)}m ${time_spent % 60}s.`;
+            const emailHtml = buildInstructorSecurityAlertEmail(inst.full_name, cadetName, testName, tab_switches, reason);
             sendEmailAlert({ to: inst.email, subject: `⚠️ SECURITY FLAG: ${cadetName} - ${testName}`, html: emailHtml }).catch(err => {
               console.error('[Exam Controller] Email send failed for instructor', inst.email, err);
             });
@@ -144,17 +135,7 @@ const submitExam = async (req, res) => {
       }
 
       if (cadetEmail) {
-        const cadetEmailHtml = `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff5f5;">
-            <h2 style="color: #c53030; text-align: center;">Exam Flagged</h2>
-            <hr style="border: 0; border-top: 1px solid #eee;">
-            <p>Dear Cadet <strong>${cadetName}</strong>,</p>
-            <p>Your recent submission for <strong>${testName}</strong> has been flagged by the system due to browser tab switches during the test.</p>
-            <p><strong>Status:</strong> Under Instructor Review</p>
-            <p>Your score and results will be released once the instructor completes their review.</p>
-            <p style="font-size: 12px; color: #718096; margin-top: 20px;">If this was an error, please coordinate with your unit instructor.</p>
-          </div>
-        `;
+        const cadetEmailHtml = buildCadetSecurityAlertEmail(cadetName, testName, tab_switches);
         sendEmailAlert({ to: cadetEmail, subject: `⚠️ Exam Flagged: ${testName}`, html: cadetEmailHtml }).catch(err => {
           console.error('[Exam Controller] Email send failed for cadet', cadetEmail, err);
         });
@@ -182,21 +163,7 @@ const submitExam = async (req, res) => {
 
       if (cadetEmail) {
         const isPassed = submitResult.percentage >= 60;
-        const cadetEmailHtml = `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9fafb;">
-            <h2 style="color: #1a56db; text-align: center;">NCC Exam Result</h2>
-            <hr style="border: 0; border-top: 1px solid #eee;">
-            <p>Dear Cadet <strong>${cadetName}</strong>,</p>
-            <p>Congratulations on completing your exam <strong>${testName}</strong>. Your performance details are below:</p>
-            <div style="background-color: ${isPassed ? '#f0fdf4' : '#fef2f2'}; padding: 15px; border-radius: 6px; margin: 15px 0; border: 1px solid ${isPassed ? '#bbf7d0' : '#fecaca'}; text-align: center;">
-              <h3 style="margin: 0; color: ${isPassed ? '#16a34a' : '#dc2626'};">${isPassed ? 'PASSED' : 'FAILED'}</h3>
-              <p style="font-size: 24px; font-weight: bold; margin: 10px 0; color: #111827;">${submitResult.percentage}%</p>
-              <p style="margin: 0; color: #4b5563;">Score: ${submitResult.score} / ${submitResult.total_questions} correct answers</p>
-              <p style="margin: 5px 0 0 0; color: #0284c7; font-weight: bold;">+${submitResult.exp_gain} EXP Earned</p>
-            </div>
-            <p style="text-align: center;"><a href="http://localhost:5173/dashboard" style="background-color: #1a56db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Go to Dashboard</a></p>
-          </div>
-        `;
+        const cadetEmailHtml = buildCadetResultEmail(cadetName, testName, submitResult.percentage, 60, isPassed);
         sendEmailAlert({ to: cadetEmail, subject: `🎖️ Exam Result: ${testName} (${submitResult.percentage}%)`, html: cadetEmailHtml }).catch(err => {
           console.error('[Exam Controller] Email send failed for cadet', cadetEmail, err);
         });
@@ -299,20 +266,7 @@ const releaseResult = async (req, res) => {
     }
 
     if (cadetEmail) {
-      const cadetEmailHtml = `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff;">
-          <h2 style="color: #1a56db; text-align: center;">NCC Exam Result Released</h2>
-          <hr style="border: 0; border-top: 1px solid #eee;">
-          <p>Dear Cadet <strong>${cadetName}</strong>,</p>
-          <p>Your flagged exam attempt for <strong>${testName}</strong> has been reviewed and released by your unit instructor.</p>
-          <div style="background-color: #f0fdf4; padding: 15px; border-radius: 6px; margin: 15px 0; border: 1px solid #bbf7d0; text-align: center;">
-            <h3 style="margin: 0; color: #16a34a;">REVIEW APPROVED</h3>
-            <p style="font-size: 24px; font-weight: bold; margin: 10px 0; color: #111827;">${attempt.percentage}%</p>
-            <p style="margin: 0; color: #4b5563;">Score: ${attempt.score} / ${attempt.total_questions} correct answers</p>
-          </div>
-          <p style="text-align: center;"><a href="http://localhost:5173/dashboard" style="background-color: #1a56db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">View Results</a></p>
-        </div>
-      `;
+      const cadetEmailHtml = buildResultReleaseEmail(cadetName, testName, attempt.percentage);
       sendEmailAlert({ to: cadetEmail, subject: `🔓 Result Released: ${testName}`, html: cadetEmailHtml }).catch(err => {
         console.error('[Exam Controller] Email send failed for cadet', cadetEmail, err);
       });

@@ -1,11 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 import { io } from 'socket.io-client';
 
-// Safe JSON Parse helper to prevent crashes on malformed storage data
 const safeJsonParse = (text, fallback = null) => {
   if (!text) return fallback;
   try {
-    return safeJsonParse(text);
+    return JSON.parse(text);
   } catch (error) {
     console.warn('[Safe JSON Parse] Failed to parse:', error.message);
     return fallback;
@@ -1673,6 +1672,52 @@ class MockSupabaseClient {
       return { data: null, error: null };
     }
 
+    // fn_mark_all_notifications_read
+    if (fn === 'fn_mark_all_notifications_read') {
+      const sessionUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
+      const notifs = this._getTableData('notifications');
+      let changed = false;
+      const updatedNotifs = notifs.map(n => {
+        if (n.user_id === sessionUser.id && !n.is_read) {
+          const old = { ...n };
+          n.is_read = true;
+          this._notifyChanges('notifications', 'UPDATE', old, n);
+          changed = true;
+        }
+        return n;
+      });
+      if (changed) {
+        this._saveTableData('notifications', updatedNotifs);
+      }
+      return { data: null, error: null };
+    }
+
+    // fn_delete_notification
+    if (fn === 'fn_delete_notification') {
+      const notifId = params.p_notification_id;
+      const notifs = this._getTableData('notifications');
+      const remaining = notifs.filter(n => n.id !== notifId);
+      const deleted = notifs.find(n => n.id === notifId);
+      if (deleted) {
+        this._notifyChanges('notifications', 'DELETE', deleted, null);
+        this._saveTableData('notifications', remaining);
+      }
+      return { data: null, error: null };
+    }
+
+    // fn_clear_all_notifications
+    if (fn === 'fn_clear_all_notifications') {
+      const sessionUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
+      const notifs = this._getTableData('notifications');
+      const remaining = notifs.filter(n => n.user_id !== sessionUser.id);
+      const deleted = notifs.filter(n => n.user_id === sessionUser.id);
+      for (const d of deleted) {
+        this._notifyChanges('notifications', 'DELETE', d, null);
+      }
+      this._saveTableData('notifications', remaining);
+      return { data: null, error: null };
+    }
+
     // fn_update_daily_streak
     if (fn === 'fn_update_daily_streak') {
       const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || '{}');
@@ -2191,7 +2236,14 @@ const customRealSupabase = new Proxy(realSupabase, {
     }
     if (prop === 'rpc') {
       return async (fn, params) => {
-        const targetRpcs = ['fn_submit_csv_exam', 'fn_submit_exam', 'fn_mark_notification_read'];
+        const targetRpcs = [
+          'fn_submit_csv_exam', 
+          'fn_submit_exam', 
+          'fn_mark_notification_read',
+          'fn_mark_all_notifications_read',
+          'fn_delete_notification',
+          'fn_clear_all_notifications'
+        ];
         if (targetRpcs.includes(fn)) {
           const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
           
@@ -2235,6 +2287,45 @@ const customRealSupabase = new Proxy(realSupabase, {
                 body: JSON.stringify({
                   id: params.p_notification_id
                 })
+              });
+              const result = await response.json();
+              return { data: result.data, error: result.error };
+            } catch (err) {
+              return { data: null, error: { message: err.message } };
+            }
+          }
+
+          if (fn === 'fn_mark_all_notifications_read') {
+            try {
+              const response = await fetchWithTimeout(`${apiUrl}/notifications/read-all`, {
+                method: 'POST',
+                headers
+              });
+              const result = await response.json();
+              return { data: result.data, error: result.error };
+            } catch (err) {
+              return { data: null, error: { message: err.message } };
+            }
+          }
+
+          if (fn === 'fn_delete_notification') {
+            try {
+              const response = await fetchWithTimeout(`${apiUrl}/notifications/${params.p_notification_id}`, {
+                method: 'DELETE',
+                headers
+              });
+              const result = await response.json();
+              return { data: result.data, error: result.error };
+            } catch (err) {
+              return { data: null, error: { message: err.message } };
+            }
+          }
+
+          if (fn === 'fn_clear_all_notifications') {
+            try {
+              const response = await fetchWithTimeout(`${apiUrl}/notifications`, {
+                method: 'DELETE',
+                headers
               });
               const result = await response.json();
               return { data: result.data, error: result.error };
