@@ -406,10 +406,7 @@ export default function Landing() {
         {JSON.stringify(jsonLdData)}
       </script>
 
-      {/* Theme Toggle at top right corner */}
-      <div className="absolute top-6 right-6 z-60">
-        <ThemeToggle />
-      </div>
+
 
       {/* Floating Glassmorphic Header */}
       <div className="sticky top-0 z-50 w-full px-2 pt-2 sm:px-4 sm:pt-4 transition-all duration-300">
@@ -454,18 +451,23 @@ export default function Landing() {
           </div>
 
           <div className="flex items-center gap-2 md:gap-4">
+            <ThemeToggle />
             {user ? (
-              <button onClick={handleProceed} className="hidden lg:inline-flex ncc-btn ncc-btn-accent text-sm font-black shadow-lg shadow-gold-500/20 px-6 py-2 rounded-xl flex items-center gap-2 cursor-pointer transition-transform hover:scale-105 active:scale-95">
-                Go to Dashboard <ArrowRight className="w-4 h-4" />
-              </button>
+              <div className="hidden lg:block">
+                <button onClick={handleProceed} className="ncc-btn ncc-btn-accent text-sm font-black shadow-lg shadow-gold-500/20 px-6 py-2 rounded-xl flex items-center gap-2 cursor-pointer transition-transform hover:scale-105 active:scale-95">
+                  Go to Dashboard <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
             ) : (
               <>
                 <Link to="/login" className="hidden lg:inline-block text-surface-700 dark:text-slate-300 hover:text-navy-950 dark:hover:text-white font-black text-sm transition-colors px-3 py-2">
                   Login
                 </Link>
-                <Link to="/register" className="hidden lg:inline-flex ncc-btn ncc-btn-primary text-sm font-black px-6 py-2.5 rounded-xl cursor-pointer shadow-md">
-                  Enroll Now
-                </Link>
+                <div className="hidden lg:block">
+                  <Link to="/register" className="ncc-btn ncc-btn-primary text-sm font-black px-6 py-2.5 rounded-xl cursor-pointer shadow-md">
+                    Enroll Now
+                  </Link>
+                </div>
               </>
             )}
             {/* Hamburger Button */}

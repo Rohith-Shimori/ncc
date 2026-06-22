@@ -80,7 +80,7 @@ export default function Register() {
       
       {/* Home / Back button floating on top-left of the screen */}
       <Link to="/" className="absolute top-4 left-4 z-50 flex items-center gap-2 px-3 py-1.5 rounded-xl border border-surface-200 dark:border-white/10 bg-white/60 dark:bg-navy-900/40 backdrop-blur-md text-xs font-bold text-surface-700 dark:text-slate-300 hover:text-navy-950 dark:hover:text-white transition-all shadow-md">
-        <ArrowLeft className="w-4 h-4" /> Back to Home
+        <ArrowLeft className="w-4 h-4" /> <span className="hidden sm:inline">Back to Home</span>
       </Link>
 
       {/* Theme Toggle at top right */}
