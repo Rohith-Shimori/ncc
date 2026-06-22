@@ -11,14 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Ping Render Backend Web Service
-      if: "${{ secrets.PRODUCTION_BACKEND_URL != '' }}"
+      env:
+        RENDER_URL: ${{ secrets.PRODUCTION_BACKEND_URL }}
       run: |
+        if [ -z "$RENDER_URL" ]; then
+          echo "PRODUCTION_BACKEND_URL secret is not set. Skipping ping."
+          exit 0
+        fi
         echo "Sending keep-alive ping to Render backend..."
-        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "${{ secrets.PRODUCTION_BACKEND_URL }}/health")
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$RENDER_URL/health")
         echo "Response code: $HTTP_CODE"
 
     - name: Ping Supabase Database API
+      env:
+        SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
       run: |
+        KEY="${SUPABASE_KEY:-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eWphZXN6bW55aXdqaWxraGxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNTk1NjgsImV4cCI6MjA5NjczNTU2OH0.836ZD1zEuylPNR13sajLkhmccsVFMJXLUWPuy7b4IqQ}"
         echo "Sending keep-alive ping to Supabase REST endpoint..."
-        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -H "apikey: ${{ secrets.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eWphZXN6bW55aXdqaWxraGxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNTk1NjgsImV4cCI6MjA5NjczNTU2OH0.836ZD1zEuylPNR13sajLkhmccsVFMJXLUWPuy7b4IqQ' }}" "https://czyjaeszmnyiwjilkhls.supabase.co/rest/v1/")
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -H "apikey: $KEY" "https://czyjaeszmnyiwjilkhls.supabase.co/rest/v1/")
         echo "Response code: $HTTP_CODE"
