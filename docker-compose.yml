@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - SUPABASE_URL=https://czyjaeszmnyiwjilkhls.supabase.co
+      - SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eWphZXN6bW55aXdqaWxraGxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNTk1NjgsImV4cCI6MjA5NjczNTU2OH0.836ZD1zEuylPNR13sajLkhmccsVFMJXLUWPuy7b4IqQ
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=465
+      - SMTP_USER=nccdigi.noreply@gmail.com
+      - SMTP_PASS=gapeuyqsqhgqzmqw
+      - SMTP_FROM=nccdigi.noreply@gmail.com
+      - ENABLE_EMAIL_NOTIFICATIONS=true
+      - VAPID_PUBLIC_KEY=BLDn8upd1va8EbfghZac-UjwakeOPgbyUoy5I4oxVJDtXySMTnGKxVS_ZToHjWuh4i8iABv3jKwQbW1-1eX6ih4
+      - VAPID_PRIVATE_KEY=oxIuJCHKi3MGXU-qCa2Ke1tuY7jhYJsORKJ6s6l_zBY
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: ["node", "--watch", "server.js"]
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://localhost:5000/health').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))\""]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_SUPABASE_URL=https://czyjaeszmnyiwjilkhls.supabase.co
+        - VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eWphZXN6bW55aXdqaWxraGxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExNTk1NjgsImV4cCI6MjA5NjczNTU2OH0.836ZD1zEuylPNR13sajLkhmccsVFMJXLUWPuy7b4IqQ
+        - VITE_API_URL=http://localhost:5000/api
+        - VITE_SOCKET_URL=http://localhost:5000
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: always
