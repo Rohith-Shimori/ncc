@@ -169,6 +169,9 @@ END;
 $$;
 
 -- 3. fn_submit_exam
+DROP FUNCTION IF EXISTS public.fn_submit_exam(uuid, jsonb, int, int);
+DROP FUNCTION IF EXISTS public.fn_submit_exam(uuid, jsonb, int);
+
 CREATE OR REPLACE FUNCTION public.fn_submit_exam(p_attempt_id uuid, p_answers jsonb, p_tab_switches int, p_time_spent int)
 RETURNS jsonb
 LANGUAGE plpgsql
