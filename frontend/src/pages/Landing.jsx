@@ -406,6 +406,11 @@ export default function Landing() {
         {JSON.stringify(jsonLdData)}
       </script>
 
+      {/* Theme Toggle at top right corner */}
+      <div className="absolute top-6 right-6 z-60">
+        <ThemeToggle />
+      </div>
+
       {/* Floating Glassmorphic Header */}
       <div className="sticky top-0 z-50 w-full px-2 pt-2 sm:px-4 sm:pt-4 transition-all duration-300">
         <nav className="max-w-7xl mx-auto rounded-xl sm:rounded-2xl border border-surface-200/60 dark:border-white/10 bg-white/70 dark:bg-navy-950/70 backdrop-blur-lg shadow-lg dark:shadow-[0_4px_30px_rgba(0,0,0,0.4)] px-3 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between transition-all duration-300 hover:border-gold-500/20 dark:hover:border-gold-500/30">
@@ -449,7 +454,6 @@ export default function Landing() {
           </div>
 
           <div className="flex items-center gap-2 md:gap-4">
-            <ThemeToggle />
             {user ? (
               <button onClick={handleProceed} className="hidden lg:inline-flex ncc-btn ncc-btn-accent text-sm font-black shadow-lg shadow-gold-500/20 px-6 py-2 rounded-xl flex items-center gap-2 cursor-pointer transition-transform hover:scale-105 active:scale-95">
                 Go to Dashboard <ArrowRight className="w-4 h-4" />
