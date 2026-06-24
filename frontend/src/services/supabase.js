@@ -368,13 +368,15 @@ class MockSupabaseClient {
 
       getSession: async () => {
         await this.initPromise;
-        const user = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null');
+        const user = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null') ||
+                     safeJsonParse(localStorage.getItem('ncc_mock_reset_temp_user') || 'null');
         return { data: { session: user ? { user } : null }, error: null };
       },
 
       getUser: async () => {
         await this.initPromise;
-        const user = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null');
+        const user = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null') ||
+                     safeJsonParse(localStorage.getItem('ncc_mock_reset_temp_user') || 'null');
         return { data: { user }, error: user ? null : { message: 'Invalid token' } };
       },
 
@@ -385,12 +387,14 @@ class MockSupabaseClient {
         if (!user) {
           return { data: null, error: { message: 'User not found' } };
         }
+        localStorage.setItem('ncc_mock_reset_temp_user', JSON.stringify(user));
         return { data: {}, error: null };
       },
 
       updateUser: async (attributes) => {
         await this.initPromise;
-        const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null');
+        const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null') ||
+                            safeJsonParse(localStorage.getItem('ncc_mock_reset_temp_user') || 'null');
         if (!currentUser) {
           return { data: null, error: { message: 'Not authenticated' } };
         }
@@ -401,9 +405,12 @@ class MockSupabaseClient {
             users[userIndex].password = attributes.password;
             localStorage.setItem('ncc_mock_auth_users', JSON.stringify(users));
             currentUser.password = attributes.password;
-            localStorage.setItem('ncc_mock_session_user', JSON.stringify(currentUser));
+            if (localStorage.getItem('ncc_mock_session_user')) {
+              localStorage.setItem('ncc_mock_session_user', JSON.stringify(currentUser));
+            }
           }
         }
+        localStorage.removeItem('ncc_mock_reset_temp_user');
         return { data: { user: currentUser }, error: null };
       },
 
