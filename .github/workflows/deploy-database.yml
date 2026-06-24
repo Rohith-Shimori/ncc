@@ -25,4 +25,6 @@ jobs:
         SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
       run: |
         supabase link --project-ref czyjaeszmnyiwjilkhls --password "$SUPABASE_DB_PASSWORD"
+        # Repair the migration history table for old remote versions that do not exist locally
+        supabase migration repair --status reverted 20260611090348 20260611090430 20260611090742 20260611100821 --password "$SUPABASE_DB_PASSWORD"
         supabase db push --password "$SUPABASE_DB_PASSWORD"
