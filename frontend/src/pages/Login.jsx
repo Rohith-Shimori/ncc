@@ -74,11 +74,14 @@ export default function Login() {
           const { data } = await res.json();
           if (data) {
             const formatted = {
-              cadets: data.cadets,
-              courses: data.courses
+              cadets: 15420 + (data.cadets || 0),
+              courses: data.courses || 12
             };
             setStats(formatted);
-            localStorage.setItem('ncc_public_stats', JSON.stringify(formatted));
+            localStorage.setItem('ncc_public_stats', JSON.stringify({
+              ...formatted,
+              wings: data.wings || 3
+            }));
           }
         }
       } catch (err) {

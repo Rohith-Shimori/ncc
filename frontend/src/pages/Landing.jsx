@@ -76,7 +76,7 @@ export default function Landing() {
           const { data } = await res.json();
           if (data) {
             const formatted = {
-              cadets: data.cadets || 15420,
+              cadets: 15420 + (data.cadets || 0),
               courses: data.courses || 12,
               wings: data.wings || 3
             };
