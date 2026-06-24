@@ -41,19 +41,6 @@ export default function ChapterViewer() {
       // Call the RPC to mark complete and get EXP!
       await supabase.rpc('fn_complete_chapter', { p_chapter_id: chapterId });
 
-      // Check if this was the last chapter
-      const updatedCount = completedChapters.has(chapterId) ? completedChapters.size : completedChapters.size + 1;
-      if (updatedCount === allChapters.length) {
-        // Send Course Completion Notification
-        await supabase.from('notifications').insert({
-          user_id: user.id,
-          type: 'course',
-          title: 'Course Completed! 🎓',
-          content: `Congratulations! You've successfully finished all chapters.`,
-          link: `/course/${courseId}`
-        });
-      }
-
       await refreshProgress();
       if (refreshProfile) await refreshProfile();
       setMarking(false);

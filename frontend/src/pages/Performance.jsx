@@ -82,6 +82,7 @@ export default function Performance() {
 
   useEffect(() => {
     if (activeTab === 'leaderboard') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       fetchLeaderboard();
       const interval = setInterval(() => {
         fetchLeaderboard();

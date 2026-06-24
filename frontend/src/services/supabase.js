@@ -1546,7 +1546,7 @@ class MockSupabaseClient {
         }
       }
 
-      const expGain = pct * 10; 
+      const expGain = correct * 10; 
 
       attempt.submitted_at = new Date().toISOString();
       attempt.score = correct; 
