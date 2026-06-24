@@ -74,7 +74,7 @@ export default function Login() {
           const { data } = await res.json();
           if (data) {
             const formatted = {
-              cadets: 15420 + (data.cadets || 0),
+              cadets: data.cadets !== undefined && data.cadets !== null ? data.cadets : 0,
               courses: data.courses || 12
             };
             setStats(formatted);

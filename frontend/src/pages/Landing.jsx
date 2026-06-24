@@ -64,7 +64,7 @@ export default function Landing() {
       const cached = localStorage.getItem('ncc_public_stats');
       if (cached) return JSON.parse(cached);
     } catch { /* empty */ }
-    return { cadets: 15420, courses: 12, wings: 3 };
+    return { cadets: 0, courses: 12, wings: 3 };
   });
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function Landing() {
           const { data } = await res.json();
           if (data) {
             const formatted = {
-              cadets: 15420 + (data.cadets || 0),
+              cadets: data.cadets !== undefined && data.cadets !== null ? data.cadets : 0,
               courses: data.courses || 12,
               wings: data.wings || 3
             };
@@ -596,7 +596,7 @@ export default function Landing() {
             <div className="pt-8 grid grid-cols-3 gap-2.5 max-w-lg border-t border-surface-200 dark:border-white/10">
               <div className="bg-white/50 dark:bg-navy-900/40 backdrop-blur-md border border-surface-200 dark:border-white/5 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-md hover:border-gold-500/25">
                 <span className="text-xs min-[360px]:text-sm sm:text-xl md:text-2xl font-black text-gold-600 dark:text-gold-400 block tracking-tight leading-none">
-                  {stats.cadets ? stats.cadets.toLocaleString() : '15,420'}
+                  {stats.cadets !== undefined && stats.cadets !== null ? stats.cadets.toLocaleString() : '0'}
                 </span>
                 <span className="text-[8px] sm:text-xs text-surface-500 dark:text-slate-400 uppercase font-black tracking-wider block mt-1">Cadets</span>
               </div>
