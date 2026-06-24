@@ -213,6 +213,30 @@ class MockSupabaseClient {
   constructor() {
     this.channels = [];
     this.initPromise = this._initDatabase();
+    
+    const mockStorageCache = {};
+    this.storage = {
+      from: (bucketName) => ({
+        upload: async (path, file) => {
+          let url;
+          if (file instanceof Blob || file instanceof File) {
+            url = URL.createObjectURL(file);
+          } else {
+            url = `https://mock-supabase-storage.com/${bucketName}/${path}`;
+          }
+          mockStorageCache[`${bucketName}/${path}`] = url;
+          return { data: { path }, error: null };
+        },
+        getPublicUrl: (path) => {
+          const cachedUrl = mockStorageCache[`${bucketName}/${path}`];
+          const publicUrl = cachedUrl || (bucketName === 'avatars' 
+            ? `https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400`
+            : `https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf`);
+          return { data: { publicUrl } };
+        }
+      })
+    };
+
     this.auth = {
       signUp: async ({ email, password, options = {} }) => {
         await this.initPromise;
