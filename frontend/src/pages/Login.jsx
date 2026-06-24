@@ -104,18 +104,38 @@ export default function Login() {
     setError(null);
     setResetSuccess(false);
     
-    // Redirect back to this website's /reset-password route
-    const redirectToUrl = `${window.location.origin}/reset-password`;
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: redirectToUrl
-    });
-    
-    if (error) {
-      setError(error.message);
-    } else {
-      setResetSuccess(true);
+    try {
+      // 1. Verify if email exists in database
+      const { data: emailExists, error: checkError } = await supabase.rpc('fn_check_email_exists', {
+        p_email: email
+      });
+
+      if (checkError) {
+        throw new Error(checkError.message);
+      }
+
+      if (!emailExists) {
+        setError('No account registered with this email address.');
+        setLoading(false);
+        return;
+      }
+
+      // 2. Redirect back to this website's /reset-password route
+      const redirectToUrl = `${window.location.origin}/reset-password`;
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: redirectToUrl
+      });
+      
+      if (error) {
+        setError(error.message);
+      } else {
+        setResetSuccess(true);
+      }
+    } catch (err) {
+      setError(err.message || 'An unexpected error occurred.');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

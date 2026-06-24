@@ -146,7 +146,7 @@ const submitExam = async (req, res) => {
         user_id: user_id,
         type: 'exam',
         title: `🎖️ Exam Graded: ${testName}`,
-        content: `You scored ${submitResult.percentage}% (${submitResult.score}/${submitResult.total_questions}) and earned ${submitResult.exp_gain} EXP.`,
+        content: `You scored ${submitResult.percentage}% (${submitResult.score}/${submitResult.total_questions || submitResult.total || 0}) and earned ${submitResult.exp_gain || submitResult.exp_gained || 0} EXP.`,
         link: `/dashboard`,
         is_read: false
       };

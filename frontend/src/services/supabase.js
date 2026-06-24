@@ -414,6 +414,10 @@ class MockSupabaseClient {
         return { data: { user: currentUser }, error: null };
       },
 
+      exchangeCodeForSession: async () => {
+        return { data: {}, error: null };
+      },
+
       onAuthStateChange: (callback) => {
         const id = uuidv4();
         this.listeners[id] = callback;
@@ -1607,7 +1611,9 @@ class MockSupabaseClient {
         data: {
           score: correct,
           total: total,
+          total_questions: total,
           exp_gain: expGain,
+          exp_gained: expGain,
           percentage: pct,
           status: attempt.status,
           passed: pct >= (test ? test.passing_percent : 60),
@@ -1934,6 +1940,14 @@ class MockSupabaseClient {
       return { data: mapped, error: null };
     }
 
+    // fn_check_email_exists
+    if (fn === 'fn_check_email_exists') {
+      const email = params.p_email;
+      const users = safeJsonParse(localStorage.getItem('ncc_mock_auth_users') || '[]');
+      const emailExists = users.some(u => String(u.email).toLowerCase() === String(email).toLowerCase());
+      return { data: emailExists, error: null };
+    }
+
     return { data: null, error: { message: 'RPC function not supported in mock client' } };
   }
 }
@@ -1985,6 +1999,10 @@ class RealCustomAuth {
 
   async updateUser(attributes, options = {}) {
     return await this.client.auth.updateUser(attributes, options);
+  }
+
+  async exchangeCodeForSession(code) {
+    return await this.client.auth.exchangeCodeForSession(code);
   }
 }
 

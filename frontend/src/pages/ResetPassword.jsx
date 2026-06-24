@@ -28,11 +28,29 @@ export default function ResetPassword() {
     // Supabase Auth automatically parses the hash fragment tokens from the reset link 
     // and sets a temporary session for the user. We verify if a session is active.
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        setError('No active password reset session found. The reset link may have expired or is invalid.');
+      try {
+        // Exchange authorization code for a session (required for PKCE flow)
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        
+        if (code) {
+          const { error } = await supabase.auth.exchangeCodeForSession(code);
+          if (error) {
+            setError(`Authentication failed: ${error.message}`);
+            setVerifyingSession(false);
+            return;
+          }
+        }
+
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session) {
+          setError('No active password reset session found. The reset link may have expired or is invalid.');
+        }
+      } catch (err) {
+        setError(err.message || 'An unexpected error occurred during session verification.');
+      } finally {
+        setVerifyingSession(false);
       }
-      setVerifyingSession(false);
     };
     checkSession();
   }, []);

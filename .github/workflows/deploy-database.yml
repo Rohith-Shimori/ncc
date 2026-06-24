@@ -27,7 +27,7 @@ jobs:
         supabase link --project-ref czyjaeszmnyiwjilkhls --password "$SUPABASE_DB_PASSWORD"
         # Repair the migration history table for old remote versions that do not exist locally
         supabase migration repair --status reverted 20260611090348 20260611090430 20260611090742 20260611100821 --password "$SUPABASE_DB_PASSWORD"
-        # Mark local migrations up to 00043 as already applied on the remote database
-        supabase migration repair --status applied 00001 00002 00003 00004 00005 00006 00007 00008 00009 00010 00011 00012 00013 00014 00015 00016 00017 00018 00019 00020 00021 00022 00023 00024 00025 00026 00027 00028 00029 00030 00031 00032 00033 00034 00035 00036 00037 00038 00039 00040 00041 00042 00043 --password "$SUPABASE_DB_PASSWORD"
-        # Push the remaining new migrations (00044 and 00045)
+        # Mark local migrations up to 00045 as already applied on the remote database
+        supabase migration repair --status applied 00001 00002 00003 00004 00005 00006 00007 00008 00009 00010 00011 00012 00013 00014 00015 00016 00017 00018 00019 00020 00021 00022 00023 00024 00025 00026 00027 00028 00029 00030 00031 00032 00033 00034 00035 00036 00037 00038 00039 00040 00041 00042 00043 00044 00045 --password "$SUPABASE_DB_PASSWORD"
+        # Push the remaining new migrations
         supabase db push --password "$SUPABASE_DB_PASSWORD"
