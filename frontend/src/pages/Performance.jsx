@@ -81,9 +81,14 @@ export default function Performance() {
   }, [user, loadData]);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    fetchLeaderboard();
-  }, [leaderboardWing, fetchLeaderboard]);
+    if (activeTab === 'leaderboard') {
+      fetchLeaderboard();
+      const interval = setInterval(() => {
+        fetchLeaderboard();
+      }, 30000); // Polling every 30 seconds to fetch latest leaderboard stats
+      return () => clearInterval(interval);
+    }
+  }, [activeTab, leaderboardWing, fetchLeaderboard]);
 
   if (loading) return (
     <div className="flex items-center justify-center min-h-[60vh]">
