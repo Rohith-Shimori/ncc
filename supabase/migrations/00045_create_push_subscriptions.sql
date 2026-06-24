@@ -27,16 +27,19 @@ CREATE TABLE IF NOT EXISTS public.push_subscriptions (
 ALTER TABLE public.push_subscriptions ENABLE ROW LEVEL SECURITY;
 
 -- RLS Policies
+DROP POLICY IF EXISTS "Users can view own push subscriptions." ON public.push_subscriptions;
 CREATE POLICY "Users can view own push subscriptions."
   ON public.push_subscriptions FOR SELECT
   USING (auth.uid() = user_id);
 
+DROP POLICY IF EXISTS "Users can insert own push subscriptions." ON public.push_subscriptions;
 CREATE POLICY "Users can insert own push subscriptions."
   ON public.push_subscriptions FOR INSERT
   WITH CHECK (auth.uid() = user_id);
 
+DROP POLICY IF EXISTS "Users can delete own push subscriptions." ON public.push_subscriptions;
 CREATE POLICY "Users can delete own push subscriptions."
   ON public.push_subscriptions FOR DELETE
   USING (auth.uid() = user_id);
 
--- Trigger CD pipeline with migration history repair v2
+-- Trigger CD pipeline with migration history repair v3
