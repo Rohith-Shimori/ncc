@@ -354,6 +354,35 @@ class MockSupabaseClient {
         return { data: { user }, error: user ? null : { message: 'Invalid token' } };
       },
 
+      resetPasswordForEmail: async (email) => {
+        await this.initPromise;
+        const users = safeJsonParse(localStorage.getItem('ncc_mock_auth_users') || '[]');
+        const user = users.find(u => u.email === email);
+        if (!user) {
+          return { data: null, error: { message: 'User not found' } };
+        }
+        return { data: {}, error: null };
+      },
+
+      updateUser: async (attributes) => {
+        await this.initPromise;
+        const currentUser = safeJsonParse(localStorage.getItem('ncc_mock_session_user') || 'null');
+        if (!currentUser) {
+          return { data: null, error: { message: 'Not authenticated' } };
+        }
+        if (attributes.password) {
+          const users = safeJsonParse(localStorage.getItem('ncc_mock_auth_users') || '[]');
+          const userIndex = users.findIndex(u => u.id === currentUser.id);
+          if (userIndex !== -1) {
+            users[userIndex].password = attributes.password;
+            localStorage.setItem('ncc_mock_auth_users', JSON.stringify(users));
+            currentUser.password = attributes.password;
+            localStorage.setItem('ncc_mock_session_user', JSON.stringify(currentUser));
+          }
+        }
+        return { data: { user: currentUser }, error: null };
+      },
+
       onAuthStateChange: (callback) => {
         const id = uuidv4();
         this.listeners[id] = callback;
@@ -1917,6 +1946,14 @@ class RealCustomAuth {
   // Admin override for UserModal - creates real auth users + profiles via admin API
   get admin() {
     return this.client.auth.admin;
+  }
+
+  async resetPasswordForEmail(email, options = {}) {
+    return await this.client.auth.resetPasswordForEmail(email, options);
+  }
+
+  async updateUser(attributes, options = {}) {
+    return await this.client.auth.updateUser(attributes, options);
   }
 }
 
