@@ -38,3 +38,5 @@ CREATE POLICY "Users can insert own push subscriptions."
 CREATE POLICY "Users can delete own push subscriptions."
   ON public.push_subscriptions FOR DELETE
   USING (auth.uid() = user_id);
+
+-- Trigger CD pipeline with migration history repair
